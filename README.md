@@ -32,3 +32,20 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+##### Using Docker Compose to run App ####
+How to run the docker file
+
+Using Docker compose 
+# Run docker-compose up  // note this would be run every day when ever the computer is put on .
+if you want to rebuild the docker file us 
+# docker-compose -up --build
+
+if you want to run any command inside of docker 
+#docker-compose run --rm stock 
+ eg docker-compose run --rm stock  node -v
+if you want to run a test us 
+# docker-compose run --rm stock npm run test
+
+## Prodect Development route#
+http://localhost:

@@ -1,15 +1,17 @@
-import { render } from "@testing-library/react";
+import Home from "../../pages/index";
+import "@testing-library/jest-dom";
+import { fireEvent, render, screen } from "@testing-library/react";
 
-// Add in any providers here if necessary:
-const Providers = ({ children }) => {
-  return children;
-};
-
-const customRender = (ui, options = {}) =>
-  render(ui, { wrapper: Providers, ...options });
-
-// re-export everything
-export * from "@testing-library/react";
-
-// override render method
-export { customRender as render };
+describe("Calculator", () => {
+    it("renders a calculator", () => {
+      render(<Home />);
+      // check if all components are rendered
+      expect(screen.getByTestId("result")).toBeInTheDocument();
+    //   expect(screen.getByTestId("num1")).toBeInTheDocument();
+    //   expect(screen.getByTestId("num2")).toBeInTheDocument();
+    //   expect(screen.getByTestId("add")).toBeInTheDocument();
+    //   expect(screen.getByTestId("subtract")).toBeInTheDocument();
+    //   expect(screen.getByTestId("multiply")).toBeInTheDocument();
+    //   expect(screen.getByTestId("divide")).toBeInTheDocument();
+    });
+  });
