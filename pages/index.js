@@ -24,9 +24,7 @@ export default function Home() {
       <main className={styles.main}>
         <section>
           <MenuDropdown 
-            dropdown={menuList} 
-            
-            />
+            dropdown={menuList}/>
         </section>
       </main>
 
