@@ -2,11 +2,23 @@ import Home from "../../pages/index";
 import "@testing-library/jest-dom";
 import { fireEvent, render, screen } from "@testing-library/react";
 import Logo from '../../Components/logo'
+import Caption from '../../Components/caption'
 
-  describe("Logo", () => {
-    it("should display a logo", () => {
-      render(<Logo/>);
 
-      expect(screen.getByTestId("displayLogo")).toBeInTheDocument();
-    });
-  })
+
+
+describe("Calculator", () => {
+  it("renders a calculator", () => {
+    render(<Home />);
+    // check if all components are rendered
+    expect(screen.getByTestId("result")).toBeInTheDocument();
+  //   expect(screen.getByTestId("num1")).toBeInTheDocument();
+  //   expect(screen.getByTestId("num2")).toBeInTheDocument();
+  //   expect(screen.getByTestId("add")).toBeInTheDocument();
+  //   expect(screen.getByTestId("subtract")).toBeInTheDocument();
+  //   expect(screen.getByTestId("multiply")).toBeInTheDocument();
+  //   expect(screen.getByTestId("divide")).toBeInTheDocument();
+});
+})
+
+  

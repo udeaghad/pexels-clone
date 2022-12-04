@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from 'next/link';
 
-
+/** Logo component took in props to make it reuseable */
 export default function Logo(props) {
   const { image, alt, width, height, link } = props;
 
@@ -13,6 +13,7 @@ export default function Logo(props) {
           width={!width ? 300 : width}
           height={!height ? 300 : height}
           data-testid="displayLogo"
+          /** Displaylogo is for testing purpose */
         />
       </Link>
     </div>
