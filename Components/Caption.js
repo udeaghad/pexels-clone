@@ -8,5 +8,5 @@ export default function caption(props) {
         /** stockPhotos is for test purpose */
         >
         {text}
-    </div>
+    </div> 
 }
