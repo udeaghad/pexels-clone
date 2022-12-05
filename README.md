@@ -39,7 +39,11 @@ How to run the docker file
 Using Docker compose 
 # Run docker-compose up  // note this would be run every day when ever the computer is put on .
 if you want to rebuild the docker file us 
+<<<<<<< HEAD
 # docker-compose up --build
+=======
+# docker-compose -up --build
+>>>>>>> fe8d785 (logo-component-updated)
 
 if you want to run any command inside of docker 
 #docker-compose run --rm stock 
@@ -48,4 +52,8 @@ if you want to run a test us
 # docker-compose run --rm stock npm run test
 
 ## Prodect Development route#
+<<<<<<< HEAD
 http://localhost: 
+=======
+http://localhost:
+>>>>>>> fe8d785 (logo-component-updated)

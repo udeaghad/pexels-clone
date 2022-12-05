@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from 'next/link';
 
 /** Logo component took in props to make it reuseable */
+
 export default function Logo(props) {
   const { image, alt, width, height, link } = props;
 
