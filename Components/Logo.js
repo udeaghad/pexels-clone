@@ -11,19 +11,25 @@ import Link from 'next/link';
 
 
 export default function Logo(props) {
-  const { image, alt, width, height, link } = props;
+  const { image, alt, width, height, link, mobileImage} = props;
 
   return (
     <div>
       <Link href={link ? link : "/"}>
 
-        <Image src={image} alt={alt?.length == 0 ? "logo" : alt}
+        <Image className="sm:hidden 2xl:block" src={image} alt={alt?.length == 0 ? "logo" : alt}
           width={!width ? 300 : width}
           height={!height ? 300 : height}
           data-testid="displayLogo" //data-testid (Displaylogo) is for testing purpose
         />
-        
+        {/* <Image className="2xl:hidden sm:block"  src={mobileImage} alt={alt?.length == 0 ? "logo" : alt}
+          width={!width ? 300 : width}
+          height={!height ? 300 : height}/> */}
+
       </Link>
+
+
     </div>
+
   );
 }

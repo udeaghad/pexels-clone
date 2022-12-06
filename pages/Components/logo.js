@@ -10,6 +10,7 @@ export default function LogoComponentExample() {
         image="/pexel.png"
         alt="logo"
         link="/"
+        mobileImage="/mobileImage.png"
       />
 
     </div>
