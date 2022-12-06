@@ -12,10 +12,6 @@ export default function LogoComponentExample() {
         link="/"
       />
 
-      <Caption 
-        text="Free Stock Photos"
-      />
-
     </div>
   )
 }

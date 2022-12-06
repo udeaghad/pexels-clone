@@ -4,19 +4,19 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import Logo from '../../Components/logo'
 
 
-describe("Logo", () => {
+describe("Test to see if the logo component does what it was designed for .", () => {
 
-    describe("Logo", () => {
-        it("should display a logo", () => {
-            render(<Logo 
-                image="/pexel.png"
-                alt="logo"
-                link="/" />);
-            expect(screen.getByTestId("displayLogo")).toBeInTheDocument();
-        });
+   
+    it("confirm if an image is displayed on the page", () => {
+        render(<Logo 
+            image="/pexel.png"
+            alt="logo"
+            link="/" />);
+        expect(screen.getByTestId("displayLogo")).toBeInTheDocument(); 
     });
+   
 
-    it(" confirms the alt", () => {
+    it(" confirms the string parsed to the alt attribute is equivelent to the string parsed to the component alt props ", () => {
         render(<Logo
             image="/pexel.png"
             alt="logo"
@@ -25,7 +25,7 @@ describe("Logo", () => {
         expect(testAlt.alt).toContain("logo")
     });
 
-    it(" checks the src", () => {
+    it(" checks the link provided to the src is correct", () => {
         render(<Logo
             image="/pexel.png"
             alt="logo"
@@ -35,7 +35,7 @@ describe("Logo", () => {
         
     });
 
-    it("tests the link", () => {
+    it("tests that the link href value is correct ", () => {
         render(<Logo
             image="/pexel.png"
             alt="logo"
