@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../../styles/Home.module.css'
-import Logo from '../../Components/Logo'
+import styles from '../../../styles/Home.module.css'
+import Logo from '../../../Components/Logo/Logo'
 
 export default function LogoComponentExample() {
   return (
