@@ -18,7 +18,7 @@ export default function Caption(props) {
             return <h3>{text}</h3>
         } else if (variant == "h4") {
             return <h4>{text}</h4>
-        } else if (variant == span) {
+        } else if (variant == "span") {
             return <span>{text}</span>
         }
         return <em>{text}</em>
