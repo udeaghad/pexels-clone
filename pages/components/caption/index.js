@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../../../styles/Home.module.css'
-import Caption from '../../../Components/Caption'
+import Caption from '../../../Components/Caption/Caption'
 
 
 export default function captionComponentText() {
@@ -9,8 +9,7 @@ export default function captionComponentText() {
       <div>
         <Caption 
           text="Free Stock Photos"
-          // color="text-slate-700"
-          // size="text-4xl"
+          
         />
       </div>
     )
