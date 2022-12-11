@@ -9,6 +9,8 @@ export default function captionComponentText() {
       <div>
         <Caption 
           text="Free Stock Photos"
+          // color="text-slate-700"
+          // size="text-4xl"
         />
       </div>
     )
