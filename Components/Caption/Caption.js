@@ -3,7 +3,10 @@ import React, { useState } from 'react'
 import Image from "next/image";
 import Link from 'next/link';
 
-
+/**This component displays caption which could come in various sizes, color, Html tags
+ * @param object props
+ * @return HTML
+ */
 
 export default function Caption(props) {
     const { text, color, size, variant } = props;
@@ -18,17 +21,22 @@ export default function Caption(props) {
             return <h3>{text}</h3>
         } else if (variant == "h4") {
             return <h4>{text}</h4>
-        } else if (variant == "span") {
-            return <span>{text}</span>
+        } else if (variant == "em") {
+            return <em>{text}</em>
         }
-        return <em>{text}</em>
+        return <span>{text}</span>
+     //Span is the default tag
+
     }
 
     return (
 
         <div >
             {variant ?
-                <div className={`${color} ${size}`} >
+                <div
+                    className={`${color ? color : "text-inherit"} ${size ? size : "text-lg"}`} 
+                    >
+
                     {RenderCaption(variant, text, color, size)}
                 </div>
                 :
