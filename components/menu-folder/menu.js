@@ -17,7 +17,7 @@ export default function MenuDropdown(props) {
         <div className="bg-white w-48 h-[auto] rounded-[20px] py-5 leading-9 font-medium" data-testid="dropdown-list">
             <ul style={{ listStyle: "none" }}>
                 {dropdown.map((items, keys) => (
-                    <li className="hover:bg-slate-100 pl-6" key={keys}>
+                    <li className="hover:bg-slate-100 pl-6" key={keys.id}>
                         <Link href={items.cta} >{items.title}</Link>
                     </li>
                 ))}
