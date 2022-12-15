@@ -21,7 +21,7 @@ export default function Trending(props) {
             <div>
                 <ul style={{ listStyle: "none" }} className="flex pl-[6px]">
                     {TrendingTags.map((items, keys) => (
-                        <li className="hover:text-zinc-500 text-white pr-[5px]" key={items.imdbId}>
+                        <li className="hover:text-zinc-500 text-white pr-[5px]" key={items.id}>
                             <Link href={items.cta} >{items.title}</Link>
                         </li>
                     ))}
