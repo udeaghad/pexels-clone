@@ -5,10 +5,10 @@ services:
     image: stockphotodev
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: dockerfile.dev
     volumes:
       - '.:/app'
-      - '/app/node_modules'
+      
     ports:
       - 3002:3000
     environment:
