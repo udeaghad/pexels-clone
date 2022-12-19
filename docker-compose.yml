@@ -5,7 +5,7 @@ services:
     image: stockphotodev
     build:
       context: .
-      dockerfile: dockerfile.dev
+      dockerfile: Dockerfile.dev
     volumes:
       - '.:/app'
       
