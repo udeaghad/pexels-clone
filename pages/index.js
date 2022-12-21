@@ -48,7 +48,6 @@ export default function Home() {
             className={styles.card}
           >
             <h2>Deploy &rarr;</h2>
-            
             <p>
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
@@ -68,5 +67,5 @@ export default function Home() {
         </a>
       </footer>
     </div>
-  )
+  );
 }
