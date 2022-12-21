@@ -1,14 +1,6 @@
-<<<<<<< HEAD
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import { FaBeer } from 'react-icons/fa';
-
-=======
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
->>>>>>> 416fe83 (This is the corrected version of this branch, changes from the previous one include the test-id, test expectations. the initial array is now converted to an array of objects)
 
 export default function Home() {
   return (
