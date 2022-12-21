@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Dropdown from "../../../Components/Tag/Tag";
+import Dropdown from "../../../components/Tag/Tag";
 
 export default function TrendingTopicsDropdown() {
   const trendingTopics = [

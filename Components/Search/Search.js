@@ -1,13 +1,14 @@
-import React, { useState,useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Tag from "../Tag/Tag";
 
-
 export default function Search(props) {
-  const { type, placeholder, onFocus, onBlur, inputStyling, icon } = props;
+  const { type, placeholder, inputStyling, icon } = props;
   const [showDropDown, setShowDropDown] = useState(false);
-  const inputArea = useRef(null)
+  const inputArea = useRef(null);
+  const [searchInpute, setSearchInpute] = useState("");
+  const [searchTags, setSearchTags] = useState([]);
 
   const trendingTopics = [
     {
@@ -72,78 +73,112 @@ export default function Search(props) {
     },
   ];
 
-  const getDropDownDetails = () =>{
-    setShowDropDown(true)
-  }
+  const getDropDownDetails = () => {
+    setShowDropDown(true);
+  };
 
-  const hideDropDownDetails = () =>{
-    setShowDropDown(false)
+  const hideDropDownDetails = () => {
+    setShowDropDown(false);
+  };
+
+  const quickSearch = (e) => {
+    
+    setSearchInpute(e.target.value)
+    if(searchInpute.length >= 3){
+      // make an axios call to fetch tags based on the  paremeter from the input
+      setSearchTags([
+        "Fire Works",
+        "Love Issues",
+        "Food Eating",
+        "we are outside",
+
+      ])
+    }else{
+      setSearchTags([])
+    }
   }
-  useEffect( () => { 
+  useEffect(() => {
     const handleClickOutside = (e) => {
-      if(inputArea.current && !inputArea.current.contains(e.target)){
-        hideDropDownDetails()
+      if (inputArea.current && !inputArea.current.contains(e.target)) {
+        hideDropDownDetails();
       }
-    }
-   
-    document.addEventListener('click',handleClickOutside,true)
-    return () => {
-      document.removeEventListener('click',handleClickOutside,true)
-    }
+    };
 
-  },[])
+    document.addEventListener("click", handleClickOutside, true);
+    return () => {
+      document.removeEventListener("click", handleClickOutside, true);
+    };
+  }, []);
 
   return (
-    <div ref={inputArea}>
+    <div ref={inputArea} className={showDropDown ? "w-[40%] absolute z-50 shadow-md rounded-b-xl ":"w-[40%] absolute z-50 "}>
       <div
-        style={{
-          border: "1px solid #ccc",
-          width: "600px",
-          borderRadius: "10px",
-          alignItems: "center",
-          justifyContent: "space-between",
-          paddingRight: "20px",
-          height: "50px",
-        }}
-        
-        className="flex"
+        className={showDropDown ?"flex flex-row flex-wrap border-2 border-solid border-[#f7f7f7] h-12 w-[100%] rounded-t-md items-center justify-between"
+        :"flex flex-row flex-nowrap border-2 border-solid border-[#f7f7f7] h-12 w-[100%] rounded-md items-center justify-between bg-[#f7f7f7]"}
         onClick={() => {
-          getDropDownDetails()
+          getDropDownDetails();
         }}
       >
-        <div className="rounded-lg rounded-md pl-4 ml-4 ">
-          <input
-            style={{ width: "300px" }}
-            type={type}
-            placeholder={placeholder}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            inputStyling={inputStyling}
-          />
-        </div>
-        <div className="  w-[500px]  border-2 border-solid border-[red]" >
-          {/* <div className="h-12 pr-8 ">|</div> */}
-          {icon}
+       <div className=" pl-4 ml-4 w-[80%] ">
+        <input
+       
+        className={showDropDown ?"h-10 w-full"
+        :"h-10 w-full bg-[#f7f7f7]"}
+        type={type}
+        style={{outline:"none"}}
+        placeholder={placeholder}
+        inputStyling={inputStyling}
+        defaultValue={searchInpute}
+        onChange={quickSearch}
+        
+         />
+      </div>
+      <div
+        className={
+          showDropDown == true
+            ? " border-l-2 border-solid border-[#f7f7f7] w-[10%] flex justify-center  items-center h-full"
+            : "w-[10%] flex justify-center  items-center h-full"
+          }>
+            {icon}
         </div>
       </div>
 
+     
       {showDropDown && (
-        <>
-          <div>
+        
+        <section className="border-2 border-solid border-[#f7f7f7] border-t-0 px-4 h-[600px] overflow-y-scroll">
+           {searchTags.length > 0 &&  searchInpute.length >= 3?
+        <section className="border-b-2 border-solid border-[#f7f7f7] mb-[20px] pb-[20px] pt-[20px]">
+          {
+          //this section would show a suggestion for the search and when clicked the page would update 
+          }
+          {searchTags.map(
+            (value)=>(
+              <div key={value}>{value}</div>
+            )
+          )}
+
+        </section>: null}
+         <section>
+          <div className="py-[20px]">
             <h6>Trending Topics</h6>
           </div>
-          <div className="flex gap-4">
+          <div className="flex gap-4 flex-wrap">
             {trendingTopics.map((trendingTopic) => (
               <div key={trendingTopic.id}>
-                <Tag
-                  text={trendingTopic.text}
-                  image={trendingTopic.image}
-                  link={trendingTopic.link}
-                />
+                <section>
+                  <Tag
+                    text={trendingTopic.text}
+                    image={trendingTopic.image}
+                    link={trendingTopic.link}
+                  />
+                </section> 
+                
               </div>
             ))}
           </div>
-        </>
+        </section>
+        </section>
       )}
     </div>
   );
