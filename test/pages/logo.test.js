@@ -1,7 +1,7 @@
 import Home from "../../pages/index";
 import "@testing-library/jest-dom";
 import { fireEvent, render, screen } from "@testing-library/react";
-import Logo from '../../Components/Logo/Logo'
+import Logo from '../../components/Logo/Logo'
 
 
 describe("Test to see if the logo component does what it was designed for .", () => {
