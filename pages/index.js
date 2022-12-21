@@ -1,6 +1,17 @@
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
+import Head from 'next/head'
+import Image from 'next/image'
+import styles from '../styles/Home.module.css'
+import { FaBeer } from 'react-icons/fa';
+import MenuDropdown from "../components/menu-folder/menu";
+
+const menuList = [
+  "Discorver Photos",
+  "Popular Searches",
+  "Leaderboard",
+  "Challenges",
+  "Free Videos",
+  "Pexel Blog",
+];
 
 export default function Home() {
   return (
@@ -12,11 +23,12 @@ export default function Home() {
       </Head>
         
       <main className={styles.main}>
-        <div className="container max-w-4xl mx-auto pt-16 md:pt-32 text-center break-normal">
-          <p className="text-white font-extrabold text-3xl md:text-5xl">   Ghostwind CSS
-          </p>
-          <p className="text-xl md:text-2xl text-[blue]"> Welcome to my Blog </p>
-        </div>
+
+      <div className="container max-w-4xl mx-auto pt-16 md:pt-32 text-center break-normal">
+   <p className="text-white font-extrabold text-3xl md:text-5xl">   Ghostwind CSS
+   </p>
+<p data-testid="result" className="text-xl md:text-2xl text-[brown]"> Welcome to my Blog </p>
+</div>
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>

@@ -47,10 +47,5 @@ if you want to run any command inside of docker
 if you want to run a test us 
 # docker-compose run --rm stock npm run test
 
-<<<<<<< HEAD
-## Prodect Development route#
-http://localhost: 
-=======
 ## Project Development route#
 http://localhost:
->>>>>>> 3f13930 (create the hidden menu dropdown list)
