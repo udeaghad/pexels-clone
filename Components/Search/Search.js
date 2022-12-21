@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState,useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Dropdown from "../Dropdown/Dropdown";
+import Tag from "../Tag/Tag";
+
 
 export default function Search(props) {
   const { type, placeholder, onFocus, onBlur, inputStyling, icon } = props;
   const [showDropDown, setShowDropDown] = useState(false);
+  const inputArea = useRef(null)
 
   const trendingTopics = [
     {
@@ -70,31 +72,59 @@ export default function Search(props) {
     },
   ];
 
+  const getDropDownDetails = () =>{
+    setShowDropDown(true)
+  }
+
+  const hideDropDownDetails = () =>{
+    setShowDropDown(false)
+  }
+  useEffect( () => { 
+    const handleClickOutside = (e) => {
+      if(inputArea.current && !inputArea.current.contains(e.target)){
+        hideDropDownDetails()
+      }
+    }
+   
+    document.addEventListener('click',handleClickOutside,true)
+    return () => {
+      document.removeEventListener('click',handleClickOutside,true)
+    }
+
+  },[])
+
   return (
-    <>
+    <div ref={inputArea}>
       <div
         style={{
           border: "1px solid #ccc",
           width: "600px",
           borderRadius: "10px",
           alignItems: "center",
+          justifyContent: "space-between",
+          paddingRight: "20px",
+          height: "50px",
         }}
+        
         className="flex"
         onClick={() => {
-          setShowDropDown(true);
+          getDropDownDetails()
         }}
       >
-        <div className="rounded-lg w-2/5 rounded-md pl-4 ml-4">
+        <div className="rounded-lg rounded-md pl-4 ml-4 ">
           <input
+            style={{ width: "300px" }}
             type={type}
             placeholder={placeholder}
             onFocus={onFocus}
             onBlur={onBlur}
             inputStyling={inputStyling}
-            className="h-12"
           />
         </div>
-        <div>{icon}</div>
+        <div className="  w-[500px]  border-2 border-solid border-[red]" >
+          {/* <div className="h-12 pr-8 ">|</div> */}
+          {icon}
+        </div>
       </div>
 
       {showDropDown && (
@@ -105,7 +135,7 @@ export default function Search(props) {
           <div className="flex gap-4">
             {trendingTopics.map((trendingTopic) => (
               <div key={trendingTopic.id}>
-                <Dropdown
+                <Tag
                   text={trendingTopic.text}
                   image={trendingTopic.image}
                   link={trendingTopic.link}
@@ -115,6 +145,6 @@ export default function Search(props) {
           </div>
         </>
       )}
-    </>
+    </div>
   );
 }
