@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Dropdown from "../../../Components/Dropdown/Dropdown";
+import Dropdown from "../../../Components/Tag/Tag";
 
 export default function TrendingTopicsDropdown() {
   const trendingTopics = [
@@ -39,11 +39,12 @@ export default function TrendingTopicsDropdown() {
   console.log(trendingTopics);
 
   return (
-    <div>
+    <div style={{backgroundColor: "#000000",  border: "1px solid #ccc", width: "900px"}}>
       <div>
         <h6>Trending Topics</h6>
       </div>
-      <div className="flex gap-4">
+      <div 
+      className="flex gap-4 flex-wrap ">
         {trendingTopics.map((trendingTopic) => (
           <div key={trendingTopic.id}>
             <Dropdown
