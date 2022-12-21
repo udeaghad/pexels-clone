@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 version: '3.8' #This denotes that we are using version 3 of Docker Compose
 services: #This section defines all the different containers we will create.
   stock: #This is the name of our Nextjs application.
@@ -6,25 +5,3 @@ services: #This section defines all the different containers we will create.
       context: . #This specifies the location of our Dockerfile
     ports: #This is used to map the container’s ports to the host machine.
       - "3000:3000"
-<<<<<<< HEAD
-=======
-=======
-version: "3.8"
-services:
-  stock:
-    container_name: stockphoto
-    image: stockphotodev
-    build:
-      context: .
-      dockerfile: dockerfile.dev
-    volumes:
-      - '.:/app'
-      
-    ports:
-      - 3002:3000
-    environment:
-      - CHOKIDAR_USEPOLLING=true
-
-      
->>>>>>> ca2f965 (updates)
->>>>>>> 1fe4d12 (wip)
