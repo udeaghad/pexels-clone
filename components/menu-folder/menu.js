@@ -24,4 +24,4 @@ export default function MenuDropdown(props) {
             </ul>
         </div>
     );
-  }
+}
