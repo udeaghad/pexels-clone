@@ -19,7 +19,7 @@ export default function Logo(props) {
 
     <div >
       {link ?
-        <Link href={link} >
+        <Link href={link}  >
           <RenderLogo image={image} alt={alt} width={width} height={height} mobileImage={mobileImage} />
         </Link>
         : <div>
