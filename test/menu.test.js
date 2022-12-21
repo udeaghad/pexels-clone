@@ -1,4 +1,4 @@
-import MenuDropdown from "./../components/menu-folder/menu";
+import MenuDropdown from "../components/menu-folder/menu";
 import "@testing-library/jest-dom";
 import { fireEvent, render, screen } from "@testing-library/react";
 // import { shallow } from "enzyme"

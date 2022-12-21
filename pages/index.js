@@ -27,7 +27,7 @@ export default function Home() {
           Get started by editing{' '}
           <code className={styles.code}>pages/index.js</code>
         </p>
-        <div className="border-2 border-dotted border-[red]">
+        <div className="border-8 border-dotted border-[blue]">
     red
         </div>
         <div className={styles.grid}>
