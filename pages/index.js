@@ -1,17 +1,6 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import { FaBeer } from 'react-icons/fa';
-import MenuDropdown from "../components/menu-folder/menu";
-
-const menuList = [
-  "Discorver Photos",
-  "Popular Searches",
-  "Leaderboard",
-  "Challenges",
-  "Free Videos",
-  "Pexel Blog",
-];
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../styles/Home.module.css";
 
 export default function Home() {
   return (

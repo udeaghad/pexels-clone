@@ -16,9 +16,12 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "react-icon": "^1.0.0",
 >>>>>>> dc9108f (not needed)
+=======
+>>>>>>> 416fe83 (This is the corrected version of this branch, changes from the previous one include the test-id, test expectations. the initial array is now converted to an array of objects)
     "react-icons": "^4.7.1"
   },
   "devDependencies": {
