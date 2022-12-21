@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import { FaBeer } from 'react-icons/fa';
+
 
 export default function Home() {
   return (
@@ -15,7 +17,7 @@ export default function Home() {
       <div className="container max-w-4xl mx-auto pt-16 md:pt-32 text-center break-normal">
    <p className="text-white font-extrabold text-3xl md:text-5xl">   Ghostwind CSS
    </p>
-<p data-testid="result" className="text-xl md:text-2xl text-[blue]"> Welcome to my Blog </p>
+<p data-testid="result" className="text-xl md:text-2xl text-[brown]"> Welcome to my Blog </p>
 </div>
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
@@ -45,6 +47,7 @@ export default function Home() {
             className={styles.card}
           >
             <h2>Deploy &rarr;</h2>
+            <FaBeer/>
             <p>
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
