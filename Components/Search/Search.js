@@ -82,21 +82,19 @@ export default function Search(props) {
   };
 
   const quickSearch = (e) => {
-    
-    setSearchInpute(e.target.value)
-    if(searchInpute.length >= 3){
+    setSearchInpute(e.target.value);
+    if (searchInpute.length >= 3) {
       // make an axios call to fetch tags based on the  paremeter from the input
       setSearchTags([
         "Fire Works",
-        "Love Issues",
+        "Understanding purpose",
         "Food Eating",
         "we are outside",
-
-      ])
-    }else{
-      setSearchTags([])
+      ]);
+    } else {
+      setSearchTags([]);
     }
-  }
+  };
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (inputArea.current && !inputArea.current.contains(e.target)) {
@@ -111,75 +109,82 @@ export default function Search(props) {
   }, []);
 
   return (
-    <div ref={inputArea} className={showDropDown ? "w-[40%] absolute z-50 shadow-md rounded-b-xl ":"w-[40%] absolute z-50 "}>
+    <div className="relative w-[70%] sm:w-[40%] lg:w-[60%] ">
       <div
-        className={showDropDown ?"flex flex-row flex-wrap border-2 border-solid border-[#f7f7f7] h-12 w-[100%] rounded-t-md items-center justify-between"
-        :"flex flex-row flex-nowrap border-2 border-solid border-[#f7f7f7] h-12 w-[100%] rounded-md items-center justify-between bg-[#f7f7f7]"}
-        onClick={() => {
-          getDropDownDetails();
-        }}
-      >
-       <div className=" pl-4 ml-4 w-[80%] ">
-        <input
-       
-        className={showDropDown ?"h-10 w-full"
-        :"h-10 w-full bg-[#f7f7f7]"}
-        type={type}
-        style={{outline:"none"}}
-        placeholder={placeholder}
-        inputStyling={inputStyling}
-        defaultValue={searchInpute}
-        onChange={quickSearch}
-        
-         />
-      </div>
-      <div
+        ref={inputArea}
         className={
-          showDropDown == true
-            ? " border-l-2 border-solid border-[#f7f7f7] w-[10%] flex justify-center  items-center h-full"
-            : "w-[10%] flex justify-center  items-center h-full"
-          }>
-            {icon}
-        </div>
-      </div>
-
-     
-      {showDropDown && (
-        
-        <section className="border-2 border-solid border-[#f7f7f7] border-t-0 px-4 h-[600px] overflow-y-scroll">
-           {searchTags.length > 0 &&  searchInpute.length >= 3?
-        <section className="border-b-2 border-solid border-[#f7f7f7] mb-[20px] pb-[20px] pt-[20px]">
-          {
-          //this section would show a suggestion for the search and when clicked the page would update 
+          showDropDown
+            ? "w-[100%] absolute z-50 shadow-md rounded-b-xl bg-[#ffffff] top-0"
+            : "w-[100%] absolute z-50 top-0  "
+        }
+      >
+        <div
+          className={
+            showDropDown
+              ? "flex flex-row flex-wrap border-2 border-solid border-[#f7f7f7] h-12 w-[100%] rounded-t-md items-center justify-between"
+              : "flex flex-row flex-nowrap border-2 border-solid border-[#f7f7f7] h-12 w-[100%] rounded-md items-center justify-between bg-[#f7f7f7]"
           }
-          {searchTags.map(
-            (value)=>(
-              <div key={value}>{value}</div>
-            )
-          )}
+          onClick={() => {
+            getDropDownDetails();
+          }}
+        >
+          <div className=" pl-4 ml-4 w-[80%]">
+            <input
+              className={
+                showDropDown ? "h-10 w-full" : "h-10 w-full bg-[#f7f7f7]"
+              }
+              type={type}
+              style={{ outline: "none" }}
+              placeholder={placeholder}
+              inputStyling={inputStyling}
+              defaultValue={searchInpute}
+              onChange={quickSearch}
+            />
+          </div>
+          <div
+            className={
+              showDropDown == true
+                ? " border-l-2 border-solid border-[#f7f7f7] w-[10%] flex justify-center  items-center h-full"
+                : "w-[10%] flex justify-center  items-center h-full"
+            }
+          >
+            {icon}
+          </div>
+        </div>
 
-        </section>: null}
-         <section>
-          <div className="py-[20px]">
-            <h6>Trending Topics</h6>
-          </div>
-          <div className="flex gap-4 flex-wrap">
-            {trendingTopics.map((trendingTopic) => (
-              <div key={trendingTopic.id}>
-                <section>
-                  <Tag
-                    text={trendingTopic.text}
-                    image={trendingTopic.image}
-                    link={trendingTopic.link}
-                  />
-                </section> 
-                
+        {showDropDown && (
+          <section className="border-2 border-solid border-[#f7f7f7] border-t-0 px-4 h-[600px] overflow-y-scroll">
+            {searchTags.length > 0 && searchInpute.length >= 3 ? (
+              <section className="border-b-2 border-solid border-[#f7f7f7] mb-[20px] pb-[20px] pt-[20px]">
+                {
+                  //this section would show a suggestion for the search and when clicked the page would update
+                }
+                {searchTags.map((value) => (
+                  <div key={value}>{value}</div>
+                ))}
+              </section>
+            ) : null}
+            <section>
+              <div className="py-[20px]">
+                <h6>Trending Topics</h6>
               </div>
-            ))}
-          </div>
-        </section>
-        </section>
-      )}
+              <div className="flex gap-4 flex-wrap">
+                {trendingTopics.map((trendingTopic) => (
+                  <div key={trendingTopic.id}>
+                    <section>
+                      <Tag
+                        text={trendingTopic.text}
+                        image={trendingTopic.image}
+                        link={trendingTopic.link}
+                      />
+                    </section>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </section>
+        )}
+      </div>
     </div>
   );
 }
