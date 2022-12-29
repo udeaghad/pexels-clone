@@ -119,6 +119,7 @@ export default function Search(props) {
         }
       >
         <div
+        data-testid="dropDropClick"
           className={
             showDropDown
               ? "flex flex-row flex-wrap border-2 border-solid border-[#f7f7f7] h-12 w-[100%] rounded-t-md items-center justify-between"
@@ -130,30 +131,36 @@ export default function Search(props) {
         >
           <div className=" pl-4 ml-4 w-[80%]">
             <input
+              role="search-input"
+              aria-selected="true"
               className={
                 showDropDown ? "h-10 w-full" : "h-10 w-full bg-[#f7f7f7]"
               }
               type={type}
-              style={{ outline: "none" }}
               placeholder={placeholder}
+              data-testid="searchforfreephotos"
               inputStyling={inputStyling}
               defaultValue={searchInpute}
               onChange={quickSearch}
             />
           </div>
-          <div
-            className={
-              showDropDown == true
-                ? " border-l-2 border-solid border-[#f7f7f7] w-[10%] flex justify-center  items-center h-full"
-                : "w-[10%] flex justify-center  items-center h-full"
-            }
-          >
-            {icon}
-          </div>
+          {icon && (
+            <div
+              className={
+                showDropDown == true
+                  ? " border-l-2 border-solid border-[#f7f7f7] w-[10%] flex justify-center  items-center h-full"
+                  : "w-[10%] flex justify-center  items-center h-full"
+              }
+              data-testid="icondisplay"
+            >
+              {icon}
+            </div>
+          )}
         </div>
 
         {showDropDown && (
-          <section className="border-2 border-solid border-[#f7f7f7] border-t-0 px-4 h-[600px] overflow-y-scroll">
+          <section data-testid="dropdown-container" 
+          className="border-2 border-solid border-[#f7f7f7] border-t-0 px-4 h-[600px] overflow-y-scroll">
             {searchTags.length > 0 && searchInpute.length >= 3 ? (
               <section className="border-b-2 border-solid border-[#f7f7f7] mb-[20px] pb-[20px] pt-[20px]">
                 {

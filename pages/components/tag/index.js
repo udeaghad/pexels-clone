@@ -34,17 +34,21 @@ export default function TrendingTopicsDropdown() {
       text: "Nature",
       link: "/",
     },
-    
   ];
   console.log(trendingTopics);
 
   return (
-    <div style={{backgroundColor: "#000000",  border: "1px solid #ccc", width: "900px"}}>
+    <div
+      style={{
+        backgroundColor: "#000000",
+        border: "1px solid #ccc",
+        width: "900px",
+      }}
+    >
       <div>
         <h6>Trending Topics</h6>
       </div>
-      <div 
-      className="flex gap-4 flex-wrap ">
+      <div className="flex gap-4 flex-wrap ">
         {trendingTopics.map((trendingTopic) => (
           <div key={trendingTopic.id}>
             <Dropdown

@@ -7,7 +7,7 @@ import { IoSearchOutline } from "react-icons/io5";
 export default function searchComponentbar() {
   return (
     <section>
-      <section className="flex justify-center  items-center h-[100px] relative ">
+      <section className=" flex justify-center  items-center h-[100px] relative ">
         <Search
           type="text"
           placeholder="Search for free photos"
