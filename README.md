@@ -49,3 +49,8 @@ if you want to run a test us
 
 ## Project Development route#
 http://localhost:
+
+
+docker exec -it stock-photos_stock_1 /bin/bash
+
+stock-photos_stock_run_a7b4dfb9371c
