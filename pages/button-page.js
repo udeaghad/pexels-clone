@@ -27,6 +27,7 @@ export default function Home() {
                 icon={
                   <div className="text-slate-100 text-[20px] pr-[10px]">
                     <GoPencil />
+                    ghglkjl
                   </div>
                 }
               />
