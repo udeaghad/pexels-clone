@@ -12,7 +12,6 @@ export default function captionComponentText() {
                 color="text-slate-600"
                 size="text-xl"
                 variant="h4"
-
             />
         </div>
     )
