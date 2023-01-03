@@ -9,7 +9,7 @@
     "dev:up": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build",
     "prod:up": "docker-compose -f docker-compose.yml -f docker-compose.prod.yml up",
     "lint": "next lint",
-    "test": "jest --watch"
+    "test": "jest a --watch"
   },
   "dependencies": {
     "enzyme": "^3.11.0",
