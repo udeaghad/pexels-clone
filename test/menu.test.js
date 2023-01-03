@@ -4,6 +4,66 @@ import { fireEvent, render, screen } from "@testing-library/react";
 // import { shallow } from "enzyme"
 
 
+
+
+describe("dropdown list", () => {
+  it("renders a dropdown list", () => {
+    const menuList = [
+      "Discorver Photos",
+      "Popular Searches",
+      "Leaderboard",
+      "Challenges",
+      "Free Videos",
+      "Pexel Blog",
+    ];
+    render(<MenuDropdown dropdown={menuList} />);
+    // check if all components are rendered
+
+
+    expect(screen.getByTestId("no")).toHaveTextContent("Discorver Photos");
+
+  });
+});
+
+
+describe("dropdown list", () => {
+  it("renders a dropdown list", () => {
+    const menuList = [
+      "Discorver Photos",
+      "Popular Searches",
+      "Leaderboard",
+      "Challenges",
+      "Free Videos",
+      "Pexel Blog",
+    ];
+    render(<MenuDropdown dropdown={menuList} />);
+    // check if all components are rendered
+
+
+    expect(screen.getByTestId("no")).toHaveTextContent("Popular Searches");
+
+  });
+});
+
+describe("dropdown list", () => {
+  it("renders a dropdown list", () => {
+    const menuList = [
+      "Discorver Photos",
+      "Popular Searches",
+      "Leaderboard",
+      "Challenges",
+      "Free Videos",
+      "Pexel Blog",
+    ];
+    render(<MenuDropdown dropdown={menuList} />);
+    // check if all components are rendered
+
+
+    expect(screen.getByTestId("no")).toHaveTextContent("Leaderboard");
+
+  });
+});
+
 describe("dropdown list", () => {
   it("renders a dropdown list", () => {
     const menuList = [
