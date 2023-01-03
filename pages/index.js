@@ -1,6 +1,10 @@
+import Head from 'next/head'
+import Image from 'next/image'
+import styles from '../styles/Home.module.css'
+import { FaBeer } from 'react-icons/fa';
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
+
 
 export default function Home() {
   return (
@@ -12,6 +16,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
+
         <div className="container max-w-4xl mx-auto pt-16 md:pt-32 text-center break-normal">
           <p className="text-white font-extrabold text-3xl md:text-5xl">   Ghostwind CSS
           </p>
@@ -54,6 +59,7 @@ export default function Home() {
             </p>
           </a>
         </div>
+
       </main>
       <footer className={styles.footer}>
         <a

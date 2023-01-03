@@ -3,40 +3,32 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import MenuDropdown from "../components/menu-folder/menu";
 import Trending from "../components/Trending-folder/trending";
-import Btn from "../components/button-folder/Button";
-import { GoPencil } from 'react-icons/go';
 
 
 const menuList = [
     {
-        id: "1",
         title: "Discorver Photos,",
         cta: "/"
     },
     {
-        id: "2",
         title: "Popular Searches,",
         cta: "/"
     },
 
     {
-        id: "3",
         title: "Leaderboard,",
         cta: "/"
     },
 
     {
-        id: "4",
         title: "Challenges,",
         cta: "/"
     },
     {
-        id: "5",
         title: "Free Videos,",
         cta: "/"
     },
     {
-        id: "6",
         title: "Pexel Blog,",
         cta: "/"
     }
@@ -63,30 +55,6 @@ export default function Home() {
                         TrendingTags={menuList}
                         Trendings={"Trending:"}
                         more="/" />
-                </section>
-
-                <section>
-                    <Btn
-                        customstyle=""
-
-                        value={"Edit profile"}
-                        icon={<div className="text-slate-100 text-[20px] pr-[10px]">< GoPencil /></div>}
-                    />
-
-                    <Btn
-                        customstyle=""
-
-                        value={"Edit profile"}
-                    />
-
-
-                    <Btn
-                        customstyle=""
-
-                        value={"Edit profile"}
-                    />
-
-
                 </section>
             </main>
 
