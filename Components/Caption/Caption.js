@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 /**This component displays caption which could come in various sizes, color, Html tags
  * @param object props
- * @return HTML
+ * @return HT
  */
 
 export default function Caption(props) {
