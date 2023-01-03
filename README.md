@@ -37,20 +37,15 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 How to run the docker file
 
 Using Docker compose 
-#  docker-compose up  // note this would be run every day when ever the computer is put on .
+#  docker-compose -f docker-compose.dev.yml up  // note this would be run every day when ever the computer is put on .
 if you want to rebuild the docker file us 
-# docker-compose up --build
+# docker-compose -f docker-compose.dev.yml up --build
 
 if you want to run any command inside of docker 
 #docker-compose run --rm stock 
  eg docker-compose run --rm stock  node -v
 if you want to run a test us 
-# docker-compose run --rm stock npm run test
+# docker-compose -f docker-compose.test.yml up
 
 ## Project Development route#
-http://localhost:
-
-
-docker exec -it stock-photos_stock_1 /bin/bash
-
-stock-photos_stock_run_a7b4dfb9371c
+http://localhost:3000
