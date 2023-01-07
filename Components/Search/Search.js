@@ -117,6 +117,7 @@ export default function Search(props) {
             ? "w-[100%] absolute z-50 shadow-md rounded-b-xl bg-[#ffffff] top-0"
             : "w-[100%] absolute z-50 top-0  "
         }
+        
       >
         <div
         data-testid="dropDropClick"
