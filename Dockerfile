@@ -24,4 +24,4 @@ RUN yarn run build
 EXPOSE 3000
 
 #Allows you to configure a container that will run as an executable
-ENTRYPOINT ["yarn", "run"]
+ENTRYPOINT ["yarn", "run", "dev"]

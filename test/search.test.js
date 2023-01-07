@@ -74,7 +74,9 @@ describe("checks that a click will show dropdown", () => {
       />
     );
     const dropDropClick = screen.getByTestId("dropDropClick");
-    fireEvent.click(dropDropClick); 
+    fireEvent.click(dropDropClick);
     expect(screen.getByTestId("dropdown-container")).toBeInTheDocument();
   });
 });
+
+describe("checks that a click outside the box will close the dropdown", () => {});
