@@ -31,7 +31,7 @@ export default function TabMenuBar() {
     
      <Tabmenu 
   tablist={tablist}
-   />;
+   />
   </div>
   )
  

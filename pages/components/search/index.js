@@ -11,7 +11,7 @@ export default function searchComponentbar() {
         <Search
           type="text"
           placeholder="Search for free photos"
-          inputStyling="text-slate-600 border-none "
+          inputstyling="text-slate-600 border-none "
           icon={<IoSearchOutline />}
         />
       </section>

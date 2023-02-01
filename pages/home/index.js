@@ -27,6 +27,7 @@ export default function Home() {
     <div>
         <Tabmenu
         tablist={tablist}
+        currentRoute="/home"
         />
     </div>
   )

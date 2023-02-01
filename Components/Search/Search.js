@@ -107,17 +107,15 @@ export default function Search(props) {
         };
     }, []);
 
-    return ( < div className = "relative w-[70%] sm:w-[40%] lg:w-[60%] " >
-        <
-        div ref = { inputArea }
+    return ( <div className = "relative w-[70%] sm:w-[40%] lg:w-[60%] " >
+        <div ref = { inputArea }
         className = {
             showDropDown ?
             "w-[100%] absolute z-50 shadow-md rounded-b-xl bg-[#ffffff] top-0" : "w-[100%] absolute z-50 top-0  "
         }
 
         >
-        <
-        div data - testid = "dropDropClick"
+        <div data-testid = "dropdropclick"
         className = {
             showDropDown ?
             "flex flex-row flex-wrap border-2 border-solid border-[#f7f7f7] h-12 w-[100%] rounded-t-md items-center justify-between" : "flex flex-row flex-nowrap border-2 border-solid border-[#f7f7f7] h-12 w-[100%] rounded-md items-center justify-between bg-[#f7f7f7]"
@@ -127,74 +125,49 @@ export default function Search(props) {
                 getDropDownDetails();
             }
         } >
-        <
-        div className = " pl-4 ml-4 w-[80%]" >
-        <
-        input role = "search-input"
-        aria - selected = "true"
+        <div className = " pl-4 ml-4 w-[80%]" >
+        <input role = "search-input"
+        aria-selected = "true"
         className = {
             showDropDown ? "h-10 w-full" : "h-10 w-full bg-[#f7f7f7]"
         }
         type = { type }
         placeholder = { placeholder }
-        data - testid = "searchforfreephotos"
-        inputStyling = { inputStyling }
+        data-testid = "searchforfreephotos"
+        inputstyling = { inputStyling }
         defaultValue = { searchInpute }
         onChange = { quickSearch }
-        /> < /
-        div > {
-            icon && ( <
-                div className = {
+        /> </div > {
+            icon && ( <div className = {
                     showDropDown == true ?
                     " border-l-2 border-solid border-[#f7f7f7] w-[10%] flex justify-center  items-center h-full" : "w-[10%] flex justify-center  items-center h-full"
                 }
-                data - testid = "icondisplay" > { icon } <
-                /div>
+                data-testid = "icondisplay" > { icon } </div>
             )
-        } <
-        /div>
+        } </div>
 
         {
-            showDropDown && ( <
-                section data - testid = "dropdown-container"
+            showDropDown && ( <section data-testid = "dropdown-container"
                 className = "border-2 border-solid border-[#f7f7f7] border-t-0 px-4 h-[600px] overflow-y-scroll" > {
-                    searchTags.length > 0 && searchInpute.length >= 3 ? ( <
-                        section className = "border-b-2 border-solid border-[#f7f7f7] mb-[20px] pb-[20px] pt-[20px]" > {
+                    searchTags.length > 0 && searchInpute.length >= 3 ? ( <section className = "border-b-2 border-solid border-[#f7f7f7] mb-[20px] pb-[20px] pt-[20px]" > {
                             //this section would show a suggestion for the search and when clicked the page would update
                         } {
-                            searchTags.map((value) => ( <
-                                div key = { value } > { value } < /div>
+                            searchTags.map((value) => ( <div key = { value } > { value } </div>
                             ))
-                        } <
-                        /section>
+                        } </section>
                     ) : null
-                } <
-                section >
-                <
-                div className = "py-[20px]" >
-                <
-                h6 > Trending Topics < /h6> < /
-                div > <
-                div className = "flex gap-4 flex-wrap" > {
-                    trendingTopics.map((trendingTopic) => ( <
-                        div key = { trendingTopic.id } >
-                        <
-                        section >
-                        <
-                        Tag text = { trendingTopic.text }
+                } <section >
+                <div className = "py-[20px]" >
+                <h6 > Trending Topics </h6> </div > <div className = "flex gap-4 flex-wrap" > {
+                    trendingTopics.map((trendingTopic) => ( <div key = { trendingTopic.id } >
+                        <section >
+                        <Tag text = { trendingTopic.text }
                         image = { trendingTopic.image }
                         link = { trendingTopic.link }
-                        /> < /
-                        section > <
-                        /div>
+                        /> </section > </div>
                     ))
-                } <
-                /div> < /
-                section > <
-                /section>
+                } </div> </section > </section>
             )
-        } <
-        /div> < /
-        div >
+        } </div> </div>
     );
 }
