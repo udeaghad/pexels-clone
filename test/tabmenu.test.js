@@ -40,7 +40,60 @@ describe("tab menu list", () => {
 
 
     });
+
+    it("should have an active class when currentRoute props is parsed", async () => {
+
+        const tablist = [
+            {
+              id: 1,
+              text: "Home",
+              link: "/home",
+            },
+            {
+              id: 2,
+              text: "Videos",
+              link: "/videos",
+            },
+            {
+              id: 3,
+              text: "Leaderboard",
+              link: "/leaderboard",
+            },
+            {
+              id: 4,
+              text: "Challenges",
+              link: "/challenges",
+            },
+          ];
+          render( <Tabmenu tablist={tablist} currentRoute="/home"/>);
+          const boxes = await screen.findAllByText(/Home/i)
+          expect(boxes[0]).toHaveClass('active');
+          
+         // const activeClass = screen.getElementsByClassName('bg-black');
+          
+
+    });
+
+
+    it("should have an inactive class when currentRoute props is omited ", async () => {
+        const tablist = [
+            {
+              id: 1,
+              text: "Home",
+              link: "/home",
+            },
+          ];
+          render( <Tabmenu tablist={tablist} />);
+          const boxes = await screen.findAllByText(/Home/i)
+          expect(boxes[0]).toHaveClass('inactive');
+          
+         // const activeClass = screen.getElementsByClassName('bg-black');
+          
+
+    });
 });
+
+
 
 
 

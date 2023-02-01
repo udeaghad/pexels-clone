@@ -23,7 +23,7 @@ export default function Tabmenu(props) {
         <ul className = "flex flex-row gap-4 text-slate-600 pt-6 " > 
         {
             tablist.map((tabbar, index) => ( 
-                <div  className={currentRoute == tabbar.link ? "bg-black text-white h-12 flex justify-center items-center p-4 rounded-3xl cursor-pointer" : "h-12 flex justify-center items-center p-4 rounded-3xl cursor-pointer"}
+                <div  className={currentRoute == tabbar.link ? "bg-black text-white h-12 flex justify-center items-center p-4 rounded-3xl cursor-pointer" : "bg-black h-12 flex justify-center items-center p-4 rounded-3xl cursor-pointer"}
                 key = { tabbar.id }
                 onClick = {
                     () => {
@@ -31,7 +31,7 @@ export default function Tabmenu(props) {
                         
                     }
                 } >
-                <div  > { tabbar.text } </div> 
+                <div  className={currentRoute == tabbar.link ? "active" : "inactive"}> { tabbar.text } </div> 
                 </div>
             ))
         } 
