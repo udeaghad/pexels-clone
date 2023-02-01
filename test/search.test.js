@@ -9,7 +9,7 @@ describe("It searches for input field with text search for free photos", () => {
         render( <
             Search type = "text"
             placeholder = "Search for free photos"
-            inputStyling = "text-slate-600 border-none "
+            inputstyling = "text-slate-600 border-none "
             icon = { < IoSearchOutline / > }
             />
         );
@@ -22,7 +22,7 @@ describe("icon button should have correct icon ", () => {
         render( <
             Search type = "text"
             placeholder = "Search for free photos"
-            inputStyling = "text-slate-600 border-none "
+            inputstyling = "text-slate-600 border-none "
             icon = { < IoSearchOutline / > }
             />
         );
@@ -35,7 +35,7 @@ describe("input field value search for free photos", () => {
         render( <
             Search type = "text"
             placeholder = "Search for free photos"
-            inputStyling = "text-slate-600 border-none "
+            inputstyling = "text-slate-600 border-none "
             icon = { < IoSearchOutline / > }
             />
         );
@@ -51,7 +51,7 @@ describe("checks when icon is supplied", () => {
         render( <
             Search type = "text"
             placeholder = "Search for free photos"
-            inputStyling = "text-slate-600 border-none "
+            inputstyling = "text-slate-600 border-none "
             icon = { < IoSearchOutline / > }
             />
         );
@@ -64,7 +64,7 @@ describe("checks that a click will show dropdown", () => {
         render( <
             Search type = "text"
             placeholder = "Search for free photos"
-            inputStyling = "text-slate-600 border-none "
+            inputstyling = "text-slate-600 border-none "
             icon = { < IoSearchOutline / > }
             />
         );

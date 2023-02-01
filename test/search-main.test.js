@@ -24,7 +24,7 @@ describe("icon button should have correct icon ", () => {
       <Search
         type="text"
         placeholder="Search for free photos"
-        inputStyling="text-slate-600 border-none "
+        inputstyling="text-slate-600 border-none "
         icon={<IoSearchOutline />}
       />
     );
@@ -55,7 +55,7 @@ describe("checks when icon is supplied", () => {
       <Search
         type="text"
         placeholder="Search for free photos"
-        inputStyling="text-slate-600 border-none "
+        inputstyling="text-slate-600 border-none "
         icon={<IoSearchOutline />}
       />
     );
@@ -69,11 +69,11 @@ describe("checks that a click will show dropdown", () => {
       <Search
         type="text"
         placeholder="Search for free photos"
-        inputStyling="text-slate-600 border-none "
+        inputstyling="text-slate-600 border-none "
         icon={<IoSearchOutline />}
       />
     );
-    const dropDropClick = screen.getByTestId("dropDropClick");
+    const dropDropClick = screen.getByTestId("dropdropclick");
     fireEvent.click(dropDropClick); 
     expect(screen.getByTestId("dropdown-container")).toBeInTheDocument();
   });
