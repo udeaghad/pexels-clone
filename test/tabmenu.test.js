@@ -67,7 +67,7 @@ describe("tab menu list", () => {
           ];
           render( <Tabmenu tablist={tablist} currentRoute="/home"/>);
           const boxes = await screen.findAllByText(/Home/i)
-          expect(boxes[0]).toHaveClass('active');
+          expect(boxes[0]).toHaveClass('isactive');
           
          // const activeClass = screen.getElementsByClassName('bg-black');
           
@@ -85,7 +85,7 @@ describe("tab menu list", () => {
           ];
           render( <Tabmenu tablist={tablist} />);
           const boxes = await screen.findAllByText(/Home/i)
-          expect(boxes[0]).toHaveClass('inactive');
+          expect(boxes[0]).toHaveClass('isinactive');
           
          // const activeClass = screen.getElementsByClassName('bg-black');
           
