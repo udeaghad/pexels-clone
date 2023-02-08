@@ -57,7 +57,7 @@ describe("tab menu list", () => {
             {
               id: 3,
               text: "Leaderboard",
-              link: "/leaderboard",
+              link: "/leaderboard", 
             },
             {
               id: 4,
