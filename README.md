@@ -49,3 +49,6 @@ if you want to run a test us
 
 ## Project Development route#
 http://localhost:3000
+
+
+docker-compose -f docker-compose.dev.yml exec stock sh

@@ -107,11 +107,11 @@ export default function Search(props) {
         };
     }, []);
 
-    return ( <div className = "relative w-[70%] sm:w-[40%] lg:w-[60%] " >
+    return ( <div className = "relative w-[90%] h-max" >
         <div ref = { inputArea }
         className = {
             showDropDown ?
-            "w-[100%] absolute z-50 shadow-md rounded-b-xl bg-[#ffffff] top-0" : "w-[100%] absolute z-50 top-0  "
+            "w-[100%] absolute z-50 shadow-md rounded-b-xl bg-[#ffffff]  " : "w-[100%]  z-50   "
         }
 
         >
@@ -129,7 +129,7 @@ export default function Search(props) {
         <input role = "search-input"
         aria-selected = "true"
         className = {
-            showDropDown ? "h-10 w-full" : "h-10 w-full bg-[#f7f7f7]"
+            showDropDown ? "h-full w-full" : "h-full w-full bg-[#f7f7f7]"
         }
         type = { type }
         placeholder = { placeholder }

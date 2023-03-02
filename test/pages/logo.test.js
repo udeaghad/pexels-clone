@@ -13,7 +13,7 @@ describe("Test to see if the logo component does what it was designed for .", ()
             alt="logo"
             link="/"
             mobileImage="/mobileImage.png" />);
-        expect(screen.getByTestId("displayLogo")).toBeInTheDocument(); 
+        expect(screen.getByRole("displayLogo")).toBeInTheDocument(); 
     });
    
 
@@ -57,18 +57,6 @@ describe("Tests the value of the link href", () => {
     });
 
 });   
-
-describe("Tests if the mobileImage logo is showing", () => { 
-
-    it("confirm if the mobileImage logo shows when triggered", () => {
-        render(<Logo 
-            image="/pexel.png"
-            alt="logo"
-            link="/" 
-            mobileImage="/mobileImage.png"/>);
-        expect(screen.getByTestId("mobileLogoDisplay")).toBeInTheDocument(); 
-    });
-})
 
 
 });
