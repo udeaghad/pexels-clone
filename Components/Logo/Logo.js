@@ -36,18 +36,31 @@ export default function Logo(props) {
 export function RenderLogo({ image, alt, width, height, mobileImage }) {
   return (
     <div>
-      <Image className="hidden sm:block" src={image} alt={alt?.length == 0 ? "logo" : alt}
-        width={!width ? 300 : width}
-        height={!height ? 300 : height}
-        data-testid="displayLogo" //data-testid (Displaylogo) is for testing purpose
-      />
-      <Image className="sm:hidden" src={mobileImage ? mobileImage : image} alt={alt?.length == 0 ? "logo" : alt}
-        width={!width ? 300 : width}
-        height={!height ? 300 : height}
-        data-testid="mobileLogoDisplay"
-      // image shows from 640 pexel and above while mobileImage shows below 640 pexel
+      <Image className="sm:hidden md:hidden lg:hidden xl:hidden 2xl:hidden" src={image} alt={alt?.length == 0 ? "logo" : alt}
+        width="50"
+        height='50'
+        role="displayLogo" //data-testid (Displaylogo) is for testing purpose
       />
 
+<Image className="hidden sm:block " src={image} alt={alt?.length == 0 ? "logo" : alt}
+        width="50"
+        height='50'
+        role="displayMobileLogo" //data-testid (Displaylogo) is for testing purpose
+      />
+
+
+
+
+
+
+
+
+
+
+
+      
+
+      
     </div>
   )
 }

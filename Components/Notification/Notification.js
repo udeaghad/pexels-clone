@@ -9,7 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Image from "next/image";
 
 export default function Notification(props) {
-  const { tooltiptext } = props;
+  const { tooltiptext,textcolor } = props;
   const [notification, setNotication] = useState([]);
 
   const getNotification = () => {
@@ -47,9 +47,9 @@ export default function Notification(props) {
   );
   const CustomDropdown = ({ ...props }) => (
     <Dropdown {...props} renderToggle={renderButton} className="rounded-2xl">
-      <div className="p-[20px] min-w-[500px] " role="popupmenu">
+      <div className="p-[20px] min-w-[300px] " role="popupmenu">
         <div className="flex flex-nowrap">
-          <div className="w-[150px] self-center ">
+          <div className="w-[60%] self-center ">
             <h4 className="text-[#000]  text-[22px]">Notification</h4>
           </div>
           <div className="grid w-[100%] ">
@@ -90,7 +90,7 @@ export default function Notification(props) {
   const renderButton = (props, ref) => {
     return (
       <div {...props} ref={ref} className="w-[30px]">
-        <FaRegBell className="text-[18px]" />
+        <FaRegBell className={`text-[18px] text-[${textcolor}]`} />
       </div>
     );
   };
@@ -106,5 +106,5 @@ export default function Notification(props) {
 
   //   );
 
-  return <CustomDropdown trigger="hover" role="hoverbutton" />;
+  return <CustomDropdown trigger="hover" role="hoverbutton" placement={"bottomEnd"} />;
 }

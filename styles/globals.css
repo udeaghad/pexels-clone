@@ -28,3 +28,12 @@
     }
 
 }
+
+a {
+    @apply   hover:no-underline hover:text-[#000] visited:text-[#000]
+ }
+
+ img, video {
+    max-width: 100%;
+    height: 100%;
+}
