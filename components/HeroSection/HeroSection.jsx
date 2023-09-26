@@ -94,12 +94,20 @@ const socialMediaItems = [
 
       </div>  
 
-      <div className="bg-black w-full h-[100vh] fixed top-0 bottom-0 left-0 right-0 z-5" style={{display: open ? "block" : "none"}}>
+      <div className="bg-black w-full h-[100vh] fixed top-0 bottom-0 left-0 right-0 z-5 overflow-auto" style={{display: open ? "block" : "none"}}>
 
-        <div className="border-t w-full mt-20 border-slate-500"/>
+        <div className="border-t w-full mt-20 border-gray-800"/>
 
-        <div className="flex flex-col justify-start items-start gap-5 mt-10 ml-5 border-b pb-10">
+        <div className="flex flex-col justify-start items-start gap-5 mt-10 mx-5 border-b pb-10 border-gray-800">
           {navItems1.map((item, i) => (
+            <div key={i} className="text-white text-xl font-medium cursor-pointer hover:text-gray-500">
+              <span>{item.name}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex flex-col justify-start items-start gap-5 mt-10 mx-5 border-b pb-10 border-gray-800">
+          {navItems2.map((item, i) => (
             <div key={i} className="text-white text-xl font-medium cursor-pointer hover:text-gray-500">
               <span>{item.name}</span>
             </div>
