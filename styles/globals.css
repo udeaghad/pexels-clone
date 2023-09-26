@@ -1,39 +1,4 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "rsuite/dist/rsuite.css";
-@layer base {
-    h1 {
-        @apply text-6xl;
-    }
 
-    h2 {
-        @apply text-5xl;
-    }
-
-    h3 {
-        @apply text-4xl;
-    }
-
-    h4 {
-        @apply text-3xl;
-    }
-
-    h5 {
-        @apply text-2xl;
-    }
-
-    h6 {
-        @apply text-xl;
-    }
-
-}
-
-a {
-    @apply   hover:no-underline hover:text-[#000] visited:text-[#000]
- }
-
- img, video {
-    max-width: 100%;
-    height: 100%;
-}

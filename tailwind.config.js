@@ -5,7 +5,14 @@ module.exports = {
         "./pages/components/**/*.{js,ts,jsx,tsx}", 
          ],
   theme: {
-         extend: {},
+         extend: {
+                fontFamily: {
+                  'sans': ['Plus Jakarta Sans', 'ui-sans-serif', 'system-ui'],
+                  'serif': ['Plus Jakarta Display', 'ui-serif', 'Georgia'],
+                  'mono': ['Plus Jakarta Mono', 'ui-monospace', 'SFMono-Regular'],
+                },
+
+         },
          },  
   plugins: [], 
 }

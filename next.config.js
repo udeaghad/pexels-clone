@@ -9,6 +9,10 @@ const nextConfig = {
 
   //   return config
   // },
+  images: {
+    domains: ['images.pexels.com'],
+  },
+
 }
 
 module.exports = nextConfig
