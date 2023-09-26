@@ -110,11 +110,11 @@ const HeroSection = () => {
 
       </div>  
 
-      <div className="bg-black w-full h-[100vh] fixed top-0 bottom-0 left-0 right-0 z-5 overflow-auto" style={{display: open ? "block" : "none"}}>
+      <div className="bg-black w-full h-[100vh] absolute top-0 bottom-0 left-0 right-0 z-5 overflow-auto" style={{display: open ? "block" : "none"}}>
 
-        <div className="border-t w-full mt-20 border-gray-800"/>
+        <div className="w-full border-b h-20 border-gray-800 bg-black fixed"/>
 
-        <div className="flex flex-col justify-start items-start gap-5 mt-10 mx-5 border-b pb-10 border-gray-800">
+        <div className="flex flex-col justify-start items-start gap-5 mt-28 mx-5 border-b pb-10 border-gray-800">
           {navItems1.map((item, i) => (
             <div key={i} className="text-white text-xl font-medium cursor-pointer hover:text-gray-500">
               <span>{item.name}</span>
