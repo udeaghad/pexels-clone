@@ -113,6 +113,14 @@ const socialMediaItems = [
             </div>
           ))}
         </div>
+
+        <div className="flex flex-col justify-start items-start gap-5 mt-10 mx-5 border-b pb-10 border-gray-800">
+          {navItems3.map((item, i) => (
+            <div key={i} className="text-white text-xl font-medium cursor-pointer hover:text-gray-500">
+              <span>{item.name}</span>
+            </div>
+          ))}
+        </div>
         
         
       </div>    
