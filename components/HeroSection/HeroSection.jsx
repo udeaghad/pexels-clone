@@ -66,7 +66,7 @@ const HeroSection = () => {
 
 
   return (
-    <div className="bg-[url('https://images.pexels.com/photos/17928278/pexels-photo-17928278.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=500&w=1500')] w-full bg-center bg-cover bg-no-repeat relative"> 
+    <div className="bg-[url('https://images.pexels.com/photos/17928278/pexels-photo-17928278.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=500&w=1500')] w-full bg-center bg-cover bg-no-repeat relative bg-blend-darken opacity-80"> 
       <div className="flex justify-between items-center gap-3 p-4 w-full">
         <div className="z-10">
           <Image src="/images/logo.png" alt="hero" width={50} height={50} className="rounded-md"/>
