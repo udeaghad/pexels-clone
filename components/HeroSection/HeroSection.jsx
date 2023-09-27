@@ -110,11 +110,24 @@ const HeroSection = () => {
 
       </div> 
 
-      <div className="p-3 mt-10">
+      <div className="p-5 mt-10">
         <p className="text-white text-4xl font-bold leading-tight">
           The best free stock photos, royal free images & videos shared by creators.
         </p>
       </div> 
+
+      <div className="bg-white flex justify-between items-center rounded-md px-2 py-1 gap-1 mx-5" >
+        <div className="flex justify-center items-center bg-gray-100 rounded-md border border-gray-400 p-2">
+          <BiImageAlt className="text-3xl text-gray-500"/>
+          <MdOutlineKeyboardArrowUp className="text-2xl text-gray-500"/>
+        </div>
+        <div >
+          <input type="text"  placeholder="Search for free photos" className="px-2 py-3 text-xl font-medium outline-2 w-full" />
+        </div>
+        <div>
+          <HiOutlineSearch className="text-xl text-gray-400"/>
+        </div>
+      </div>
 
       <div className="bg-black w-full h-[100vh] absolute top-0 bottom-0 left-0 right-0 z-5 overflow-auto" style={{display: open ? "block" : "none"}}>
 
