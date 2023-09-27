@@ -80,7 +80,7 @@ const HeroSection = () => {
             </div>
 
             <div className="p-1" onClick={() => setOpen(true)}>
-              <HiOutlineMenu className="text-white text-2xl font-bold"/>
+              <HiOutlineMenu className="text-white text-3xl"/>
             </div>
           </div>
         )}
@@ -135,7 +135,11 @@ const HeroSection = () => {
         </span> 
         <span className="text-white w-full whitespace-nowrap overflow-hidden">smoke, time, team, pattern, data {' '} </span>
         <HiDotsCircleHorizontal className="text-gray-300 text-5xl"/>
-          
+      </div>
+
+      <div className="text-lg text-slate-200 font-medium text-right mx-5">
+        <span className="text-gray-400">Photo by </span>
+        <span>Dang vu hai</span>
       </div>
 
       <div className="bg-black w-full h-[100vh] absolute top-0 bottom-0 left-0 right-0 z-5 overflow-auto" style={{display: open ? "block" : "none"}}>
