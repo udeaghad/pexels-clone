@@ -25,7 +25,8 @@
     "react-dom": "18.2.0",
     "react-icon": "^1.0.0",
     "react-icons": "^4.7.1",
-    "rsuite": "^5.26.0"
+    "rsuite": "^5.26.0",
+    "tailwind-scrollbar-hide": "^1.1.7"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",

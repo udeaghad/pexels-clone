@@ -7,66 +7,16 @@ import { HiOutlineSearch } from "react-icons/hi";
 import { BiImageAlt } from "react-icons/bi";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { IoClose } from "react-icons/io5";
-import { RiFacebookFill } from "react-icons/ri";
-import { FaTwitter } from "react-icons/fa";
-import {BsInstagram} from "react-icons/bs";
-import { FaPinterestP } from "react-icons/fa";
 import { HiDotsCircleHorizontal } from "react-icons/hi";
-import { AiOutlineYoutube } from "react-icons/ai";
-
-const navItems1 = [
-  {name: "Home", link: "#"},
-  {name: "Discover Photos", link: "#"},
-  {name: "Popular Searches", link: "#"},
-  {name: "Free Videos", link: "#"},
-  {name: "Challenges", link: "#"},
-  {name: "Leaderboard", link: "#"},
-  {name: "Pexels Blog", link: "#"},
-]
-
-const navItems2 = [
-{name: "Login", link: "#"},
-{name: "Join", link: "#"},
-{name: "Change Languge", link: "#"},
-{name: "Licence", link: "#"},
-]
-
-const navItems3 = [
-{name: "Apps & Plugins", link: "#"},
-{name: "FAQ", link: "#"},
-{name: "About Us", link: "#"},
-{name: "Imprint & Terms", link: "#"},
-]
-
-const socialMediaItems = [
-{name: "Facebook", link: "#", icon: RiFacebookFill},
-{name: "Twitter", link: "#", icon: FaTwitter},
-{name: "Instagram", link: "#", icon: BsInstagram},
-{name: "Pinterest", link: "#", icon: FaPinterestP},
-{name: "Youtube", link: "#", icon: AiOutlineYoutube},
+import Modal from "../Modal/Modal";
 
 
-]
-
-const RenderSocialMedia = () => {
-  return (
-    <div className="flex justify-between items-center mt-7 mx-5 border-b pb-7 border-gray-800">
-      {socialMediaItems.map((item, i) => (
-        <div key={i} className="text-white text-xl font-medium cursor-pointer hover:text-gray-500">
-          <item.icon className="text-3xl"/>
-        </div>
-      ))}
-    </div>
-  )
-}
 
 const HeroSection = () => {
   const [ open, setOpen ] = useState(false);
 
-
-
   return (
-    <div className="bg-[url('https://images.pexels.com/photos/17928278/pexels-photo-17928278.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=500&w=1500')] w-full bg-center bg-cover bg-no-repeat relative bg-blend-darken opacity-80"> 
+    <div className="bg-[url('https://images.pexels.com/photos/17928278/pexels-photo-17928278.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=500&w=1500')] w-full bg-center bg-cover bg-no-repeat relative"> 
       <div className="flex justify-between items-center gap-3 p-4 w-full">
         <div className="z-10">
           <Image src="/images/logo.png" alt="hero" width={50} height={50} className="rounded-md"/>
@@ -111,7 +61,7 @@ const HeroSection = () => {
       </div> 
 
       <div className="p-5 mt-10">
-        <p className="text-white text-4xl font-bold leading-tight">
+        <p className="text-white text-4xl font-medium leading-tight">
           The best free stock photos, royal free images & videos shared by creators.
         </p>
       </div>       
@@ -142,40 +92,9 @@ const HeroSection = () => {
         <span>Dang vu hai</span>
       </div>
 
-      <div className="bg-black w-full h-[100vh] absolute top-0 bottom-0 left-0 right-0 z-5 overflow-auto" style={{display: open ? "block" : "none"}}>
+      <Modal open={open} />
 
-        <div className="w-full border-b h-20 border-gray-800 bg-black fixed"/>
-
-        <div className="flex flex-col justify-start items-start gap-5 mt-28 mx-5 border-b pb-10 border-gray-800">
-          {navItems1.map((item, i) => (
-            <div key={i} className="text-white text-xl font-medium cursor-pointer hover:text-gray-500">
-              <span>{item.name}</span>
-            </div>
-          ))}
-        </div>
-
-        <div className="flex flex-col justify-start items-start gap-5 mt-10 mx-5 border-b pb-10 border-gray-800">
-          {navItems2.map((item, i) => (
-            <div key={i} className="text-white text-xl font-medium cursor-pointer hover:text-gray-500">
-              <span>{item.name}</span>
-            </div>
-          ))}
-        </div>
-
-        <div className="flex flex-col justify-start items-start gap-5 mt-10 mx-5 pb-10">
-          {navItems3.map((item, i) => (
-            <div key={i} className="text-white text-xl font-medium cursor-pointer hover:text-gray-500">
-              <span>{item.name}</span>
-            </div>
-          ))}
-        </div> 
-
-        <div className="border-t w-full border-gray-800"/>
-
-       
-        <RenderSocialMedia />     
         
-      </div>    
     </div>
   )
 }
