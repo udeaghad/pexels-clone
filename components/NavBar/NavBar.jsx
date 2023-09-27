@@ -32,7 +32,7 @@ const Navbar = () => {
 
   return (
    <nav className="relative flex justify-between items-center w-full mt-5 ml-0">
-    <div className="absolute bg-gradient-to-r w-16 h-16 from-white flex items-center">
+    <div className="absolute bg-gradient-to-r w-16 h-16 from-white flex justify-start items-center">
       <MdKeyboardArrowLeft size={30} className="text-gray-900 opacity-50 bg-[inherit] bg-blend-lighten" onClick={slideLeft}/>
 
     </div>
@@ -44,7 +44,10 @@ const Navbar = () => {
 
       ))}
     </div>
-    <MdKeyboardArrowRight size={30} className="text-gray-500" onClick={slideRight}/>
+    <div className="absolute bg-gradient-to-l w-16 h-16 from-white flex justify-end items-center right-0">
+      <MdKeyboardArrowRight size={30} className="text-gray-900 opacity-50 bg-[inherit] bg-blend-lighten" onClick={slideRight}/>
+
+    </div>
    </nav>
   )
 }
