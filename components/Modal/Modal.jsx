@@ -51,7 +51,7 @@ const RenderSocialMedia = () => {
 }
 
 
-const Modal = ({open, setOpen}) => {
+const Modal = ({open}) => {
   return (
     <div className="bg-black w-full h-[100vh] absolute top-0 bottom-0 left-0 right-0 z-5 overflow-auto" style={{display: open ? "block" : "none"}}>
 

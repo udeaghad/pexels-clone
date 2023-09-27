@@ -7,12 +7,12 @@ const Navbar = () => {
   const { ref: start, inView: startView} = useInView();
   const { ref: end, inView: endView} = useInView();
 
-console.log({ startView, endView})
-
   const slideLeft = () => {
     const slider = document.getElementById('slider');
     slider.scrollLeft = slider.scrollLeft - 100;
   };
+
+
 
   const slideRight = () => {
     const slider = document.getElementById('slider');
