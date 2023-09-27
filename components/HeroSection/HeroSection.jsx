@@ -108,7 +108,13 @@ const HeroSection = () => {
         )}
 
 
-      </div>  
+      </div> 
+
+      <div className="p-3 mt-10">
+        <p className="text-white text-4xl font-bold leading-tight">
+          The best free stock photos, royal free images & videos shared by creators.
+        </p>
+      </div> 
 
       <div className="bg-black w-full h-[100vh] absolute top-0 bottom-0 left-0 right-0 z-5 overflow-auto" style={{display: open ? "block" : "none"}}>
 
