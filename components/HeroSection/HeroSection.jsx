@@ -8,16 +8,19 @@ import { HiDotsCircleHorizontal } from "react-icons/hi";
 import Modal from "../Modal/Modal";
 import MobileNavBar from "../MobileNavBar/MobileNavBar";
 import Navbar from "../NavBar/NavBar";
-
+import { useInView } from 'react-intersection-observer';
 
 
 const HeroSection = () => {
   const [ open, setOpen ] = useState(false);
 
-  return (
-    <div>
+  const { ref, inView} = useInView();
 
-      <div className="bg-[url('https://images.pexels.com/photos/17928278/pexels-photo-17928278.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=500&w=1500')] w-full bg-center bg-cover bg-no-repeat relative pb-5"> 
+  console.log(inView);
+
+  return (
+    <div className="relative">
+      <div ref={ref} className="bg-[url('https://images.pexels.com/photos/17928278/pexels-photo-17928278.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=500&w=1500')] w-full bg-center bg-cover bg-no-repeat relative pb-5"> 
         <MobileNavBar open={open} setOpen={setOpen} showCloseBtn={true} />
 
         <div className="p-5 mt-10">
@@ -52,13 +55,25 @@ const HeroSection = () => {
           <span>Dang vu hai</span>
         </div>
 
-        <Modal open={open} />
       </div>
 
-      <Navbar />
+      <Modal open={open} />
 
-      <MobileNavBar open={true} setOpen={setOpen} showHamburger={true} showCloseBtn={false}/>
+      {inView && (
+        <div>
+          <Navbar />
+        </div>
+      )}
+
+
+      <div style={{display: inView ? "none" : "block", top:0, position: "fixed"}}>
+        <MobileNavBar open={true} setOpen={setOpen} showHamburger={true} showCloseBtn={false}/>
+      </div>
+
     </div>
+
+
+
   )
 }
 

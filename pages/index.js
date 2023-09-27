@@ -21,6 +21,8 @@ export default function Home() {
         {/* <MobileNavBar open={true} showHamburger={true} showCloseBtn={false}/> */}
 
         <div className='border-b m-5 border-slate-100' />
+
+        <div className='h-[1200px] bg-white'/>
         
       </main>
       
