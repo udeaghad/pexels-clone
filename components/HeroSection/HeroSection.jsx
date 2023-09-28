@@ -95,7 +95,7 @@ const HeroSection = () => {
           </div>
 
           <div className="p-1" onClick={() => setOpen(true)}>
-            <HiOutlineMenu color="black" size={30}/>
+            <HiOutlineMenu color="black" size={30} enableBackground={"white"}/>
           </div>
         </div>
       </div>

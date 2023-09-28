@@ -17,10 +17,7 @@ export default function Home() {
         
         <HeroSection />
 
-        {/* <Navbar /> */}
-
-        {/* <MobileNavBar open={true} showHamburger={true} showCloseBtn={false}/> */}
-
+        
         <div className='border-b m-5 border-slate-100' />
 
         <Trending />
