@@ -76,7 +76,7 @@ const HeroSection = () => {
 
       <div style={{display: inView ? "none" : "block", top:0, position: "fixed"}}>
         {/* <MobileNavBar open={open} setOpen={setOpen} showHamburger={true} showCloseBtn={false}/> */}
-        <div className="flex justify-between items-center mt-5 px-3 gap-2">
+        <div className="flex justify-between items-center  p-5 gap-2 bg-white">
           <div>
             <Image src="/images/logo.png" alt="hero" width={50} height={50} className="rounded-md"/>
           </div>
