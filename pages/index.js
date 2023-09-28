@@ -1,10 +1,22 @@
 import Head from 'next/head';
 import HeroSection from '../components/HeroSection/HeroSection';
-import Navbar from '../components/NavBar/NavBar';
-import MobileNavBar from '../components/MobileNavBar/MobileNavBar';
 import Trending from '../components/Trending/Trending';
+import axios from 'axios';
+import { useQuery } from '@tanstack/react-query'
 
 export default function Home() {
+  const { data, isLoading, isError} = useQuery({
+    queryKey: ['photos'],
+    queryFn: async() => {
+      const res = await axios.get('https://api.pexels.com/v1/curated?per_page=20&page=1', {
+        headers: {
+          Authorization: process.env.NEXT_PUBLIC_PEXELS_API_KEY
+        }
+      })
+      
+      return res.data
+    }    
+  })
   return (
     <div>
       <Head>
