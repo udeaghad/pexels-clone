@@ -9,14 +9,14 @@ const Navbar = () => {
 
   const slideLeft = () => {
     const slider = document.getElementById('slider');
-    slider.scrollLeft = slider.scrollLeft - 100;
+    slider.scrollLeft = slider.scrollLeft - 50;
   };
 
 
 
   const slideRight = () => {
     const slider = document.getElementById('slider');
-    slider.scrollLeft = slider.scrollLeft + 100;
+    slider.scrollLeft = slider.scrollLeft + 50;
   }
 
   return (

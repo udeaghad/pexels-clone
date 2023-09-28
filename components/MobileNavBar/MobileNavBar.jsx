@@ -20,7 +20,7 @@ const MobileNavBar = ({open, setOpen, showHamburger, showCloseBtn}) => {
           </div>
 
           <div className="p-1" onClick={() => setOpen(true)}>
-            <HiOutlineMenu className="text-white text-3xl"/>
+            <HiOutlineMenu color="white" size={30}/>
           </div>
         </div>
       )}
@@ -42,11 +42,11 @@ const MobileNavBar = ({open, setOpen, showHamburger, showCloseBtn}) => {
             </div>
           </div>
 
-          { showCloseBtn && (
+         
             <div onClick={() => setOpen(false)}>
               <IoClose className="text-white text-2xl font-bold"/>
             </div>
-          )}
+          
 
 
           { showHamburger && (
