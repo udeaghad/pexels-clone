@@ -37,7 +37,7 @@ const Trending = () => {
   }
   
   return (
-    <div className="mt-20 flex flex-col justify-start items-start px-5 w-full">
+    <div className="mt-20 mb-5 flex flex-col justify-start items-start px-5 w-full">
       <div className='flex justify-between items-center w-full'>
         <div className="text-2xl text-gray-800">
           <h4>Free Stock Photos</h4>
