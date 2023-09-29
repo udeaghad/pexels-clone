@@ -1,10 +1,8 @@
-import { create } from 'zustand';
+import { create } from 'zustand'
 
 const store = (set) => ({
   photos: [],
-  addPhotos: (photos) => set((state) => ({ photos: [...state.photos, ...photos] })),
+  addPhotos: (photoList) => set((state) => ({ photos: [...state.photos, ...photoList] })),
 });
 
-const useStore = create(store);
-
-export default useStore;
+export const useStore = create(store);

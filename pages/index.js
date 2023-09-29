@@ -1,11 +1,17 @@
+"use client" 
+
 import Head from 'next/head';
 import HeroSection from '../components/HeroSection/HeroSection';
 import Trending from '../components/Trending/Trending';
 import axios from 'axios';
-import { useQuery } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query';
+import { useStore } from '../store';
+import { useEffect } from 'react';
 
 export default function Home() {
-  const { data, isLoading, isError} = useQuery({
+  const addPhotos = useStore(state => state.addPhotos)
+
+  const { data: getPhotos, isLoading, isError} = useQuery({
     queryKey: ['photos'],
     queryFn: async() => {
       const res = await axios.get('https://api.pexels.com/v1/curated?per_page=20&page=1', {
@@ -17,6 +23,14 @@ export default function Home() {
       return res.data
     }    
   })
+  
+  useEffect(() => {
+    
+    if(getPhotos) {
+      addPhotos(getPhotos.photos)
+    }
+  }, [getPhotos])
+
   return (
     <div>
       <Head>
@@ -27,7 +41,7 @@ export default function Home() {
 
       <main> 
         
-        <HeroSection />
+        {/* <HeroSection /> */}
 
         
         <div className='border-b m-5 border-slate-100' />
