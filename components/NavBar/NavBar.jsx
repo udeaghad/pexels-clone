@@ -1,6 +1,6 @@
 import { useInView } from 'react-intersection-observer';
 import Link from "next/link";
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight, MdOutlineKeyboardArrowLeft } from "react-icons/md";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
 
 const Navbar = () => {

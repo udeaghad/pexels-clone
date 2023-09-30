@@ -2,12 +2,31 @@ import { IoClose } from "react-icons/io5";
 import { BsBookmarks, BsInfoCircleFill } from "react-icons/bs";
 import { BiHeart } from "react-icons/bi";
 import { IoIosArrowDown, IoIosCheckmarkCircle } from "react-icons/io";
-import { MdLocationOn, MdLaunch } from "react-icons/md";
+import { MdLocationOn, MdLaunch, MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
+import { AiOutlineUserAdd } from "react-icons/ai";
+import { useInView } from 'react-intersection-observer';
 import Image from "next/image";
+import Link from "next/link";
 
 const PhotoModal = ({open, photo}) => {
+
+  const { ref: start, inView: startView} = useInView();
+  const { ref: end, inView: endView} = useInView();
+
+  const slideLeft = () => {
+    const slider = document.getElementById('slider');
+    slider.scrollLeft = slider.scrollLeft - 50;
+  };
+
+
+
+  const slideRight = () => {
+    const slider = document.getElementById('slider');
+    slider.scrollLeft = slider.scrollLeft + 50;
+  }
+
   return (
-    <div className="w-full h-[100vh] fixed top-0 bottom-0 left-0 right-0 overflow-auto z-50" style={{display: open ? "block" : "none"}}>
+    <div className=" h-[100vh] fixed top-0 bottom-0 left-0 right-0 overflow-auto z-50" style={{display: open ? "block" : "none"}}>
       <div className="bg-black opacity-90">
         <div className="flex justify-start items-center">
           <IoClose size={40} className="text-white mx-3 cursor-pointer my-2"/>
@@ -67,10 +86,117 @@ const PhotoModal = ({open, photo}) => {
             </div>
             <div className="border flex py-2 px-5 rounded w-fit border-gray-400">
               <MdLaunch size={20} className="text-gray-400"/>
-
             </div>
           </div>
         </div>
+
+        <div  className="m-3 border-b border-gray-100"/>
+
+        <div className="flex justify-between items-center">
+          <div className="flex justify-start items-center gap-1">
+            <div className="w-16 h-16 rounded-full border bg-red-300">
+
+            </div>
+
+            <h5 className="text-lg text-gray-700">Efe Ersoy</h5>
+
+          </div>
+
+          <div className="flex gap-3">
+            <div className="border rounded-md p-3 border-gray-300 w-fit">
+              <AiOutlineUserAdd size={25} className="text-gray-500"/>
+            </div>
+            <div className="border border-gray-800 bg-gray-800 text-white text-lg px-8 w-fit cursor-pointer rounded-xl flex justify-center items-center">
+              <span>Donate</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="mx-5 mt-10 mb-5">
+          <h1 className="text-3xl text-gray-800">More like this</h1>
+        </div>
+
+        <nav className="relative flex justify-between items-center w-full mt-5 ml-0">
+          <div className="absolute bg-gradient-to-r w-12 h-16 from-white justify-start items-center" style={{display: startView && !endView ? "none" : startView && !endView ? "flex" : "flex"}}>
+            <MdKeyboardArrowLeft size={30} className="text-gray-900 opacity-50 bg-[inherit] bg-blend-lighten" onClick={slideLeft}/>
+
+          </div>
+
+          <div id="slider" className="w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide px-5 flex gap-2">
+            <span className="py-2 px-5 text-lg border rounded-md hover:text-slate-200 hover:bg-black cursor-pointer inline-block border-gray-300">
+              <Link href="#" ref={start}>
+                35mm
+              </Link>
+            </span>
+
+            <span className="py-2 px-5 text-lg border rounded-md hover:text-slate-200 hover:bg-black cursor-pointer inline-block border-gray-300">
+              <Link href="#">
+                35mm Camera
+              </Link>
+            </span>
+
+            <span className="py-2 px-5 text-lg border rounded-md hover:text-slate-200 hover:bg-black cursor-pointer inline-block border-gray-300">
+              <Link href="#">
+                35mm Film
+              </Link>
+            </span>
+
+            <span className="py-2 px-5 text-lg border rounded-md hover:text-slate-200 hover:bg-black cursor-pointer inline-block border-gray-300">
+              <Link href="#">
+                Beautiful
+              </Link>
+            </span>
+
+            <span className="py-2 px-5 text-lg border rounded-md hover:text-slate-200 hover:bg-black cursor-pointer inline-block border-gray-300">
+              <Link href="#">
+                Botanic Garden
+              </Link>
+            </span>
+
+            <span className="py-2 px-5 text-lg border rounded-md hover:text-slate-200 hover:bg-black cursor-pointer inline-block border-gray-300">
+              <Link href="#">
+                Film Photo
+              </Link>
+            </span>
+
+            <span className="py-2 px-5 text-lg border rounded-md hover:text-slate-200 hover:bg-black cursor-pointer inline-block border-gray-300">
+              <Link href="#">
+                Film Photography
+              </Link>
+            </span>
+
+            <span className="py-2 px-5 text-lg border rounded-md hover:text-slate-200 hover:bg-black cursor-pointer inline-block border-gray-300">
+              <Link href="#">
+                Kodak
+              </Link>
+            </span>
+
+            <span className="py-2 px-5 text-lg border rounded-md hover:text-slate-200 hover:bg-black cursor-pointer inline-block border-gray-300">
+              <Link href="#">
+                Leisure
+              </Link>
+            </span>
+
+            <span className="py-2 px-5 text-lg border rounded-md hover:text-slate-200 hover:bg-black cursor-pointer inline-block border-gray-300">
+              <Link href="#">
+                Lomography
+              </Link>
+            </span>
+
+            <span className="py-2 px-5 text-lg border rounded-md hover:text-slate-200 hover:bg-black cursor-pointer inline-block border-gray-300">
+              <Link href="#" ref={end}>
+                Photo grain
+              </Link>
+            </span>
+          </div>
+          
+
+          
+          <div className="absolute bg-gradient-to-l w-12 h-16 from-white justify-end items-center right-0" style={{display: !startView && endView ? "none" : startView && endView ? "flex": "flex"}}>
+            <MdKeyboardArrowRight size={30} className="text-gray-900 opacity-50 bg-[inherit] bg-blend-lighten" onClick={slideRight}/>
+
+          </div>
+        </nav>
       </div>
 
     </div>
