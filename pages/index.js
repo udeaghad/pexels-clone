@@ -58,6 +58,17 @@ export default function Home() {
       fetchMoreData(url)
     }
   }, [inView, url])
+
+  const [openModal, setOpenModal] = useState(false)
+
+  const handleOpenModal = (photo) => {
+    console.log(photo)
+    setOpenModal(true)
+  }
+
+  const handleCloseModal = () => {
+    setOpenModal(false)
+  }
   
 
   return (
@@ -73,10 +84,10 @@ export default function Home() {
 
           <Trending text="Free Stock Photos"/>    
 
-          <Photos photos={photos} setInView={setInView} />
+          <Photos photos={photos} setInView={setInView} handleOpenModal={handleOpenModal}/>
 
           <div className="relative">
-            <PhotoModal open={true} />
+            <PhotoModal open={openModal} handleCloseModal={handleCloseModal}/>
           </div>
 
         

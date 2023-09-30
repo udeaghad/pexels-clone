@@ -8,7 +8,7 @@ import { useInView } from 'react-intersection-observer';
 import Image from "next/image";
 import Link from "next/link";
 
-const PhotoModal = ({open, photo}) => {
+const PhotoModal = ({open, photo, handleCloseModal}) => {
 
   const { ref: start, inView: startView} = useInView();
   const { ref: end, inView: endView} = useInView();
@@ -28,7 +28,7 @@ const PhotoModal = ({open, photo}) => {
   return (
     <div className=" h-[100vh] fixed top-0 bottom-0 left-0 right-0 overflow-auto z-50" style={{display: open ? "block" : "none"}}>
       <div className="bg-black opacity-90">
-        <div className="flex justify-start items-center">
+        <div className="flex justify-start items-center"  onClick={() => handleCloseModal()}>
           <IoClose size={40} className="text-white mx-3 cursor-pointer my-2"/>
         </div>
       </div>
@@ -94,7 +94,7 @@ const PhotoModal = ({open, photo}) => {
 
         <div className="flex justify-between items-center">
           <div className="flex justify-start items-center gap-1">
-            <div className="w-16 h-16 rounded-full border bg-red-300">
+            <div className="w-14 h-14 rounded-full border bg-red-300">
 
             </div>
 
@@ -102,8 +102,8 @@ const PhotoModal = ({open, photo}) => {
 
           </div>
 
-          <div className="flex gap-3">
-            <div className="border rounded-md p-3 border-gray-300 w-fit">
+          <div className="flex gap-3 h-10">
+            <div className=" flex justify-center items-center border rounded-md p-2 border-gray-300 w-fit">
               <AiOutlineUserAdd size={25} className="text-gray-500"/>
             </div>
             <div className="border border-gray-800 bg-gray-800 text-white text-lg px-8 w-fit cursor-pointer rounded-xl flex justify-center items-center">
@@ -113,7 +113,7 @@ const PhotoModal = ({open, photo}) => {
         </div>
 
         <div className="mx-5 mt-10 mb-5">
-          <h1 className="text-3xl text-gray-800">More like this</h1>
+          <h1 className="text-3xl text-gray-800 font-semibold">More like this</h1>
         </div>
 
         <nav className="relative flex justify-between items-center w-full mt-5 ml-0">

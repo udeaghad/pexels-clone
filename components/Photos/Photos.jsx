@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import ReactLoading from 'react-loading';
 
 
-const Photos = ({photos, setInView}) => {
+const Photos = ({photos, setInView, handleOpenModal}) => {
 
   const { ref, inView} = useInView();
 
@@ -22,7 +22,7 @@ const Photos = ({photos, setInView}) => {
       >
         <Masonry >
           {photos.map((photo, i) => (
-            <div key={i} className="relative z-5 p-2">
+            <div key={i} className="relative z-5 p-2" onClick={() => handleOpenModal(photo)}>
               <img src={photo.src.medium} alt={photo.photographer} className="w-full h-full object-cover"/>
               <FiDownload size={25} className="absolute bottom-5 right-5 text-white cursor-pointer hover:text-gray-500"/>
             </div>

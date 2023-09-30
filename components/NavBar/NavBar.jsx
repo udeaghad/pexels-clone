@@ -34,7 +34,7 @@ const Navbar = () => {
       </span>
       
 
-      <span className="py-3 px-5 text-lg rounded-full hover:text-slate-200 hover:bg-black cursor-pointer inline-block font-semibold text-gray-500">
+      <span className="py-3 px-5 text-lg rounded-full hover:text-slate-200 hover:bg-black focus:bg-black active:bg-black cursor-pointer inline-block font-semibold text-gray-500">
         <Link href="/videos">
           Videos
         </Link>
