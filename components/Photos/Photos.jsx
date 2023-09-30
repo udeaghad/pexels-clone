@@ -14,10 +14,11 @@ const Photos = ({photos, setInView}) => {
   }, [inView])
 
   return (
-    <div>
+    <div className="px-2 absolute z-0 w-full mt-28">
 
       <ResponsiveMasonry
         columnsCountBreakPoints={{300: 2, 750: 3, 900: 4}}
+        
       >
         <Masonry >
           {photos.map((photo, i) => (
