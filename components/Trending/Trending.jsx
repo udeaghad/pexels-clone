@@ -56,8 +56,8 @@ const Trending = () => {
 
       <div className='hidden flex-col border rounded-md p-3 w-32 self-end mt-1' ref={trendingOptions} onClick={(e) => selectOptions(e)}>
         {opt.map((item, i) => (
-          <div className='flex flex-col gap-5'>
-            <div key={i} className="text-base font-medium cursor-pointer hover:text-gray-700 flex justify-between items-center gap-3" style={{color: item.selected ? "black" : "GrayText"}} onClick={() => handleSelect(i)}>
+          <div key={i}  className='flex flex-col gap-5'>
+            <div className="text-base font-medium cursor-pointer hover:text-gray-700 flex justify-between items-center gap-3" style={{color: item.selected ? "black" : "GrayText"}} onClick={() => handleSelect(i)}>
               <span>{item.item}</span>
               {item.selected && <GrCheckmark />}
             </div> 
