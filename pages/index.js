@@ -26,6 +26,7 @@ export default function Home() {
           Authorization: process.env.NEXT_PUBLIC_PEXELS_API_KEY
         }
       })
+      console.log(result.data)
 
       return result.data
     }
