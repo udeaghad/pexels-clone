@@ -14,15 +14,15 @@ const PhotoModal = ({open, photo}) => {
   const { ref: end, inView: endView} = useInView();
 
   const slideLeft = () => {
-    const slider = document.getElementById('slider');
-    slider.scrollLeft = slider.scrollLeft - 50;
+    const slider = document.getElementById('sliderBar');
+    slider.scrollLeft = slider.scrollLeft - 100;
   };
 
 
 
   const slideRight = () => {
-    const slider = document.getElementById('slider');
-    slider.scrollLeft = slider.scrollLeft + 50;
+    const slider = document.getElementById('sliderBar');
+    slider.scrollLeft = slider.scrollLeft + 100;
   }
 
   return (
@@ -117,12 +117,12 @@ const PhotoModal = ({open, photo}) => {
         </div>
 
         <nav className="relative flex justify-between items-center w-full mt-5 ml-0">
-          <div className="absolute bg-gradient-to-r w-12 h-16 from-white justify-start items-center" style={{display: startView && !endView ? "none" : startView && !endView ? "flex" : "flex"}}>
+          <div className="absolute bg-gradient-to-r w-12 h-16 from-white justify-start items-center" style={{display: startView && !endView ? "none" : !startView && !endView ? "flex" : "flex"}}>
             <MdKeyboardArrowLeft size={30} className="text-gray-900 opacity-50 bg-[inherit] bg-blend-lighten" onClick={slideLeft}/>
 
           </div>
 
-          <div id="slider" className="w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide px-5 flex gap-2">
+          <div id="sliderBar" className="w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide px-5 flex gap-2">
             <span className="py-2 px-5 text-lg border rounded-md hover:text-slate-200 hover:bg-black cursor-pointer inline-block border-gray-300">
               <Link href="#" ref={start}>
                 35mm
@@ -192,7 +192,7 @@ const PhotoModal = ({open, photo}) => {
           
 
           
-          <div className="absolute bg-gradient-to-l w-12 h-16 from-white justify-end items-center right-0" style={{display: !startView && endView ? "none" : startView && endView ? "flex": "flex"}}>
+          <div className="absolute bg-gradient-to-l w-12 h-16 from-white justify-end items-center right-0" style={{display: !startView && endView ? "none" : !startView && !endView ? "flex": "flex"}}>
             <MdKeyboardArrowRight size={30} className="text-gray-900 opacity-50 bg-[inherit] bg-blend-lighten" onClick={slideRight}/>
 
           </div>
