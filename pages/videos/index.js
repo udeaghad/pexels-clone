@@ -1,12 +1,11 @@
-"use client" 
-
 import Head from 'next/head';
-import Trending from '../components/Trending/Trending';
+import Trending from '../../components/Trending/Trending';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
-import { useStore } from '../store';
+import { useStore } from '../../store';
 import { useEffect, useState } from 'react';
-import Photos from '../components/Photos/Photos';
+import Videos from '../../components/Videos/Video';
+
 
 export default function Home() {
   const addPhotos = useStore(state => state.addPhotos)
@@ -62,16 +61,16 @@ export default function Home() {
     <div>
       <Head>
         <title>Pexels Clone</title>
-        <meta name="description" content="Cloning of Pexels website" />
+        <meta name="description" content="View your videos" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main> 
         <div className='border-b m-5 border-slate-100' />
 
-          <Trending text="Free Stock Photos"/>    
+          <Trending text="Free Stock Videos"/>    
 
-          <Photos photos={photos} setInView={setInView} />
+          <Videos Videos={videos} setInView={setInView}/>
         
       </main>
       

@@ -4,7 +4,7 @@ import React, { useState, useRef } from 'react'
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
 import { GrCheckmark } from 'react-icons/gr'
 
-const Trending = () => {
+const Trending = ({text}) => {
 
   const [opt, setOpt] = useState([{item: 'Trending', selected: true}, {item: 'new', selected: false}])
     
@@ -39,10 +39,10 @@ const Trending = () => {
   return (
     <div className='relative'>
 
-      <div className="mt-16 mb-5 flex flex-col justify-start items-start px-5 w-full absolute -z-0">
+      <div className="mt-16 mb-5 flex flex-col justify-start items-start px-5 w-full absolute -z-10">
         <div className='flex justify-between items-center w-full bg-white'>
           <div className="text-2xl text-gray-800">
-            <h4>Free Stock Photos</h4>
+            <h4>{text}</h4>
           </div>
 
         
