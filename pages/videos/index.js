@@ -62,7 +62,7 @@ export default function Home() {
       <Head>
         <title>Free 4K Stock Videos</title>
         <meta name="description" content="Free 4K Stock Videos" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/images/logo.png" />
       </Head>
 
       <main> 

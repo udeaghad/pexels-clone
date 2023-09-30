@@ -7,6 +7,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useStore } from '../store';
 import { useEffect, useState } from 'react';
 import Photos from '../components/Photos/Photos';
+import PhotoModal from '../components/PhotoModal/PhotoModal';
 
 export default function Home() {
   const addPhotos = useStore(state => state.addPhotos)
@@ -63,7 +64,7 @@ export default function Home() {
       <Head>
         <title>Free Stock Photos</title>
         <meta name="description" content="Free Stock Photos" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/images/logo.png" />
       </Head>
 
       <main> 
@@ -72,6 +73,11 @@ export default function Home() {
           <Trending text="Free Stock Photos"/>    
 
           <Photos photos={photos} setInView={setInView} />
+
+          <div className="relative">
+            <PhotoModal open={true} />
+          </div>
+
         
       </main>
       
