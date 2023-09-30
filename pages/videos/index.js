@@ -8,18 +8,18 @@ import Videos from '../../components/Videos/Video';
 
 
 export default function Home() {
-  const addPhotos = useStore(state => state.addPhotos)
+  const addVideos = useStore(state => state.addVideos)
 
-  const photos = useStore(state => state.photos)
+  const videos = useStore(state => state.videos)
 
   const [url, setUrl] = useState('')
 
   const [ inView, setInView ] = useState(true)
 
-  const {data: getPhotos} = useQuery({
-    queryKey: ['photos'],
+  const {data: getVideos} = useQuery({
+    queryKey: ['videos'],
     queryFn: async () => {
-      const result = await axios.get('https://api.pexels.com/v1/curated?per_page=20&page=1', {
+      const result = await axios.get("https://api.pexels.com/videos/popular?per_page=10", {
         headers: {
           Authorization: process.env.NEXT_PUBLIC_PEXELS_API_KEY
         }
@@ -29,23 +29,23 @@ export default function Home() {
     }
   })
 
-  useEffect(() => {
-    if(getPhotos) {
-      addPhotos(getPhotos.photos)
-      setUrl(getPhotos.next_page)
+  useEffect(() => {    
+    if(getVideos) {
+      addVideos(getVideos.videos)
+      setUrl(getVideos.next_page)
     }
-  }, [getPhotos])
+  }, [getVideos])
 
   const fetchMoreData = async(URL) => {
-    const getMorePhotos = await axios.get(URL, {
+    const getMoreVideos = await axios.get(URL, {
       headers: {
         Authorization: process.env.NEXT_PUBLIC_PEXELS_API_KEY
       }
     }).then(res => res.data)
 
-    if(getMorePhotos) {     
-      addPhotos(getMorePhotos.photos)
-      setUrl(getMorePhotos.next_page)
+    if(getMoreVideos) {     
+      addVideos(getMoreVideos.videos)
+      setUrl(getMoreVideos.next_page)
       setInView(false)
     }
   }
@@ -60,17 +60,17 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Pexels Clone</title>
-        <meta name="description" content="View your videos" />
+        <title>Free 4K Stock Videos</title>
+        <meta name="description" content="Free 4K Stock Videos" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main> 
         <div className='border-b m-5 border-slate-100' />
 
-          <Trending text="Free Stock Videos"/>    
+          <Trending text="Trending free stock videos"/>    
 
-          <Videos Videos={videos} setInView={setInView}/>
+          <Videos videos={videos} setInView={setInView}/>
         
       </main>
       

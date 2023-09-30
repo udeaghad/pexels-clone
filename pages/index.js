@@ -61,8 +61,8 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Pexels Clone</title>
-        <meta name="description" content="Cloning of Pexels website" />
+        <title>Free Stock Photos</title>
+        <meta name="description" content="Free Stock Photos" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
