@@ -12,7 +12,7 @@ import Link from "next/link";
 import { FiDownload } from "react-icons/fi";
 import Masonry, {ResponsiveMasonry} from "react-responsive-masonry";
 import { FaYoutube } from "react-icons/fa";
-import { useEffect } from "react";
+
 
 const VideoModal = ({ open, video, videos, handleCloseModal }) => {
   
