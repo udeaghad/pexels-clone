@@ -29,30 +29,31 @@ const HeroSection = () => {
         <div className="relative">
           <Modal open={open} />
         </div>
-        <div className="p-5 mt-10">
+        <div className="p-5 mt-10 sm:px-16">
           <p className="text-white text-4xl font-medium leading-tight">
             The best free stock photos, royal free images & videos shared by creators.
           </p>
         </div>       
 
-        <div className="bg-white flex justify-between items-center rounded-md px-2 py-1 gap-1 mx-5" >
-          <div className="flex justify-center items-center bg-gray-100 rounded-md border border-gray-400 p-1">
+        <div className="bg-white flex justify-start items-center rounded-md px-2 py-1 gap-1 mx-5 sm:mx-16" >
+          <div className="flex justify-center items-center bg-gray-100 rounded-md border border-gray-400 p-1 sm:gap-1">
             <BiImageAlt size={30} className="text-gray-500"/>
+            <span className="hidden sm:block">Photos</span>
             <MdOutlineKeyboardArrowDown size={20}className=" text-gray-500"/>
           </div>
-          <div >
-            <input type="text"  placeholder="Search for free photos" className="px-2 py-1 text-lg font-medium outline-2 w-full" />
+          <div className="flex w-full">
+            <input type="text"  placeholder="Search for free photos" className="px-2 py-1 text-lg font-medium outline-none w-full" />
           </div>
           <div>
-            <HiOutlineSearch  size={25} className="text-gray-400"/>
+            <HiOutlineSearch  size={25} className="text-gray-400 text-end"/>
           </div>
         </div>
 
-        <div className="flex justify-baseline items-center text-xl text-white font-bold mx-5 my-10 overflow-hidden gap-1">
+        <div className="flex justify-start items-center text-base text-white font-bold mx-5 my-10 gap-1">
           <span className="text-gray-300"> 
             Trending: 
           </span> 
-          <span className="text-white w-full whitespace-nowrap overflow-hidden">smoke, time, team, pattern, data {' '} </span>
+          <span className="text-white whitespace-nowrap overflow-hidden">smoke, time, team, pattern, data {' '} </span>
           <HiDotsCircleHorizontal className="text-gray-300 text-5xl"/>
         </div>
 
