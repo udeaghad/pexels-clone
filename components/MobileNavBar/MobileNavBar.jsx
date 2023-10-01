@@ -5,7 +5,7 @@ import { BiImageAlt } from "react-icons/bi";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { IoClose } from "react-icons/io5";
 
-const MobileNavBar = ({open, setOpen, showHamburger, showCloseBtn}) => {
+const MobileNavBar = ({open, setOpen, showHamburger}) => {
   return (
     <div className="flex justify-between items-center gap-3 p-4 w-full">
       <div className="z-10">

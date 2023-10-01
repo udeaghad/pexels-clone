@@ -54,7 +54,7 @@ const HeroSection = () => {
             Trending: 
           </span> 
           <span className="text-white whitespace-nowrap overflow-hidden">smoke, time, team, pattern, data {' '} </span>
-          <HiDotsCircleHorizontal className="text-gray-300 text-5xl"/>
+          <HiDotsCircleHorizontal size={20} className="text-gray-300"/>
         </div>
 
         <div className="text-lg text-slate-200 font-medium text-right mx-5">
@@ -75,29 +75,37 @@ const HeroSection = () => {
       )}
 
 
-      <div style={{display: inView ? "none" : "block", top:0, position: "fixed"}} className="z-50">
+      <div style={{display: inView ? "none" : "block", top:0, position: "fixed"}} className="z-50 w-full">
         
         <div className="flex justify-between items-center  p-5 gap-2 bg-white">
           <div>
             <Image src="/images/logo.png" alt="hero" width={50} height={50} className="rounded-md"/>
           </div>
 
-          <div className="bg-slate-100 flex justify-between items-center w-full rounded-md px-2 py-1 gap-1" >
+          <div className="bg-slate-100 flex justify-start items-center w-full rounded-md px-2 py-1 gap-1 sm:mr-10" >
             <div className="flex justify-center items-center">
               <BiImageAlt className="text-2xl text-gray-500"/>
+              <span className="hidden sm:block">Photos</span>
               <MdOutlineKeyboardArrowDown className="text-xl text-gray-500"/>
             </div>
-            <div >
-              <input type="text"  placeholder="Search for free photos" className="p-1 text-base font-medium outline-2 w-full border-l bg-slate-100" />
+            <div className="flex w-full">
+              <input type="text"  placeholder="Search for free photos" className="p-1 text-base font-medium outline-none w-full border-l bg-slate-100" />
             </div>
             <div>
               <HiOutlineSearch className="text-xl text-gray-400"/>
             </div>
           </div>
 
-          <div className="p-1" onClick={() => setOpen(true)}>
-            <HiOutlineMenu color="black" size={30} enableBackground={"white"}/>
+          <div className="flex justify-center items-center sm:gap-5">
+            <div className="text-lg font-sans px-5 py-2 rounded-md bg-white w-fit border border-[#05a081] bg-[#05a081] hidden sm:block">
+              <span>Join</span>
+            </div>
+            <div className="p-1" onClick={() => setOpen(true)}>
+              <HiOutlineMenu color="black" size={30} enableBackground={"white"}/>
+            </div>
+
           </div>
+
         </div>
       </div>
 
