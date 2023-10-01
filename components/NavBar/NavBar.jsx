@@ -21,12 +21,14 @@ const Navbar = () => {
 
   return (
    <nav className="relative flex justify-between items-center w-full mt-5 ml-0">
-    <div className="absolute bg-gradient-to-r w-12 h-16 from-white justify-start items-center" style={{display: startView && !endView ? "none" : !startView && !endView ? "flex" : "flex"}}>
-      <MdKeyboardArrowLeft size={30} className="text-gray-900 opacity-50 bg-[inherit] bg-blend-lighten" onClick={slideLeft}/>
-
+    <div className='flex justify-start items-center sm:hidden'>
+      <div className="absolute bg-gradient-to-r w-12 h-16 from-white justify-start items-center" style={{display: startView && !endView ? "none" : !startView && !endView ? "flex" : "flex"}}>
+        <MdKeyboardArrowLeft size={30} className="text-gray-900 opacity-50 bg-[inherit] bg-blend-lighten" onClick={slideLeft}/>
+      </div>
     </div>
 
-    <div id="slider" className="w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide px-5">
+
+    <div id="slider" className="w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide px-5 sm:flex justify-center items-center">
       <span className="py-3 px-5 text-lg rounded-full hover:text-slate-200 hover:bg-black cursor-pointer inline-block font-semibold text-gray-500">
         <Link href="/"ref={start}>
           Home
@@ -54,11 +56,12 @@ const Navbar = () => {
     </div>
      
 
-    
-    <div className="absolute bg-gradient-to-l w-12 h-16 from-white justify-end items-center right-0" style={{display: !startView && endView ? "none" : !startView && !endView ? "flex": "flex"}}>
-      <MdKeyboardArrowRight size={30} className="text-gray-900 opacity-50 bg-[inherit] bg-blend-lighten" onClick={slideRight}/>
-
+    <div className='flex justify-start items-center sm:hidden'>
+      <div className="absolute bg-gradient-to-l w-12 h-16 from-white justify-end items-center right-0" style={{display: !startView && endView ? "none" : !startView && !endView ? "flex": "flex"}}>
+        <MdKeyboardArrowRight size={30} className="text-gray-900 opacity-50 bg-[inherit] bg-blend-lighten" onClick={slideRight}/>
+      </div>
     </div>
+
    </nav>
   )
 }
