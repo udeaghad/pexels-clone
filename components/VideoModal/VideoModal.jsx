@@ -12,6 +12,7 @@ import Link from "next/link";
 import { FiDownload } from "react-icons/fi";
 import Masonry, {ResponsiveMasonry} from "react-responsive-masonry";
 import { FaYoutube } from "react-icons/fa";
+import { useEffect } from "react";
 
 const VideoModal = ({ open, video, videos, handleCloseModal }) => {
   
@@ -29,7 +30,6 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
     const slider = document.getElementById('sliderBar');
     slider.scrollLeft = slider.scrollLeft + 100;
   }
-
   
   return (
     <div className=" h-[100vh] fixed top-0 bottom-0 left-0 right-0 overflow-auto z-50" style={{display: open ? "block" : "none"}}>
@@ -61,21 +61,12 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
 
         </div>
 
-        {/* {video && (
+        {video && (
           <div className="mt-5">
-            <Image src={video.image} alt={ video.user.image} className="w-full h-full object-cover"/>
+            <video src={video.video_files[0].link} type={video.video_files[0].file_type} controls muted autoPlay className="w-full h-full object-cover"/>
           </div>
 
-        )} */}
-
-
-        <div className="mt-5 flex justify-center items-center gap-2 border border-gray-300 mx-3 p-2 rounded-lg">
-          <div>
-            <Image src="/images/canvas-logo.png" alt="canvass-logo" width={25} height={25} />
-          </div>
-          <span className="text-lg font-[500]">Edit in Canva</span>
-
-        </div>
+        )}        
 
         <div className="flex justify-between items-center m-4">
           <div>
@@ -104,8 +95,9 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
 
         <div className="flex justify-between items-center">
           <div className="flex justify-start items-center gap-1">
-            {/* { video && 
-              <div className={`w-14 h-14 rounded-full border`} style={{backgroundColor: video ? video.avg_color : "red"}}>
+            { video && 
+              <div className={`w-12 h-12 rounded-full border`} style={{backgroundColor: video ? video.avg_color : "red"}}>
+                <Image src={video.image} alt={ video.user.name} width={100} height={100} className="w-full h-full object-cover rounded-full"/>
                 
               </div>
               
@@ -113,8 +105,8 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
               }
 
             {video && 
-              <h5 className="text-lg text-gray-700">{video.photographer}</h5>
-            } */}
+              <h5 className="text-lg text-gray-700">{video.user.name}</h5>
+            }
 
           </div>
 
@@ -141,49 +133,25 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
           <div id="sliderBar" className="w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide px-5 flex gap-2">
             <span className="py-2 px-5 text-lg border rounded-md hover:text-slate-200 hover:bg-black cursor-pointer inline-block border-gray-300">
               <Link href="#" ref={start}>
-                35mm
+                Autumn
               </Link>
             </span>
 
             <span className="py-2 px-5 text-lg border rounded-md hover:text-slate-200 hover:bg-black cursor-pointer inline-block border-gray-300">
               <Link href="#">
-                35mm Camera
+                Bicycles
               </Link>
             </span>
 
             <span className="py-2 px-5 text-lg border rounded-md hover:text-slate-200 hover:bg-black cursor-pointer inline-block border-gray-300">
               <Link href="#">
-                35mm Film
+                Conversation
               </Link>
             </span>
 
             <span className="py-2 px-5 text-lg border rounded-md hover:text-slate-200 hover:bg-black cursor-pointer inline-block border-gray-300">
               <Link href="#">
-                Beautiful
-              </Link>
-            </span>
-
-            <span className="py-2 px-5 text-lg border rounded-md hover:text-slate-200 hover:bg-black cursor-pointer inline-block border-gray-300">
-              <Link href="#">
-                Botanic Garden
-              </Link>
-            </span>
-
-            <span className="py-2 px-5 text-lg border rounded-md hover:text-slate-200 hover:bg-black cursor-pointer inline-block border-gray-300">
-              <Link href="#">
-                Film Photo
-              </Link>
-            </span>
-
-            <span className="py-2 px-5 text-lg border rounded-md hover:text-slate-200 hover:bg-black cursor-pointer inline-block border-gray-300">
-              <Link href="#">
-                Film Photography
-              </Link>
-            </span>
-
-            <span className="py-2 px-5 text-lg border rounded-md hover:text-slate-200 hover:bg-black cursor-pointer inline-block border-gray-300">
-              <Link href="#">
-                Kodak
+                Fall
               </Link>
             </span>
 
@@ -195,13 +163,37 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
 
             <span className="py-2 px-5 text-lg border rounded-md hover:text-slate-200 hover:bg-black cursor-pointer inline-block border-gray-300">
               <Link href="#">
-                Lomography
+                Man
+              </Link>
+            </span>
+
+            <span className="py-2 px-5 text-lg border rounded-md hover:text-slate-200 hover:bg-black cursor-pointer inline-block border-gray-300">
+              <Link href="#">
+                Park
+              </Link>
+            </span>
+
+            <span className="py-2 px-5 text-lg border rounded-md hover:text-slate-200 hover:bg-black cursor-pointer inline-block border-gray-300">
+              <Link href="#">
+                Recreation
+              </Link>
+            </span>
+
+            <span className="py-2 px-5 text-lg border rounded-md hover:text-slate-200 hover:bg-black cursor-pointer inline-block border-gray-300">
+              <Link href="#">
+                Relaxation
+              </Link>
+            </span>
+
+            <span className="py-2 px-5 text-lg border rounded-md hover:text-slate-200 hover:bg-black cursor-pointer inline-block border-gray-300">
+              <Link href="#">
+                Ride
               </Link>
             </span>
 
             <span className="py-2 px-5 text-lg border rounded-md hover:text-slate-200 hover:bg-black cursor-pointer inline-block border-gray-300">
               <Link href="#" ref={end}>
-                Photo grain
+                Together
               </Link>
             </span>
           </div>
@@ -219,17 +211,17 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
           >
             <Masonry >
               <div>
-                {/* {video && videos.map((item, i) => { 
+                {video && videos.map((item, i) => { 
                   if (item.id !== video.id) {
                     return (
                       <div key={i} className="relative p-2">
-                        <Image src={item.image} alt={ item.user.image} className="w-full h-full object-cover"/>
+                        <Image src={item.image} alt={ item.user.name} width={item.width} height={item.height} className="w-full h-48 object-cover"/>
                         <FaYoutube size={30} className="absolute top-5 left-5 text-white cursor-pointer hover:text-gray-500"/>
                         <FiDownload size={25} className="absolute bottom-5 right-5 text-white cursor-pointer hover:text-gray-500"/>
 
                       </div>
                     )
-                }})} */}
+                }})}
               </div>
             </Masonry>
           </ResponsiveMasonry>

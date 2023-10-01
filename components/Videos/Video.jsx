@@ -14,12 +14,7 @@ const Videos = ({videos, setInView, handleOpenModal}) => {
       setInView(inView)    
   }, [inView])
 
-  useEffect(() => {
-    console.log(videos)
-  },  [videos])
-
-
-  return (
+   return (
     <div className="px-2 absolute -z-20 w-full mt-28">
 
       <ResponsiveMasonry

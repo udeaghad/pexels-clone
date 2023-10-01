@@ -30,10 +30,6 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
     slider.scrollLeft = slider.scrollLeft + 100;
   }
 
-  useEffect(() => {
-    console.log(photo)
-  }, [photo])
-
   return (
     <div className=" h-[100vh] fixed top-0 bottom-0 left-0 right-0 overflow-auto z-50" style={{display: open ? "block" : "none"}}>
       <div className="bg-black opacity-90">
@@ -109,7 +105,7 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
           <div className="flex justify-start items-center gap-1">
             { photo && 
               <div className={`w-14 h-14 rounded-full border`} style={{backgroundColor: photo ? photo.avg_color : "red"}}>
-                {/* <Image src={photo.photographer_url} alt={photo.alt} width={100} height={100} className="w-full h-full object-cover rounded-full"/> */}
+                <Image src={photo.photographer_url} alt={photo.photographer} width={100} height={100} className="w-full h-full object-cover rounded-full"/>
               </div>
               
 

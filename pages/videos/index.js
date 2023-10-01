@@ -61,7 +61,7 @@ export default function Home() {
 
   const [openModal, setOpenModal] = useState(false)
 
-  const handleOpenModal = (video) => {
+  const handleOpenModal = (video) => {   
     setVideoDetails(video)
     setOpenModal(true)
   }
@@ -86,7 +86,7 @@ export default function Home() {
 
           <Videos videos={videos} setInView={setInView} handleOpenModal={handleOpenModal}/>
 
-          {/* <VideoModal openModal={openModal} handleCloseModal={handleCloseModal} video={videoDetails} videos={videos}/> */}
+          <VideoModal open={openModal} handleCloseModal={handleCloseModal} video={videoDetails} videos={videos}/>
         
       </main>
       
