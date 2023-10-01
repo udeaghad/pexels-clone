@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useStore } from '../../store';
 import { useEffect, useState } from 'react';
 import Videos from '../../components/Videos/Video';
+import VideoModal from '../../components/VideoModal/VideoModal';
 
 
 export default function Home() {
@@ -55,6 +56,19 @@ export default function Home() {
       fetchMoreData(url)
     }
   }, [inView, url])
+
+  const [videoDetails, setVideoDetails ] = useState(null)
+
+  const [openModal, setOpenModal] = useState(false)
+
+  const handleOpenModal = (video) => {
+    setVideoDetails(video)
+    setOpenModal(true)
+  }
+
+  const handleCloseModal = () => {
+    setOpenModal(false)
+  }
   
 
   return (
@@ -70,7 +84,9 @@ export default function Home() {
 
           <Trending text="Trending free stock videos"/>    
 
-          <Videos videos={videos} setInView={setInView}/>
+          <Videos videos={videos} setInView={setInView} handleOpenModal={handleOpenModal}/>
+
+          {/* <VideoModal openModal={openModal} handleCloseModal={handleCloseModal} video={videoDetails} videos={videos}/> */}
         
       </main>
       

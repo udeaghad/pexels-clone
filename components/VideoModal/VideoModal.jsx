@@ -9,12 +9,12 @@ import { AiOutlineUserAdd } from "react-icons/ai";
 import { useInView } from 'react-intersection-observer';
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
-import Masonry, {ResponsiveMasonry} from "react-responsive-masonry";
 import { FiDownload } from "react-icons/fi";
+import Masonry, {ResponsiveMasonry} from "react-responsive-masonry";
+import { FaYoutube } from "react-icons/fa";
 
-const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
-
+const VideoModal = ({ open, video, videos, handleCloseModal }) => {
+  
   const { ref: start, inView: startView} = useInView();
   const { ref: end, inView: endView} = useInView();
 
@@ -30,10 +30,7 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
     slider.scrollLeft = slider.scrollLeft + 100;
   }
 
-  useEffect(() => {
-    console.log(photo)
-  }, [photo])
-
+  
   return (
     <div className=" h-[100vh] fixed top-0 bottom-0 left-0 right-0 overflow-auto z-50" style={{display: open ? "block" : "none"}}>
       <div className="bg-black opacity-90">
@@ -64,12 +61,12 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
 
         </div>
 
-        {photo && (
+        {/* {video && (
           <div className="mt-5">
-            <Image src={photo.src.original} alt={photo.photographer} width={100} height={100} className="w-full h-full object-cover"/>
+            <Image src={video.image} alt={ video.user.image} className="w-full h-full object-cover"/>
           </div>
 
-        )}
+        )} */}
 
 
         <div className="mt-5 flex justify-center items-center gap-2 border border-gray-300 mx-3 p-2 rounded-lg">
@@ -107,17 +104,17 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
 
         <div className="flex justify-between items-center">
           <div className="flex justify-start items-center gap-1">
-            { photo && 
-              <div className={`w-14 h-14 rounded-full border`} style={{backgroundColor: photo ? photo.avg_color : "red"}}>
-                {/* <Image src={photo.photographer_url} alt={photo.alt} width={100} height={100} className="w-full h-full object-cover rounded-full"/> */}
+            {/* { video && 
+              <div className={`w-14 h-14 rounded-full border`} style={{backgroundColor: video ? video.avg_color : "red"}}>
+                
               </div>
               
 
               }
 
-            {photo && 
-              <h5 className="text-lg text-gray-700">{photo.photographer}</h5>
-            }
+            {video && 
+              <h5 className="text-lg text-gray-700">{video.photographer}</h5>
+            } */}
 
           </div>
 
@@ -222,15 +219,17 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
           >
             <Masonry >
               <div>
-                {photo && photos.map((item, i) => { 
-                  if (item.id !== photo.id) {
+                {/* {video && videos.map((item, i) => { 
+                  if (item.id !== video.id) {
                     return (
-                      <div key={i} className="relative z-5 p-2">
-                        <Image src={item.src.medium} alt={item.photographer} width={50} height={50} className="w-full h-full object-cover"/>
+                      <div key={i} className="relative p-2">
+                        <Image src={item.image} alt={ item.user.image} className="w-full h-full object-cover"/>
+                        <FaYoutube size={30} className="absolute top-5 left-5 text-white cursor-pointer hover:text-gray-500"/>
                         <FiDownload size={25} className="absolute bottom-5 right-5 text-white cursor-pointer hover:text-gray-500"/>
+
                       </div>
                     )
-                }})}
+                }})} */}
               </div>
             </Masonry>
           </ResponsiveMasonry>
@@ -239,7 +238,7 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
       </div>
 
     </div>
-  )
+  );
 }
 
-export default PhotoModal
+export default VideoModal;
