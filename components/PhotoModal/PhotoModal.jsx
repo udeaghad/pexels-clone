@@ -1,3 +1,5 @@
+"use client"
+
 import { IoClose } from "react-icons/io5";
 import { BsBookmarks, BsInfoCircleFill } from "react-icons/bs";
 import { BiHeart } from "react-icons/bi";
@@ -7,8 +9,10 @@ import { AiOutlineUserAdd } from "react-icons/ai";
 import { useInView } from 'react-intersection-observer';
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
+import Masonry, {ResponsiveMasonry} from "react-responsive-masonry";
 
-const PhotoModal = ({open, photo, handleCloseModal}) => {
+const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
 
   const { ref: start, inView: startView} = useInView();
   const { ref: end, inView: endView} = useInView();
@@ -25,6 +29,10 @@ const PhotoModal = ({open, photo, handleCloseModal}) => {
     slider.scrollLeft = slider.scrollLeft + 100;
   }
 
+  useEffect(() => {
+    console.log({photos})
+  }, [photos])
+
   return (
     <div className=" h-[100vh] fixed top-0 bottom-0 left-0 right-0 overflow-auto z-50" style={{display: open ? "block" : "none"}}>
       <div className="bg-black opacity-90">
@@ -36,11 +44,11 @@ const PhotoModal = ({open, photo, handleCloseModal}) => {
       <div className="bg-white p-3 relative">
         <div className="w-full flex justify-between items-center">
           <div className="flex justify-center items-center gap-2">
-            <div className="border rounded-md p-3 border-gray-300">
-              <BsBookmarks size={20} color="gray"/>
+            <div className="border rounded-md p-2.5 border-gray-300">
+              <BsBookmarks size={16} color="gray"/>
             </div>
-            <div className="border rounded-md p-3 border-gray-300">
-              <BiHeart size={20} color="gray"/>
+            <div className="border rounded-md p-2.5 border-gray-300">
+              <BiHeart size={16} color="gray"/>
             </div>
           </div>
 
@@ -48,18 +56,22 @@ const PhotoModal = ({open, photo, handleCloseModal}) => {
             <div className="text-white text-lg ml-5">
               <span>Free download</span>
             </div>
-            <div className="p-2 border-l-2 border-[#04886e] hover:border-[#05a081] focus:border-[#05a081] active:border-[#05a081]">
+            <div className="p-1 border-l-2 border-[#04886e] hover:border-[#05a081] focus:border-[#05a081] active:border-[#05a081]">
               <IoIosArrowDown size={20} color="white" />
             </div>
           </div>
 
         </div>
 
-        <div className="bg-white h-24">
-          {/* <Image src={photo.url} alt={photo.alt} width={photo.width} height={photo.height} />  */}
-        </div>
+        {photo && (
+          <div className="mt-5">
+            <Image src={photo.src.original} alt={photo.alt} width={100} height={100} className="w-full h-full object-cover"/>
+          </div>
 
-        <div className="flex justify-center items-center gap-2 border border-gray-300 mx-3 p-2 rounded-lg">
+        )}
+
+
+        <div className="mt-5 flex justify-center items-center gap-2 border border-gray-300 mx-3 p-2 rounded-lg">
           <div>
             <Image src="/images/canvas-logo.png" alt="canvass-logo" width={25} height={25} />
           </div>
@@ -94,11 +106,17 @@ const PhotoModal = ({open, photo, handleCloseModal}) => {
 
         <div className="flex justify-between items-center">
           <div className="flex justify-start items-center gap-1">
-            <div className="w-14 h-14 rounded-full border bg-red-300">
+            { photo && 
+              <div className={`w-14 h-14 rounded-full border`} style={{backgroundColor: photo ? photo.avg_color : "red"}}>
+                {/* <Image src={photo.photographer_url} alt={photo.alt} width={100} height={100} className="w-full h-full object-cover rounded-full"/> */}
+              </div>
+              
 
-            </div>
+              }
 
-            <h5 className="text-lg text-gray-700">Efe Ersoy</h5>
+            {photo && 
+              <h5 className="text-lg text-gray-700">{photo.photographer}</h5>
+            }
 
           </div>
 
@@ -197,6 +215,24 @@ const PhotoModal = ({open, photo, handleCloseModal}) => {
 
           </div>
         </nav>
+        <div>
+          <ResponsiveMasonry
+            columnsCountBreakPoints={{300: 1, 750: 3, 900: 4}}
+          >
+            <Masonry >
+              {photo && photos.map((item, i) => { 
+                if (item.id !== photo.id) {
+                  return (
+                    <div key={i} className="relative z-5 p-2" onClick={() => handleOpenModal(item)}>
+                      <Image src={item.src.medium} alt={item.photographer} width={100} height={100} className="w-full h-full object-cover"/>
+                      
+                    </div>
+                  )
+              }})}
+            </Masonry>
+          </ResponsiveMasonry>
+        </div>
+        
       </div>
 
     </div>

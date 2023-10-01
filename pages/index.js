@@ -59,10 +59,12 @@ export default function Home() {
     }
   }, [inView, url])
 
+  const [photoDetails, setPhotoDetails ] = useState(null)
+
   const [openModal, setOpenModal] = useState(false)
 
   const handleOpenModal = (photo) => {
-    console.log(photo)
+    setPhotoDetails(photo)
     setOpenModal(true)
   }
 
@@ -87,7 +89,7 @@ export default function Home() {
           <Photos photos={photos} setInView={setInView} handleOpenModal={handleOpenModal}/>
 
           <div className="relative">
-            <PhotoModal open={openModal} handleCloseModal={handleCloseModal}/>
+            <PhotoModal open={openModal} handleCloseModal={handleCloseModal} photo={photoDetails} photos={photos} />
           </div>
 
         
