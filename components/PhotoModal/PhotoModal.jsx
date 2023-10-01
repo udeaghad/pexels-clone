@@ -29,10 +29,6 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
     slider.scrollLeft = slider.scrollLeft + 100;
   }
 
-  useEffect(() => {
-    console.log({photos})
-  }, [photos])
-
   return (
     <div className=" h-[100vh] fixed top-0 bottom-0 left-0 right-0 overflow-auto z-50" style={{display: open ? "block" : "none"}}>
       <div className="bg-black opacity-90">
@@ -220,15 +216,17 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
             columnsCountBreakPoints={{300: 1, 750: 3, 900: 4}}
           >
             <Masonry >
-              {photo && photos.map((item, i) => { 
-                if (item.id !== photo.id) {
-                  return (
-                    <div key={i} className="relative z-5 p-2" onClick={() => handleOpenModal(item)}>
-                      <Image src={item.src.medium} alt={item.photographer} width={100} height={100} className="w-full h-full object-cover"/>
-                      
-                    </div>
-                  )
-              }})}
+              <div>
+                {photo && photos.map((item, i) => { 
+                  if (item.id !== photo.id) {
+                    return (
+                      <div key={i} className="relative z-5 p-2">
+                        <Image src={item.src.medium} alt={item.photographer} width={100} height={100} className="w-full h-full object-cover"/>
+                        
+                      </div>
+                    )
+                }})}
+              </div>
             </Masonry>
           </ResponsiveMasonry>
         </div>

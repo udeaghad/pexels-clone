@@ -26,8 +26,6 @@ export default function Home() {
           Authorization: process.env.NEXT_PUBLIC_PEXELS_API_KEY
         }
       })
-      console.log(result.data)
-
       return result.data
     }
   })
@@ -91,8 +89,6 @@ export default function Home() {
           <div className="relative">
             <PhotoModal open={openModal} handleCloseModal={handleCloseModal} photo={photoDetails} photos={photos} />
           </div>
-
-        
       </main>
       
     </div>
