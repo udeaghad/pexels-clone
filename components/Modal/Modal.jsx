@@ -53,7 +53,7 @@ const RenderSocialMedia = () => {
 
 const Modal = ({open}) => {
   return (
-    <div className="bg-black w-full h-[100vh] absolute top-0 bottom-0 left-0 right-0 z-5 overflow-auto" style={{display: open ? "block" : "none"}}>
+    <div className="bg-black w-full h-[100vh] fixed top-0 bottom-0 left-0 right-0 overflow-auto" style={{display: open ? "block" : "none"}}>
 
         <div className="w-full border-b h-20 border-gray-800 bg-black fixed"/>
 
