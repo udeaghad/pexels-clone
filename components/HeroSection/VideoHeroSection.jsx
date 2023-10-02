@@ -68,9 +68,9 @@ const VideoHeroSection = () => {
               </div>
             </div>
 
-            <div className=" flex flex-col justify-end items-end gap-3 text-lg text-slate-200 font-medium text-right mx-5">
+            <div className=" flex flex-col justify-end items-end gap-3 text-lg text-slate-200 font-medium text-right mx-5 cursor-pointer">
               <SiCanva size={30} className="inline-block text-slate-200" />
-              <span>Dang vu hai</span>
+              <span className="text-sm">Click here for Canva video</span>
             </div>
 
           </div>
