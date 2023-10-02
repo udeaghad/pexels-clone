@@ -4,8 +4,33 @@ import { HiOutlineSearch, HiDotsHorizontal } from "react-icons/hi";
 import { BiImageAlt } from "react-icons/bi";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { IoClose } from "react-icons/io5";
+import { useRef } from "react";
 
 const MobileNavBar = ({open, setOpen, showHamburger}) => {
+
+  const exploreOptions = useRef(null)
+  const arrowBtn = useRef(null)
+  const exploreBtn = useRef(null)
+
+  const handleOpenExploreBtn = () => {
+    if (exploreOptions.current.classList.contains('hidden')) {
+      exploreOptions.current.classList.remove('hidden')
+      arrowBtn.current.classList.add('rotate-180') 
+      exploreBtn.current.classList.add('text-gray-300') 
+      arrowBtn.current.classList.remove('text-white')
+    }   
+  }
+
+  const handleCloseExploreBtn = () => {
+    if (!exploreOptions.current.classList.contains('hidden')) {
+      exploreOptions.current.classList.add('hidden')
+      arrowBtn.current.classList.remove('rotate-180') 
+      exploreBtn.current.classList.remove('text-gray-300')
+      arrowBtn.current.classList.add('text-white')
+          
+    }
+  }
+
   return (
     <div className="flex justify-between items-center gap-3 p-4 w-full">
       <div className="z-10">
@@ -15,22 +40,39 @@ const MobileNavBar = ({open, setOpen, showHamburger}) => {
       { !open && (
 
         <div className="flex justify-center items-center gap-2 md:gap-5">
-          <div className="hidden md:flex text-white text-lg font-bold justify-center items-center gap-5">
+          <div className="hidden md:flex text-white font-bold justify-center items-center gap-5">
             <div className="relative">
-              <div className="flex justify-center items-center gap-1">
-                <span className="hover:text-gray-300">Explore</span>
-                <MdOutlineKeyboardArrowDown size={25} className="text-white"/>
+              <div className="flex justify-center items-center gap-1" onMouseEnter={ handleOpenExploreBtn} onMouseLeave={handleCloseExploreBtn}>
+                <div ref={exploreBtn} className="flex">
+                  <span>Explore</span>
+                  <div ref={arrowBtn} className="text-white">
+                    <MdOutlineKeyboardArrowDown size={25} />
+                  </div>
+                </div>
+
               </div>
 
-              <div className="absolute mt-3">
+              <div className="absolute mt-3 hidden" ref={exploreOptions} onMouseEnter={handleOpenExploreBtn} onMouseLeave={handleCloseExploreBtn}>
                 <div  className="w-0 h-0 border-l-[2rem] border-r-[2rem] border-l-transparent border-r-transparent border-b-[2rem] border-b-white absolute -top-3 left-10 z-10"/>
-                <div className="flex flex-col bg-white text-gray-600 font-normal pl-5 pt-5 pb-5 rounded-xl gap-3 absolute text-base w-40 -left-14 border"> 
-                  <span>Discover Photos</span>
-                  <span>Popular Searches</span>
-                  <span>Leaderboard</span>
-                  <span>Challenges</span>
-                  <span>Free Videos</span>
-                  <span>Pexels Blog</span>
+                <div className="flex flex-col bg-white text-gray-600 font-normal pt-3 pb-3 rounded-xl gap-1 absolute text-sm w-40 -left-14 border"> 
+                  <div className="hover:bg-gray-100 px-3 py-1 relative z-20">
+                    <span>Discover Photos</span>
+                  </div>
+                  <div className="hover:bg-gray-100 px-3 py-1">
+                    <span>Popular Searches</span>
+                  </div>
+                  <div className="hover:bg-gray-100 px-3 py-1">
+                    <span>Leaderboard</span>
+                  </div>
+                  <div className="hover:bg-gray-100 px-3 py-1">
+                    <span>Challenges</span>
+                  </div>
+                  <div className="hover:bg-gray-100 px-3 py-1">
+                    <span>Free Videos</span>
+                  </div>
+                  <div className="hover:bg-gray-100 px-3 py-1">
+                    <span>Pexels Blog</span>
+                  </div>
                 </div>
 
               </div>
