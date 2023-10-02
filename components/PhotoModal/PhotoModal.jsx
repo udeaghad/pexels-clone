@@ -40,9 +40,6 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
         </div>
       </div>
 
-      {/* <div ref={closeBtn} className="sm:hidden"/> */}
-      
-
       <div className="bg-white p-3 relative w-full sm:mt-8 sm:rounded-xl sm:h-[100vh] sm:w-[85%] sm:overflow-auto sm:p-5">
         <div className={`flex justify-between items-center bg-white ${!closeBtnView ? "fixed top-0 left-0 right-0 z-20 p-5 sm:left-16 sm:w-[85%]" : "relative"}`}>
           <div className="flex justify-center items-center gap-2">

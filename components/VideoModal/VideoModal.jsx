@@ -33,15 +33,15 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
   }
   
   return (
-    <div className=" h-[100vh] fixed top-0 bottom-0 left-0 right-0 overflow-auto z-50" style={{display: open ? "block" : "none"}}>
-      <div className="bg-black opacity-90" ref={closeBtn}>
+    <div className=" h-[100vh] fixed top-0 bottom-0 left-0 right-0 overflow-y-scroll z-50 w-full bg-[#000000de] flex-col sm:flex-row" style={{display: open ? "flex" : "none"}}>
+      <div className="sm:mt-10">
         <div className="flex justify-start items-center"  onClick={() => handleCloseModal()}>
           <IoClose size={40} className="text-white mx-3 cursor-pointer my-2"/>
         </div>
       </div>
 
-      <div className="bg-white p-3 relative">
-        <div className={`flex justify-between items-center bg-white ${!closeBtnView ? "fixed top-0 left-0 right-0 z-20 p-5" : "relative"}`}>
+      <div className="bg-white p-3 relative w-full sm:mt-8 sm:rounded-xl sm:h-[100vh] sm:w-[85%] sm:overflow-auto sm:p-5">
+        <div className={`flex justify-between items-center bg-white ${!closeBtnView ? "fixed top-0 left-0 right-0 z-20 p-5 sm:left-16 sm:w-[85%]" : "relative"}`}>
           <div className="flex justify-center items-center gap-2">
             <div className="border rounded-md p-2.5 border-gray-300">
               <BsBookmarks size={16} color="gray"/>
@@ -62,14 +62,16 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
 
         </div>
 
+        <div ref={closeBtn} />
+
         {video && (
-          <div className="mt-5">
+          <div className="mt-5 w-full flex">
             <video src={video.video_files[0].link} type={video.video_files[0].file_type} controls muted autoPlay className="w-full h-full object-cover"/>
           </div>
 
         )}        
 
-        <div className="flex justify-between items-center w-full">
+        <div className="flex justify-between items-center w-full mt-5">
           <div>
             <div className="flex gap-1">
               <IoIosCheckmarkCircle size={20} className="text-gray-300"/>
@@ -208,7 +210,7 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
         </nav>
         <div>
           <ResponsiveMasonry
-            columnsCountBreakPoints={{300: 1, 750: 3, 900: 4}}
+            columnsCountBreakPoints={{300: 1, 750: 1, 900: 4}}
           >
             <Masonry >
               <div>
@@ -216,9 +218,9 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
                   if (item.id !== video.id) {
                     return (
                       <div key={i} className="relative p-2">
-                        <Image src={item.image} alt={ item.user.name} width={item.width} height={item.height} className="w-full h-48 object-cover"/>
+                        <Image src={item.image} alt={ item.user.name} width={item.width} height={item.height} className="w-full h-48 sm:h-full object-cover"/>
                         <FaYoutube size={30} className="absolute top-5 left-5 text-white cursor-pointer hover:text-gray-500"/>
-                        <FiDownload size={25} className="absolute bottom-5 right-5 text-white cursor-pointer hover:text-gray-500"/>
+                        <FiDownload size={25} className="absolute bottom-5 right-5 text-white cursor-pointer hover:text-gray-500 sm:hidden"/>
 
                       </div>
                     )
