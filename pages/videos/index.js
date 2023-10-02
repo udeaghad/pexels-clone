@@ -6,6 +6,7 @@ import { useStore } from '../../store';
 import { useEffect, useState } from 'react';
 import Videos from '../../components/Videos/Video';
 import VideoModal from '../../components/VideoModal/VideoModal';
+import VideoHeroSection from '../../components/HeroSection/VideoHeroSection';
 
 
 export default function Home() {
@@ -80,14 +81,17 @@ export default function Home() {
       </Head>
 
       <main> 
+
+        <VideoHeroSection /> 
+
         <div className='border-b m-5 border-slate-100' />
         
 
-          <Trending text="Trending free stock videos"/>    
+        <Trending text="Trending free stock videos"/>    
 
-          <Videos videos={videos} setInView={setInView} handleOpenModal={handleOpenModal}/>
+        <Videos videos={videos} setInView={setInView} handleOpenModal={handleOpenModal}/>
 
-          <VideoModal open={openModal} handleCloseModal={handleCloseModal} video={videoDetails} videos={videos}/>
+        <VideoModal open={openModal} handleCloseModal={handleCloseModal} video={videoDetails} videos={videos}/>
         
       </main>
       

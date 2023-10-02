@@ -5,7 +5,7 @@ import HeroSection from '../components/HeroSection/HeroSection'
 function MyApp({ Component, pageProps }) {
   return (
       <ReactQueryProvider>
-        <HeroSection />
+        {/* <HeroSection /> */}
         <Component {...pageProps} />
       </ReactQueryProvider>
     )
