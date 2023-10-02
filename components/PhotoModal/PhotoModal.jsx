@@ -43,7 +43,7 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
       {/* <div ref={closeBtn} className="sm:hidden"/> */}
       
 
-      <div className="bg-white p-3 relative w-full sm:mt-8 sm:rounded-xl sm:h-[100vh] sm:w-[85%] sm:overflow-auto">
+      <div className="bg-white p-3 relative w-full sm:mt-8 sm:rounded-xl sm:h-[100vh] sm:w-[85%] sm:overflow-auto sm:p-5">
         <div className={`flex justify-between items-center bg-white ${!closeBtnView ? "fixed top-0 left-0 right-0 z-20 p-5 sm:left-16 sm:w-[85%]" : "relative"}`}>
           <div className="flex justify-center items-center gap-2">
             <div className="border rounded-md p-2.5 border-gray-300">
@@ -82,7 +82,7 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
 
         </div>
 
-        <div className="flex justify-between items-center w-full">
+        <div className="flex justify-between items-center w-full mt-5">
           <div>
             <div className="flex gap-1">
               <IoIosCheckmarkCircle size={20} className="text-gray-300"/>
@@ -220,7 +220,7 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
         </nav>
         <div>
           <ResponsiveMasonry
-            columnsCountBreakPoints={{300: 1, 750: 3, 900: 4}}
+            columnsCountBreakPoints={{300: 1, 750: 1, 900: 4}}
           >
             <Masonry >
               <div>
@@ -228,8 +228,8 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
                   if (item.id !== photo.id) {
                     return (
                       <div key={i} className="relative z-5 p-2">
-                        <Image src={item.src.medium} alt={item.photographer} width={50} height={50} className="w-full h-full object-cover"/>
-                        <FiDownload size={25} className="absolute bottom-5 right-5 text-white cursor-pointer hover:text-gray-500"/>
+                        <Image src={item.src.original} alt={item.photographer} width={item.width} height={item.height} className="w-full h-full object-cover"/>
+                        <FiDownload size={25} className="absolute bottom-5 right-5 text-white cursor-pointer hover:text-gray-500 sm:hidden"/>
                       </div>
                     )
                 }})}
