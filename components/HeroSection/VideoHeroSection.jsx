@@ -10,6 +10,8 @@ import MobileNavBar from "../MobileNavBar/MobileNavBar";
 import Navbar from "../NavBar/NavBar";
 import { useInView } from 'react-intersection-observer';
 import Image from "next/image";
+import { RiVideoLine } from 'react-icons/ri';
+import { SiCanva } from 'react-icons/si';
 
 const VideoHeroSection = () => {
 
@@ -35,19 +37,19 @@ const VideoHeroSection = () => {
 
             <div className="p-5 mt-10 md:flex justify-center items-center w-full sm:px-0">
               <p className="text-white text-4xl font-medium sm:w-[85%] lg:w-[55%]">
-                The best free stock photos, royal free images & videos shared by creators.
+                The best free stock videos shared by the Pexels community.
               </p>
             </div>
 
             <div className="md:flex justify-center items-center">
               <div className="bg-white flex justify-start items-center rounded-md px-2 py-1 gap-1 mx-5 sm:w-[85%] lg:w-[55%] lg:justify-center" >
                 <div className="flex justify-center items-center bg-gray-100 rounded-md border border-gray-400 p-1 sm:gap-1">
-                  <BiImageAlt size={30} className="text-gray-500" />
-                  <span className="hidden sm:block">Photos</span>
+                  <RiVideoLine size={30} className="text-gray-500" />
+                  <span className="hidden sm:block">Videos</span>
                   <MdOutlineKeyboardArrowDown size={20} className=" text-gray-500" />
                 </div>
                 <div className="flex w-full">
-                  <input type="text" placeholder="Search for free photos" className="px-2 py-1 text-lg font-medium outline-none w-full" />
+                  <input type="text" placeholder="Search for free videos" className="px-2 py-1 text-lg font-medium outline-none w-full" />
                 </div>
                 <div>
                   <HiOutlineSearch size={25} className="text-gray-400 text-end" />
@@ -61,13 +63,13 @@ const VideoHeroSection = () => {
                 <span className="text-gray-300">
                   Trending:
                 </span>
-                <span className="text-white whitespace-nowrap overflow-hidden">smoke, time, team, pattern, data {' '} </span>
+                <span className="text-white whitespace-nowrap overflow-hidden">gandhi jayanti, october, mahatma gandhi, batik, natural {' '} </span>
                 <HiDotsCircleHorizontal size={20} className="text-gray-300" />
               </div>
             </div>
 
-            <div className="text-lg text-slate-200 font-medium text-right mx-5">
-              <span className="text-gray-400">Photo by </span>
+            <div className=" flex flex-col justify-end items-end gap-3 text-lg text-slate-200 font-medium text-right mx-5">
+              <SiCanva size={30} className="inline-block text-slate-200" />
               <span>Dang vu hai</span>
             </div>
 
