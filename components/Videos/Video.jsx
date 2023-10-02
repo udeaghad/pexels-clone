@@ -15,7 +15,7 @@ const Videos = ({videos, setInView, handleOpenModal}) => {
   }, [inView])
 
    return (
-    <div className="px-2 absolute -z-20 w-full mt-28">
+    <div className="px-2 absolute -z-20 w-full mt-32">
 
       <ResponsiveMasonry
         columnsCountBreakPoints={{300: 2, 750: 2, 900: 4}}

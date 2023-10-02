@@ -8,6 +8,7 @@ import { useStore } from '../store';
 import { useEffect, useState } from 'react';
 import Photos from '../components/Photos/Photos';
 import PhotoModal from '../components/PhotoModal/PhotoModal';
+import HeroSection from '../components/HeroSection/HeroSection';
 
 export default function Home() {
   const addPhotos = useStore(state => state.addPhotos)
@@ -80,7 +81,9 @@ export default function Home() {
       </Head>
 
       <main> 
-        <div className='border-b m-5 border-slate-100' />
+
+          <HeroSection />
+          <div className='border-b m-5 border-slate-100' />
 
           <Trending text="Free Stock Photos"/>    
 

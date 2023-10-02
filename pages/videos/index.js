@@ -81,6 +81,7 @@ export default function Home() {
 
       <main> 
         <div className='border-b m-5 border-slate-100' />
+        
 
           <Trending text="Trending free stock videos"/>    
 
