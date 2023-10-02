@@ -42,7 +42,7 @@ const MobileNavBar = ({open, setOpen, showHamburger}) => {
         <div className="flex justify-center items-center gap-2 md:gap-5">
           <div className="hidden md:flex text-white font-bold justify-center items-center gap-5">
             <div className="relative">
-              <div className="flex justify-center items-center gap-1" onMouseEnter={ handleOpenExploreBtn} onMouseLeave={handleCloseExploreBtn}>
+              <div className="flex justify-center items-center mt-3 pb-3 gap-1" onMouseEnter={ handleOpenExploreBtn} onMouseLeave={handleCloseExploreBtn}>
                 <div ref={exploreBtn} className="flex">
                   <span>Explore</span>
                   <div ref={arrowBtn} className="text-white">
@@ -52,8 +52,8 @@ const MobileNavBar = ({open, setOpen, showHamburger}) => {
 
               </div>
 
-              <div className="absolute mt-3 hidden" ref={exploreOptions} onMouseEnter={handleOpenExploreBtn} onMouseLeave={handleCloseExploreBtn}>
-                <div  className="w-0 h-0 border-l-[2rem] border-r-[2rem] border-l-transparent border-r-transparent border-b-[2rem] border-b-white absolute -top-3 left-10 z-10"/>
+              <div className="absolute hidden" ref={exploreOptions} onMouseEnter={handleOpenExploreBtn} onMouseLeave={handleCloseExploreBtn}>
+                <div  className="w-0 h-0 border-l-[2rem] border-r-[2rem] border-l-transparent border-r-transparent border-b-[2rem] border-b-white absolute -top-2 left-10 z-10"/>
                 <div className="flex flex-col bg-white text-gray-600 font-normal pt-3 pb-3 rounded-xl gap-1 absolute text-sm w-40 -left-14 border"> 
                   <div className="hover:bg-gray-100 px-3 py-1 relative z-20">
                     <span>Discover Photos</span>
