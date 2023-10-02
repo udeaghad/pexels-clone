@@ -18,6 +18,7 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
   
   const { ref: start, inView: startView} = useInView();
   const { ref: end, inView: endView} = useInView();
+  const { ref: closeBtn, inView: closeBtnView} = useInView();
 
   const slideLeft = () => {
     const slider = document.getElementById('sliderBar');
@@ -33,14 +34,14 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
   
   return (
     <div className=" h-[100vh] fixed top-0 bottom-0 left-0 right-0 overflow-auto z-50" style={{display: open ? "block" : "none"}}>
-      <div className="bg-black opacity-90">
+      <div className="bg-black opacity-90" ref={closeBtn}>
         <div className="flex justify-start items-center"  onClick={() => handleCloseModal()}>
           <IoClose size={40} className="text-white mx-3 cursor-pointer my-2"/>
         </div>
       </div>
 
       <div className="bg-white p-3 relative">
-        <div className="w-full flex justify-between items-center">
+        <div className={`flex justify-between items-center bg-white ${!closeBtnView ? "fixed top-0 left-0 right-0 z-20 p-5" : "relative"}`}>
           <div className="flex justify-center items-center gap-2">
             <div className="border rounded-md p-2.5 border-gray-300">
               <BsBookmarks size={16} color="gray"/>
@@ -68,7 +69,7 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
 
         )}        
 
-        <div className="flex justify-between items-center m-4">
+        <div className="flex justify-between items-center w-full">
           <div>
             <div className="flex gap-1">
               <IoIosCheckmarkCircle size={20} className="text-gray-300"/>
@@ -81,11 +82,11 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
           </div>
 
           <div className="flex gap-2">
-            <div className="border flex py-2 px-5 rounded w-fit border-gray-400">
+            <div className="border flex py-2 rounded px-2 w-fit border-gray-400">
               <BsInfoCircleFill size={20} className="text-gray-400"/>
 
             </div>
-            <div className="border flex py-2 px-5 rounded w-fit border-gray-400">
+            <div className="border flex py-2 px-2 rounded w-fit border-gray-400">
               <MdLaunch size={20} className="text-gray-400"/>
             </div>
           </div>

@@ -69,7 +69,6 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
 
         )}
 
-
         <div className="mt-5 flex justify-center items-center gap-2 border border-gray-300 mx-3 p-2 rounded-lg">
           <div>
             <Image src="/images/canvas-logo.png" alt="canvass-logo" width={25} height={25} />
@@ -103,7 +102,7 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
 
         <div  className="m-3 border-b border-gray-100"/>
 
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center w-full">
           <div className="flex justify-start items-center gap-1">
             { photo && 
               <div className={`w-14 h-14 rounded-full border`} style={{backgroundColor: photo ? photo.avg_color : "red"}}>
@@ -114,7 +113,7 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
               }
 
             {photo && 
-              <h5 className="text-lg text-gray-700">{photo.photographer}</h5>
+              <h5 className="text-lg text-gray-700 whitespace-nowrap">{photo.photographer}</h5>
             }
 
           </div>
