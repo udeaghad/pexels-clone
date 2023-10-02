@@ -32,16 +32,19 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
   }
 
   return (
-    <div className=" h-[100vh] fixed top-0 bottom-0 left-0 right-0 overflow-auto z-50 w-full"  style={{display: open ? "block" : "none"}}>
-      <div className="bg-black opacity-90" ref={closeBtn}>
+    <div className=" h-[100vh] fixed top-0 bottom-0 left-0 right-0 overflow-y-scroll z-50 w-full bg-[#000000de] flex-col sm:flex-row" style={{display: open ? "flex" : "none"}}>
+      
+      <div className="sm:mt-10">
         <div className="flex justify-start items-center"  onClick={() => handleCloseModal()}>
           <IoClose size={40} className="text-white mx-3 cursor-pointer my-2"/>
         </div>
       </div>
+
+      {/* <div ref={closeBtn} className="sm:hidden"/> */}
       
 
-      <div className="bg-white p-3 relative">
-        <div className={`flex justify-between items-center bg-white ${!closeBtnView ? "fixed top-0 left-0 right-0 z-20 p-5" : "relative"}`}>
+      <div className="bg-white p-3 relative w-full sm:mt-8 sm:rounded-xl sm:h-[100vh] sm:w-[85%] sm:overflow-auto">
+        <div className={`flex justify-between items-center bg-white ${!closeBtnView ? "fixed top-0 left-0 right-0 z-20 p-5 sm:left-16 sm:w-[85%]" : "relative"}`}>
           <div className="flex justify-center items-center gap-2">
             <div className="border rounded-md p-2.5 border-gray-300">
               <BsBookmarks size={16} color="gray"/>
@@ -62,8 +65,10 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
 
         </div>
 
+        <div ref={closeBtn} />
+
         {photo && (
-          <div className="mt-5">
+          <div className="mt-5 w-full flex">
             <Image src={photo.src.original} alt={photo.photographer} width={100} height={100} className="w-full h-full object-cover"/>
           </div>
 
