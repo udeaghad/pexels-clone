@@ -33,7 +33,7 @@ const RenderSocialMedia = () => {
   )
 }
 
-const MobileNavBar = ({open, setOpen, showHamburger}) => {
+const MobileNavBar = ({open, setOpen}) => {
 
   const exploreOptions = useRef(null)
   const arrowBtn = useRef(null)
@@ -73,18 +73,18 @@ const MobileNavBar = ({open, setOpen, showHamburger}) => {
 
   return (
     <div className="flex justify-between items-center gap-3 p-4 w-full">
-      <Link href="/">
-        <div className="z-10 flex justify-center items-center gap-5 cursor-pointer">
-            <Image src="/images/logo.png" alt="hero" width={50} height={50} className="rounded-md"/>
-            <span className="hidden lg:block text-white font-medium text-2xl">Pexels</span>
-        </div>
-      </Link>
+      <div className="z-50">
+        <Link href="/" className="z-50 flex justify-center items-center gap-5 cursor-pointer" >
+          <Image src="/images/logo.png" alt="hero" width={50} height={50} className="rounded-md"/>
+          <span className="hidden lg:block text-white font-medium text-2xl">Pexels</span>
+        </Link>
+      </div>
 
 
       { !open && (
 
         <div className="flex justify-center items-center gap-2 md:gap-5">
-          <div className="hidden md:flex text-white font-medium justify-center items-center gap-5">
+          <div className="hidden lg:flex text-white font-medium justify-center items-center gap-5">
             <div className="relative">
               <div className="flex justify-center items-center mt-3 pb-3 gap-1 cursor-pointer" onMouseEnter={ handleOpenExploreBtn} onMouseLeave={handleCloseExploreBtn}>
                 <div ref={exploreBtn} className="flex">
@@ -182,8 +182,6 @@ const MobileNavBar = ({open, setOpen, showHamburger}) => {
               </div>
             </div>
 
-              
-
           </div>
           
 
@@ -191,7 +189,7 @@ const MobileNavBar = ({open, setOpen, showHamburger}) => {
             <span>Join</span>
           </div>
 
-          <div className="p-1 md:hidden" onClick={() => setOpen(true)}>
+          <div className="p-1 lg:hidden cursor-pointer" onClick={() => setOpen(true)}>
             <HiOutlineMenu color="white" size={30}/>
           </div>
 
@@ -201,32 +199,29 @@ const MobileNavBar = ({open, setOpen, showHamburger}) => {
       
 
       { open && (
-        <div className="flex w-full justify-between items-center z-10 gap-2"> 
-          <div className="bg-slate-100 flex justify-between items-center w-full rounded-md px-2 py-1 gap-1" >
-            <div className="flex justify-center items-center">
+        <div className="flex w-full justify-between items-center z-10 gap-2 sm:px-10"> 
+          <div className="bg-slate-100 flex justify-between items-center w-full rounded-md px-2 py-2 gap-1 sm:w-fit" >
+            <div className="flex justify-center items-center gap-2">
               <BiImageAlt className="text-2xl text-gray-500"/>
+              <span className="hidden sm:block">Photos</span>
               <MdOutlineKeyboardArrowDown className="text-xl text-gray-500"/>
             </div>
             <div >
-              <input type="text"  placeholder="Search for free photos" className="p-1 text-base font-medium outline-2 w-full border-l bg-slate-100" />
+              <input type="text"  placeholder="Search for free photos" className="p-1 text-base font-medium outline-2 w-full border-l bg-slate-100 sm:w-fit" />
             </div>
             <div>
               <HiOutlineSearch className="text-xl text-gray-400"/>
             </div>
           </div>
 
+          <div className="hidden sm:block text-lg font-sans px-5 py-2 rounded-md border-[#05a081] bg-[#05a081] w-fit border outline-2 cursor-pointer">
+            <span className="text-white">Join</span>
+          </div>
+
          
-            <div onClick={() => setOpen(false)}>
-              <IoClose className="text-white text-2xl font-bold"/>
-            </div>
-          
-
-
-          { showHamburger && (
-            <div className="p-1" onClick={() => setOpen(true)}>
-              <HiOutlineMenu className="text-3xl" color="black"/>
-            </div>
-          )}
+          <div onClick={() => setOpen(false)}>
+            <IoClose className="text-slate-100 text-3xl font-bold"/>
+          </div>
 
         </div>
       )}
