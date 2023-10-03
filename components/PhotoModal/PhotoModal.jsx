@@ -107,7 +107,7 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
         <div className="flex justify-between items-center w-full">
           <div className="flex justify-start items-center gap-1">
             { photo && 
-              <div className={`w-14 h-14 rounded-full border`} style={{backgroundColor: photo ? photo.avg_color : "red"}}>
+              <div className={`w-14 h-14 rounded-full border`} style={{backgroundColor: photo ? photo.avg_color : "gray"}}>
                 <Image src={photo.photographer_url} alt={photo.photographer} width={100} height={100} className="w-full h-full object-cover rounded-full"/>
               </div>
               
