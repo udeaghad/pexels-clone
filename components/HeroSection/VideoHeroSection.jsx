@@ -70,17 +70,10 @@ const VideoHeroSection = () => {
 
             <div className=" flex flex-col justify-end items-end gap-3 text-lg text-slate-200 font-medium text-right mx-5 cursor-pointer">
               <SiCanva size={30} className="inline-block text-slate-200" />
-              <span className="text-sm">Click here for Canva video</span>
+              <span className="text-base">Click here for Canva video</span>
             </div>
 
           </div>
-
-          {/* {inView && (
-            <div style={{ display: open ? "none" : "block" }} className="mt-20">
-              <Navbar />
-            </div>
-          )} */}
-
 
           <div style={{ display: inView ? "none" : "block", top: 0, position: "fixed" }} className="z-50 w-full">
 
@@ -119,10 +112,10 @@ const VideoHeroSection = () => {
         </div>
 
         {inView && (
-            <div style={{ display: open ? "none" : "block" }} >
-              <Navbar />
-            </div>
-          )}
+          <div style={{ display: open ? "none" : "block" }} >
+            <Navbar />
+          </div>
+        )}
       </div>
 
 

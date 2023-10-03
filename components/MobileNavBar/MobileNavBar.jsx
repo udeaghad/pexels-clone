@@ -11,6 +11,7 @@ import { FaTwitter } from "react-icons/fa";
 import {BsInstagram} from "react-icons/bs";
 import { FaPinterestP } from "react-icons/fa";
 import { AiOutlineYoutube } from "react-icons/ai";
+import Link from "next/link";
 
 const socialMediaItems = [
   {name: "Facebook", link: "#", icon: RiFacebookFill},
@@ -72,14 +73,18 @@ const MobileNavBar = ({open, setOpen, showHamburger}) => {
 
   return (
     <div className="flex justify-between items-center gap-3 p-4 w-full">
-      <div className="z-10">
-        <Image src="/images/logo.png" alt="hero" width={50} height={50} className="rounded-md"/>
-      </div>
+      <Link href="/">
+        <div className="z-10 flex justify-center items-center gap-5 cursor-pointer">
+            <Image src="/images/logo.png" alt="hero" width={50} height={50} className="rounded-md"/>
+            <span className="hidden lg:block text-white font-medium text-2xl">Pexels</span>
+        </div>
+      </Link>
+
 
       { !open && (
 
         <div className="flex justify-center items-center gap-2 md:gap-5">
-          <div className="hidden md:flex text-white font-bold justify-center items-center gap-5">
+          <div className="hidden md:flex text-white font-medium justify-center items-center gap-5">
             <div className="relative">
               <div className="flex justify-center items-center mt-3 pb-3 gap-1 cursor-pointer" onMouseEnter={ handleOpenExploreBtn} onMouseLeave={handleCloseExploreBtn}>
                 <div ref={exploreBtn} className="flex">
