@@ -19,7 +19,7 @@ const Videos = ({videos, setInView, handleOpenModal}) => {
   const [videoToRender, setVideoToRender] = useState([])
 
   useEffect(() => {
-    console.log(videos)
+    
     const newVideoToRender = videos.map(video => {
       return {
         ...video,
@@ -105,7 +105,7 @@ const Videos = ({videos, setInView, handleOpenModal}) => {
                     </div>
                   </div>
 
-                  <div className="absolute bottom-5 left-5 flex justify-center items-center gap-1">
+                  <div className="absolute bottom-5 left-5 flex justify-center items-center gap-1 cursor-pointer">
                     <div className={`w-14 h-14 rounded-full border`} style={{backgroundColor: video ? video.avg_color : "gray"}}>
                       <Image src={video.image} alt={video.user.name} width={100} height={100} className="w-full h-full object-cover rounded-full"/>
                     </div>

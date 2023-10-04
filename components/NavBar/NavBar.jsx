@@ -55,7 +55,7 @@ const Navbar = () => {
 
     <div id="slider" className="w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide px-5 sm:flex justify-center items-center">
       {navItems.map((item, i) => (
-        <div key={i} className={`py-3 px-5 text-lg rounded-full hover:text-slate-400 cursor-pointer inline-block font-medium text-gray-600 ${ item.selected ? "bg-black text-slate-100" : null}`} onClick={() => handleSelected(item)} >
+        <div key={i} className={`py-3 px-5 text-lg rounded-full hover:text-black cursor-pointer inline-block font-medium text-gray-700 ${ item.selected ? "bg-black text-slate-100" : null}`} onClick={() => handleSelected(item)} >
           <Link href={item.link} ref={item.start ? start : item.end ? end : null}>
             {item.name}
           </Link>

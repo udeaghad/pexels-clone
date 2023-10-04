@@ -22,7 +22,6 @@ const Photos = ({photos, setInView, handleOpenModal}) => {
   const [photoToRender, setPhotoToRender] = useState([])
 
   useEffect(() => {
-    console.log(photos)
     const newPhotoToRender = photos.map(photo => {
       return {
         ...photo,
@@ -88,7 +87,7 @@ const Photos = ({photos, setInView, handleOpenModal}) => {
                     </div>
                   </div>
 
-                  <div className="absolute bottom-5 left-5 flex justify-center items-center gap-1">
+                  <div className="absolute bottom-5 left-5 flex justify-center cursor-pointer items-center gap-1">
                     <div className={`w-14 h-14 rounded-full border`} style={{backgroundColor: photo ? photo.avg_color : "gray"}}>
                       <Image src={photo.src.small} alt={photo.photographer} width={100} height={100} className="w-full h-full object-cover rounded-full"/>
                     </div>
