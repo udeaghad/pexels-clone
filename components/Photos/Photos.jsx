@@ -22,6 +22,7 @@ const Photos = ({photos, setInView, handleOpenModal}) => {
   const [photoToRender, setPhotoToRender] = useState([])
 
   useEffect(() => {
+    console.log(photos)
     const newPhotoToRender = photos.map(photo => {
       return {
         ...photo,
@@ -60,7 +61,7 @@ const Photos = ({photos, setInView, handleOpenModal}) => {
     <div className="px-2 absolute -z-20 w-full mt-32">
 
       <ResponsiveMasonry
-        columnsCountBreakPoints={{300: 2, 900: 4}}
+        columnsCountBreakPoints={{300: 2, 900: 3}}
         
       >
         <Masonry >
@@ -89,7 +90,7 @@ const Photos = ({photos, setInView, handleOpenModal}) => {
 
                   <div className="absolute bottom-5 left-5 flex justify-center items-center gap-1">
                     <div className={`w-14 h-14 rounded-full border`} style={{backgroundColor: photo ? photo.avg_color : "gray"}}>
-                      <Image src={photo.photographer_url} alt={photo.photographer} width={100} height={100} className="w-full h-full object-cover rounded-full"/>
+                      <Image src={photo.src.small} alt={photo.photographer} width={100} height={100} className="w-full h-full object-cover rounded-full"/>
                     </div>
 
                     <h5 className="text-lg text-slate-100 font-medium whitespace-nowrap">{photo.photographer}</h5>
