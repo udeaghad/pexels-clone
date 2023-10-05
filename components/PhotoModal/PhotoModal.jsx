@@ -305,7 +305,7 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
           >
             <Masonry >
               {photoToRender.length > 0 && photoToRender.map((item, i) => {
-                if (photo.id !== item.id) {
+                if (photo && photo.id !== item.id) {
 
                   return (
                     <div key={i} className="relative z-5 p-2" onMouseEnter={() => hanldeShowIcons(i)} onMouseLeave={() => handleDisappearIcon(i)}>
