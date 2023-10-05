@@ -9,10 +9,6 @@ import { BsBookmarks } from "react-icons/bs";
 
 
 const Photos = ({photos, setInView, handleOpenModal}) => {
-  useEffect(() => {
-    console.log(photos)
-  }, [])
-
   const { ref, inView} = useInView();
 
     useEffect(() => {    
