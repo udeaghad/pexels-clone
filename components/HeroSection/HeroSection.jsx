@@ -147,15 +147,15 @@ const HeroSection = () => {
 
       <div style={{display: inView ? "none" : "block", top:0, position: "fixed"}} className="z-50 w-full border-b">
         
-        <div className="flex justify-between items-center py-5  px-5 gap-2 bg-white lg:px-12 lg:justify-start lg:gap-5">
-            <div className="z-10">
+        <div className="flex justify-between items-center py-2  px-5 gap-2 bg-white lg:px-10 lg:gap-5">
+          <div className="z-10">
             <Link href="/" className="flex justify-center items-center gap-5 cursor-pointer">
-                <Image src="/images/logo.png" alt="hero" width={70} height={70} className="rounded-md"/>
+                <Image src="/images/logo.png" alt="hero" width={50} height={50} className="rounded-md"/>
                 <span className="hidden lg:block font-medium text-2xl">Pexels</span>
             </Link>
-            </div>
+          </div>
 
-          <div className="bg-slate-100 flex justify-start items-center w-full rounded-md px-2 py-2 gap-1 sm:mr-10 lg:w-fit lg:ml-5" >
+          <div className="bg-slate-100 flex justify-start items-center w-full rounded-md px-2 py-1 gap-1 sm:mr-10 lg:w-fit lg:ml-5" >
             <div className="flex justify-center items-center gap-2 border-r">
               <BiImageAlt className="text-2xl text-gray-500"/>
               <span className="hidden sm:block">Photos</span>
@@ -270,15 +270,11 @@ const HeroSection = () => {
             </div>
           </div>
 
-
-
-
-
-          <div className="flex justify-center items-center sm:gap-5">
+          <div className="flex justify-end items-center sm:gap-5">
             <div className="text-lg font-sans px-5 py-2 rounded-md bg-white w-fit border border-[#05a081] bg-[#05a081] hidden sm:block cursor-pointer">
               <span className="text-white">Join</span>
             </div>
-            <div className="p-1 cursor-pointer" onClick={() => setOpen(true)}>
+            <div className="p-1 cursor-pointer lg:hidden" onClick={() => setOpen(true)}>
               <HiOutlineMenu color="black" size={30} enableBackground={"white"}/>
             </div>
 
