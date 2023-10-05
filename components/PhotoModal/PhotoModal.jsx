@@ -1,7 +1,7 @@
 "use client"
 
 import { IoClose } from "react-icons/io5";
-import { BsBookmarks, BsInfoCircleFill } from "react-icons/bs";
+import { BsBookmarks, BsInfoCircleFill, BsDot } from "react-icons/bs"; 
 import { BiHeart } from "react-icons/bi";
 import { IoIosArrowDown, IoIosCheckmarkCircle } from "react-icons/io";
 import { MdLocationOn, MdLaunch, MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
@@ -11,6 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Masonry, {ResponsiveMasonry} from "react-responsive-masonry";
 import { FiDownload } from "react-icons/fi";
+import { useEffect } from "react";
 
 const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
 
@@ -31,27 +32,66 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
     slider.scrollLeft = slider.scrollLeft + 100;
   }
 
+  useEffect(() => {
+    console.log(photo)  
+  }, [photo])
+
   return (
     <div className=" h-[100vh] fixed top-0 bottom-0 left-0 right-0 overflow-y-scroll z-50 w-full bg-[#000000de] flex-col sm:flex-row" style={{display: open ? "flex" : "none"}}>
       
-      <div className="sm:mt-10">
+      <div className="sm:mt-10 lg:ml-10">
         <div className="flex justify-start items-center"  onClick={() => handleCloseModal()}>
-          <IoClose size={40} className="text-white mx-3 cursor-pointer my-2"/>
+          <IoClose size={30} className="text-white mx-3 cursor-pointer my-2"/>
         </div>
       </div>
 
-      <div className="bg-white p-3 relative w-full sm:mt-8 sm:rounded-xl sm:h-[100vh] sm:w-[85%] sm:overflow-auto sm:p-5">
-        <div className={`flex justify-between items-center bg-white ${!closeBtnView ? "fixed top-0 left-0 right-0 z-20 p-5 sm:left-16 sm:w-[85%]" : "relative"}`}>
+      <div className="bg-white p-3 relative w-full sm:mt-8 sm:rounded-xl sm:h-[100vh] sm:w-[85%] sm:overflow-auto sm:p-5 lg:overflow-visible lg:h-fit lg:w-[70%] lg:ml-[5%] lg:p-10">
+
+        <div className="hidden justify-between items-center w-full lg:flex mb-5">
+          <div className="flex justify-start items-center gap-5">
+            { photo && 
+              <div className={`w-14 h-14 rounded-full border`} style={{backgroundColor: photo ? photo.avg_color : "gray"}}>
+                <Image src={photo.photographer_url} alt={photo.photographer} width={100} height={100} className="w-full h-full object-cover rounded-full"/>
+              </div>
+            }
+
+            {photo && 
+              <div>
+                <h5 className="text-xl whitespace-nowrap">{photo.photographer}</h5>
+                <div className="flex justify-start items-center gap-1 text-gray-500 text-lg">
+                  <span>Follow</span>
+                  <BsDot size={10} />
+                  <span>Donate</span>
+                </div>
+              </div>
+            }
+
+          </div>
+        </div>
+
+
+
+        <div className={`flex justify-between items-center bg-white lg:justify-start lg:gap-3 ${!closeBtnView ? "fixed top-0 left-0 right-0 z-20 p-5 sm:left-16 sm:w-[85%] lg:relative" : "relative"}`}>
           <div className="flex justify-center items-center gap-2">
-            <div className="border rounded-md p-2.5 border-gray-300">
-              <BsBookmarks size={16} color="gray"/>
+            <div className="border rounded-md p-2.5 border-gray-300 lg:flex justify-center items-center gap-2 lg:px-4 lg:py-3">
+              <BsBookmarks color="gray" className="text-base lg:text-2xl font-medium"/>
+              <span className="hidden lg:block text-lg">Collect</span>
             </div>
-            <div className="border rounded-md p-2.5 border-gray-300">
-              <BiHeart size={16} color="gray"/>
+            <div className="border rounded-md p-2.5 border-gray-300 lg:flex justify-center items-center gap-2 lg:px-4 lg:py-3">
+              <BiHeart color="gray" className="text-base lg:text-2xl font-medium"/>
+              <span className="hidden lg:block text-lg">Like</span>
             </div>
           </div>
 
-          <div className="px-1 flex justify-end items-center border-[#05a081] rounded-md bg-[#05a081] hover:bg-[#04886e] focus:bg-[#04886e] active:bg-[#04886e] gap-2 p-1">
+          <div className="hidden lg:flex justify-center items-center gap-2 border border-gray-300 p-3 rounded-lg">
+            <div>
+              <Image src="/images/canvas-logo.png" alt="canvass-logo" width={25} height={25} />
+            </div>
+            <span className="text-lg font-[500]">Edit in Canva</span>
+
+          </div>
+
+          <div className="px-1 flex justify-end items-center border-[#05a081] rounded-md bg-[#05a081] hover:bg-[#04886e] focus:bg-[#04886e] active:bg-[#04886e] gap-2 p-1 lg:p-3">
             <div className="text-white text-lg ml-5">
               <span>Free download</span>
             </div>
@@ -66,7 +106,7 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
 
         {photo && (
           <div className="mt-5 w-full flex">
-            <Image src={photo.src.original} alt={photo.photographer} width={100} height={100} className="w-full h-full object-cover"/>
+            <Image src={photo.src.original} alt={photo.photographer} width={photo.width} height={photo.height} />
           </div>
 
         )}
@@ -220,17 +260,16 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
             columnsCountBreakPoints={{300: 1, 750: 1, 900: 4}}
           >
             <Masonry >
-              <div>
-                {photo && photos.map((item, i) => { 
-                  if (item.id !== photo.id) {
-                    return (
-                      <div key={i} className="relative z-5 p-2">
-                        <Image src={item.src.original} alt={item.photographer} width={item.width} height={item.height} className="w-full h-full object-cover"/>
-                        <FiDownload size={25} className="absolute bottom-5 right-5 text-white cursor-pointer hover:text-gray-500 sm:hidden"/>
-                      </div>
-                    )
-                }})}
-              </div>
+              {photo && photos.map((item, i) => { 
+                if (item.id !== photo.id) {
+                  return (
+                    <div key={i} className="relative z-5 p-2">
+                      <Image src={item.src.original} alt={item.photographer} width={item.width} height={item.height} className="w-full h-full object-cover"/>
+                      <FiDownload size={25} className="absolute bottom-5 right-5 text-white cursor-pointer hover:text-gray-500 sm:hidden"/>
+                    </div>
+                  )
+              }})}           
+              
             </Masonry>
           </ResponsiveMasonry>
         </div>
