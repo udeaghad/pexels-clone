@@ -13,6 +13,7 @@ import Masonry, {ResponsiveMasonry} from "react-responsive-masonry";
 import { FiDownload } from "react-icons/fi";
 import { useEffect } from "react";
 import { FaClosedCaptioning } from "react-icons/fa";
+import { useState } from "react";
 
 const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
 
@@ -32,6 +33,44 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
     const slider = document.getElementById('sliderBar');
     slider.scrollLeft = slider.scrollLeft + 100;
   }
+
+  const [photoToRender, setPhotoToRender] = useState([])
+
+  useEffect(() => {
+    const newPhotoToRender = photos.map(photo => {
+      return {
+        ...photo,
+        showIcons: false
+      }
+    })
+
+    setPhotoToRender(newPhotoToRender)
+  }, [photos])
+  
+  const hanldeShowIcons = (i) => {
+    const newPhotoToRender = photoToRender.map((photo, index) => {
+      if (index === i) {
+        return {...photo, showIcons: true}
+      } else {
+        return {...photo, showIcons: false}
+      }
+    })
+
+    setPhotoToRender(newPhotoToRender)
+  }
+
+  const handleDisappearIcon = (i) => {
+    const newPhotoToRender = photoToRender.map((photo, index) => {
+      if (index === i) {
+        return {...photo, showIcons: false}
+      } else {
+        return {...photo, showIcons: false}
+      }
+    })
+
+    setPhotoToRender(newPhotoToRender)
+  }
+
 
 
   return (
@@ -265,16 +304,48 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
             columnsCountBreakPoints={{300: 1, 750: 2}}
           >
             <Masonry >
-              {photo && photos.map((item, i) => { 
-                if (item.id !== photo.id) {
+              {photoToRender.length > 0 && photoToRender.map((item, i) => {
+                if (photo.id !== item.id) {
+
                   return (
-                    <div key={i} className="relative z-5 p-2">
-                      <Image src={item.src.original} alt={item.photographer} width={item.width} height={item.height} className="w-full h-full object-cover"/>
-                      <FiDownload size={25} className="absolute bottom-5 right-5 text-white cursor-pointer hover:text-gray-500 sm:hidden"/>
+                    <div key={i} className="relative z-5 p-2" onMouseEnter={() => hanldeShowIcons(i)} onMouseLeave={() => handleDisappearIcon(i)}>
+                      <Image src={item.src.medium} alt={item.photographer} width={100} height={100} className="w-full h-full object-cover"/>
+                      <div className="absolute bottom-5 right-5 cursor-pointer text-white font-medium hover:bg-gray-100 hover:opacity-80 p-2 rounded-lg hover:text-black sm:hidden">
+                        <FiDownload size={20} />
+                      </div>
+    
+                      {item.showIcons && (
+                        <div className="hidden sm:block">
+                          <div className="absolute bottom-5 right-5 cursor-pointer font-medium bg-slate-100 p-3 rounded-lg text-black hover:bg-slate-200">
+                            <FiDownload size={20} />
+                          </div>
+    
+                          <div className="absolute top-5 right-5 flex justify-center items-center gap-1">
+                            <div className="cursor-pointer font-medium bg-slate-100 p-3 rounded-lg text-black hover:bg-slate-200">
+                              <BsBookmarks size={20} />
+                            </div>
+                            <div className="cursor-pointer font-medium bg-slate-100 p-3 rounded-lg text-black hover:bg-slate-200">
+                              <BiHeart size={20} />
+                            </div>
+                          </div>
+    
+                          <div className="absolute bottom-5 left-5 flex justify-center cursor-pointer items-center gap-1">
+                            <div className={`w-14 h-14 rounded-full border`} style={{backgroundColor: photo ? photo.avg_color : "gray"}}>
+                              <Image src={item.src.small} alt={item.photographer} width={100} height={100} className="w-full h-full object-cover rounded-full"/>
+                            </div>
+    
+                            <h5 className="text-lg text-slate-100 font-medium whitespace-nowrap">{item.photographer}</h5>
+    
+                          </div>
+    
+                        </div>
+                      )}                
                     </div>
                   )
-              }})}           
-              
+                }
+
+              }
+              )}       
             </Masonry>
           </ResponsiveMasonry>
         </div>
