@@ -271,7 +271,7 @@ const HeroSection = () => {
           </div>
 
           <div className="flex justify-end items-center sm:gap-5">
-            <div className="text-lg font-sans px-5 py-2 rounded-md bg-white w-fit border border-[#05a081] bg-[#05a081] hidden sm:block cursor-pointer">
+            <div className="text-lg font-sans px-5 py-2 rounded-md w-fit border border-[#05a081] bg-[#05a081] hidden sm:block cursor-pointer">
               <span className="text-white">Join</span>
             </div>
             <div className="p-1 cursor-pointer lg:hidden" onClick={() => setOpen(true)}>
