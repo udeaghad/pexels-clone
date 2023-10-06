@@ -46,7 +46,8 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
     setVideoToRender(newVideoToRender)
   }, [videos])
 
-  const handlePlayVideo = (i) => {
+  const handlePlayVideo = (i, id) => {
+    
     const newVideoToRender = videoToRender.map((video, index) => {
       if (index === i) {
         return {...video, showIcons: true}
@@ -57,14 +58,13 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
 
     setVideoToRender(newVideoToRender)
 
-    const video = document.getElementById(`video-${i}`);
-    const videoIcon = document.getElementById(`videoIcon-${i}`);
+    const video = document.getElementById(`video-${i}-${id}`);
+    const videoIcon = document.getElementById(`videoIcon-${i}-${id}`);
     videoIcon.classList.add("hidden");
-    video.play(); 
-
+    video.play();
   }
 
-  const HandleStopVideo = (i) => {
+  const handleStopVideo = (i, id) => {
     const newVideoToRender = videoToRender.map((video, index) => {
       if (index === i) {
         return {...video, showIcons: false}
@@ -75,8 +75,8 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
 
     setVideoToRender(newVideoToRender)
 
-    const video = document.getElementById(`video-${i}`);
-    const videoIcon = document.getElementById(`videoIcon-${i}`);    
+    const video = document.getElementById(`video-${i}-${id}`);
+    const videoIcon = document.getElementById(`videoIcon-${i}-${id}`);    
     video.pause();
     videoIcon.classList.remove("hidden");
   }
@@ -115,7 +115,7 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
         </div>
 
 
-        <div className={`flex justify-between items-center bg-white lg:justify-start lg:gap-3 ${!closeBtnView ? "fixed top-0 left-0 right-0 z-20 p-5 sm:left-16 sm:w-[85%] lg:relative" : "relative"}`}>
+        <div className={`flex justify-between items-center bg-white lg:justify-start lg:gap-3 ${!closeBtnView ? "fixed top-0 left-0 right-0 z-20 p-5 sm:left-[3.4rem] sm:w-[85%] lg:relative" : "relative"}`}>
           <div className="flex justify-center items-center gap-2">
             <div className="border rounded-md p-2.5 border-gray-300 lg:flex justify-center items-center gap-2 lg:px-4 lg:py-3 hover:border-black">
               <BsBookmarks color="gray" className="text-base lg:text-2xl font-medium"/>
@@ -171,7 +171,7 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
         </div>
         <div  className="mx-3 border-b border-gray-100 mt-12 mb-3"/>
 
-        <div className="flex justify-between items-center w-full lg:hidden">
+        <div className="flex justify-between items-center w-full flex-nowrap lg:hidden relative">
           <div className="flex justify-start items-center gap-1">
             { video && 
               <div className={`w-12 h-12 rounded-full border`} style={{backgroundColor: video ? video.avg_color : "red"}}>
@@ -186,8 +186,8 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
 
           </div>
 
-          <div className="flex gap-3 h-10">
-            <div className=" flex justify-center items-center border rounded-md p-2 border-gray-300 w-fit">
+          <div className="flex gap-3 h-10 absolute right-0">
+            <div className=" flex justify-center items-center border rounded-md p-2 border-gray-300 w-fit bg-white">
               <AiOutlineUserAdd size={25} className="text-gray-500"/>
             </div>
             <div className="border border-gray-800 bg-gray-800 text-white text-lg px-8 w-fit cursor-pointer rounded-xl flex justify-center items-center">
@@ -287,23 +287,25 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
           >
             <Masonry >              
             {videoToRender.map((item, i) => {
-              if(video.id !== item.id) {
+              if(video && video.id !== item.id) {
 
                 return (
-                  <div key={i} className="relative p-2" onMouseEnter={() => handlePlayVideo(i)}
-                  onMouseLeave={() => HandleStopVideo(i)}>
+                  <div key={i} className="relative p-2" 
+                    onMouseEnter={() => handlePlayVideo(i, item.id)}
+                    onMouseLeave={() => handleStopVideo(i, item.id)}
+                  >
                     <div className="mt-5 w-full flex">
                       <video 
                         src={item.video_files[0].link} loop type={item.video_files[0].file_type} 
                         className="w-full h-full object-cover" 
-                        id={`video-${i}`}                  
+                        id={`video-${i}-${item.id}`}                  
                         />
                       
                     </div>
                     <div className="absolute bottom-5 right-5 cursor-pointer text-white font-medium hover:bg-gray-100 hover:opacity-80 p-2 rounded-lg hover:text-black sm:hidden" >
                       <FiDownload size={30} />
                     </div>
-                    <div className="absolute top-10 left-5 cursor-pointer text-white font-medium" id={`videoIcon-${i}`}>
+                    <div className="absolute top-10 left-5 cursor-pointer text-white font-medium" id={`videoIcon-${i}-${item.id}`}>
                       <FaYoutube size={30} />
                     </div>
     
