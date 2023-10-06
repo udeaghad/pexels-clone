@@ -80,7 +80,7 @@ export default function Home() {
         <link rel="icon" href="/images/logo.png" />
       </Head>
 
-      <main> 
+      <main className='font-sans'> 
 
           <HeroSection />
           <div className='border-b m-5 border-slate-100' />
