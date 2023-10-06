@@ -61,8 +61,8 @@ const Photos = ({photos, setInView, handleOpenModal}) => {
         <Masonry >
           
           {photoToRender.length > 0 && photoToRender.map((photo, i) => (
-            <div key={photo?.src || i} className="relative z-5 p-2" onClick={() => handleOpenModal(photo)} onMouseEnter={() => hanldeShowIcons(i)} onMouseLeave={() => handleDisappearIcon(i)}>
-              <Image src={photo?.src?.original} alt={photo?.photographer} width={photo?.width|| 100} height={photo?.height || 100} className="w-full h-full object-cover"/>
+            <div key={i} className="relative z-5 p-2" onClick={() => handleOpenModal(photo)} onMouseEnter={() => hanldeShowIcons(i)} onMouseLeave={() => handleDisappearIcon(i)}>
+              <Image src={photo.src.original} alt={photo.photographer} width={photo.width} height={photo.height} className="w-full h-full object-cover"/>
               <div className="absolute bottom-5 right-5 cursor-pointer text-white font-medium hover:bg-gray-100 hover:opacity-80 p-2 rounded-lg hover:text-black sm:hidden">
                 <FiDownload size={20} />
               </div>

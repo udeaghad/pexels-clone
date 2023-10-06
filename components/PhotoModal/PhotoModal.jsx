@@ -108,7 +108,7 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
 
 
 
-        <div className={`flex justify-between items-center bg-white lg:justify-start lg:gap-3 ${!closeBtnView ? "fixed top-0 left-0 right-0 z-20 p-5 sm:left-16 sm:w-[85%] lg:relative" : "relative"}`}>
+        <div className={`flex justify-between items-center bg-white lg:justify-start lg:gap-3 ${!closeBtnView ? "fixed top-0 left-0 right-0 z-20 p-5 sm:left-[3.4rem] sm:w-[85%] lg:relative" : "relative"}`}>
           <div className="flex justify-center items-center gap-2">
             <div className="border rounded-md p-2.5 border-gray-300 lg:flex justify-center items-center gap-2 lg:px-4 lg:py-3 hover:border-black">
               <BsBookmarks color="gray" className="text-base lg:text-2xl font-medium"/>
@@ -188,8 +188,8 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
 
         <div  className="mx-3 border-b border-gray-100 mt-12 mb-3"/>
 
-        <div className="flex justify-between items-center w-full lg:hidden">
-          <div className="flex justify-start items-center gap-1">
+        <div className="flex justify-between items-center w-full lg:hidden relative">
+          <div className="flex justify-start items-center gap-1 relative">
             { photo && 
               <div className={`w-14 h-14 rounded-full border`} style={{backgroundColor: photo ? photo.avg_color : "gray"}}>
                 <Image src={photo.photographer_url} alt={photo.photographer} width={100} height={100} className="w-full h-full object-cover rounded-full"/>
@@ -204,8 +204,8 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
 
           </div>
 
-          <div className="flex gap-3 h-10">
-            <div className=" flex justify-center items-center border rounded-md p-2 border-gray-300 w-fit">
+          <div className="flex gap-3 h-10 absolute right-0">
+            <div className=" flex justify-center items-center border rounded-md p-2 border-gray-300 w-fit bg-white">
               <AiOutlineUserAdd size={25} className="text-gray-500"/>
             </div>
             <div className="border border-gray-800 bg-gray-800 text-white text-lg px-8 w-fit cursor-pointer rounded-xl flex justify-center items-center">
@@ -305,7 +305,7 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
           >
             <Masonry >
               {photoToRender.length > 0 && photoToRender.map((item, i) => {
-                if (photo?.id !== item?.id) {
+                if (photo && photo.id !== item.id) {
 
                   return (
                     <div key={i} className="relative z-5 p-2" onMouseEnter={() => hanldeShowIcons(i)} onMouseLeave={() => handleDisappearIcon(i)}>
