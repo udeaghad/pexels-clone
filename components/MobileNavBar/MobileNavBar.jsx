@@ -199,8 +199,8 @@ const MobileNavBar = ({open, setOpen}) => {
       
 
       { open && (
-        <div className="flex w-full justify-between items-center z-10 gap-2 sm:px-10"> 
-          <div className="bg-slate-100 flex justify-between items-center w-full rounded-md px-2 py-2 gap-1 sm:w-fit" >
+        <div className="flex w-full justify-between items-center z-10 gap-2"> 
+          <div className="bg-slate-100 flex justify-between items-center w-full rounded-md px-2 py-2 gap-1" >
             <div className="flex justify-center items-center gap-2">
               <BiImageAlt className="text-2xl text-gray-500"/>
               <span className="hidden sm:block">Photos</span>

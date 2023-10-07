@@ -142,31 +142,25 @@ const HeroSection = () => {
 
         </div>
 
-        {/* {inView && (
-          <div style={{display: open ? "none" : "block"}}>
-            <Navbar />
-          </div>
-        )} */}
-
 
         <div style={{display: inView ? "none" : "block", top:0, position: "fixed"}} className="z-50 w-full border-b">
           
-          <div className="flex justify-between items-center py-2  px-5 gap-2 bg-white lg:px-10 lg:gap-5">
+          <div className="flex justify-between items-center py-4  px-5 gap-2 bg-white sm:pl-8 lg:pl-14 lg:gap-5 ">
             <div className="z-10">
               <Link href="/" className="flex justify-center items-center gap-5 cursor-pointer">
-                  <Image src="/images/logo.png" alt="hero" width={50} height={50} className="rounded-md"/>
+                  <Image src="/images/logo.png" alt="hero" width={70} height={70} className="rounded-md lg:w-12 lg:l-12"/>
                   <span className="hidden lg:block font-medium text-2xl">Pexels</span>
               </Link>
             </div>
 
-            <div className="bg-slate-100 flex justify-start items-center w-full rounded-md px-2 py-1 gap-1 sm:mr-10 lg:w-fit lg:ml-5" >
+            <div className="bg-slate-100 flex justify-start items-center w-full rounded-md px-2 py-1 gap-1 sm:mr-10" >
               <div className="flex justify-center items-center gap-2 border-r">
                 <BiImageAlt className="text-2xl text-gray-500"/>
                 <span className="hidden sm:block">Photos</span>
                 <MdOutlineKeyboardArrowDown className="text-xl text-gray-500"/>
               </div>
               <div className="flex w-full">
-                <input type="text"  placeholder="Search for free photos" className="p-1 text-base font-medium outline-none w-full bg-slate-100 lg:text-lg lg:p-2" />
+                <input type="text"  placeholder="Search for free photos" className="p-2 text-base font-medium outline-none w-full bg-slate-100 lg:text-lg" />
               </div>
               <div>
                 <HiOutlineSearch className="text-xl text-gray-400"/>

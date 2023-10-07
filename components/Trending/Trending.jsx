@@ -37,7 +37,7 @@ const Trending = ({text}) => {
   }
   
   return (
-    <div className='relative mt-8'>
+    <div className='mx-4 relative mt-8'>
 
       <div className="flex flex-col justify-start items-start px-5 w-full absolute -z-10">
         <div className='flex justify-between items-center w-full bg-white'>
