@@ -174,12 +174,12 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
           </div>
 
           <div className="flex gap-2 absolute right-0">
-            <div className="bg-white border flex p-2 rounded w-fit border-gray-400 flex-nowrap gap-1 justify-center items-center lg:px-5 lg:py-3" >
+            <div className="bg-white border flex p-2 rounded w-fit border-gray-400 flex-nowrap gap-1 justify-center items-center sm:px-5 sm:py-3" >
               <BsInfoCircleFill size={20} className="text-gray-400"/>
               <span className="hidden lg:block">More info</span>
 
             </div>
-            <div className="bg-white border flex py-2 p-2 rounded w-fit border-gray-400 flex-nowrap gap-1 justify-center items-center lg:px-5 lg:py-3">
+            <div className="bg-white border flex py-2 p-2 rounded w-fit border-gray-400 flex-nowrap gap-1 justify-center items-center sm:px-5 sm:py-3">
               <MdLaunch size={20} className="text-gray-400"/>
               <span className="hidden lg:block">Share</span>
             </div>
