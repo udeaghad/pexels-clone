@@ -4,42 +4,30 @@ import { useInView } from 'react-intersection-observer';
 import Link from "next/link";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { useState } from 'react';
-import { useParams, usePathname } from 'next/navigation'
-import { useSearchParams } from 'next/navigation'
-
-
-
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
-  const navigationItems = [
+  const navItems = [
     {name: "Home", link: "/", start: true, end: false},
     {name: "Videos", link: "/videos", start: false, end: false},
     {name: "Leaderboard", link: "#", start: false, end: false,},
     {name: "Challenges", link: "#", start: false, end: true},
   ]
   
-  const pathName = usePathname()
-
-  console.log(pathName)
+  const pathName = usePathname() 
 
   const { ref: start, inView: startView} = useInView();
   const { ref: end, inView: endView} = useInView();
-
 
   const slideLeft = () => {
     const slider = document.getElementById('slider');
     slider.scrollLeft = slider.scrollLeft - 50;
   };
 
-
-
   const slideRight = () => {
     const slider = document.getElementById('slider');
     slider.scrollLeft = slider.scrollLeft + 50;
   }
-
-  const [navItems, setNavItems] = useState(navigationItems)
-
 
   return (
    <nav className="relative flex justify-between items-center w-full mt-5 md:mt-8 ml-0">
