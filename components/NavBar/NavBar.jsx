@@ -45,7 +45,7 @@ const Navbar = () => {
 
 
   return (
-   <nav className="relative flex justify-between items-center w-full mt-5 ml-0">
+   <nav className="relative flex justify-between items-center w-full mt-10 ml-0">
     <div className='flex justify-start items-center sm:hidden'>
       <div className="absolute bg-gradient-to-r w-12 h-16 from-white justify-start items-center" style={{display: startView && !endView ? "none" : !startView && !endView ? "flex" : "flex"}}>
         <MdKeyboardArrowLeft size={30} className="text-gray-900 opacity-50 bg-[inherit] bg-blend-lighten" onClick={slideLeft}/>
@@ -53,9 +53,9 @@ const Navbar = () => {
     </div>
 
 
-    <div id="slider" className="w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide px-5 sm:flex justify-center items-center">
+    <div id="slider" className="w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide px-5 sm:flex justify-center items-center gap-5">
       {navItems.map((item, i) => (
-        <div key={i} className={`py-3 px-5 text-lg rounded-full cursor-pointer inline-block font-medium ${ item.selected ? "bg-black text-white hover:text-white hover:bg-gray-800" : "text-gray-700 hover:text-black"}`} onClick={() => handleSelected(item)} >
+        <div key={i} className={`text-base inline-block rounded-full cursor-pointer font-medium ${ item.selected ? "bg-black text-white hover:text-white hover:bg-gray-800 py-3 px-5 " : "text-gray-500 hover:text-black"}`} onClick={() => handleSelected(item)} >
           <Link href={item.link} ref={item.start ? start : item.end ? end : null}>
             {item.name}
           </Link>
