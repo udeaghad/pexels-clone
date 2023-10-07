@@ -73,7 +73,7 @@ const Videos = ({videos, setInView, handleOpenModal}) => {
       >
         <Masonry >
           {videoToRender.map((video, i) => (
-            <div key={i} className="relative p-2" onClick={() => handleOpenModal(video)} onMouseEnter={() => handlePlayVideo(i)}
+            <div key={i} className="relative p-2 cursor-pointer" onClick={() => handleOpenModal(video)} onMouseEnter={() => handlePlayVideo(i)}
             onMouseLeave={() => HandleStopVideo(i)}>
               <div className="mt-5 w-full flex">
                 <video 

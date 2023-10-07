@@ -290,7 +290,7 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
               if(video && video.id !== item.id) {
 
                 return (
-                  <div key={i} className="relative p-2" 
+                  <div key={i} className="relative p-2 cursor-pointer" 
                     onMouseEnter={() => handlePlayVideo(i, item.id)}
                     onMouseLeave={() => handleStopVideo(i, item.id)}
                   >
