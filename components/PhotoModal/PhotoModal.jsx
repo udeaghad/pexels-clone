@@ -20,7 +20,7 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
   const { ref: start, inView: startView} = useInView();
   const { ref: end, inView: endView} = useInView();
 
-  const { ref: closeBtn, inView: closeBtnView} = useInView();
+  const { ref: closeBtnIntercsectionObserver, inView: closeBtnView} = useInView();
 
   const slideLeft = () => {
     const slider = document.getElementById('sliderBar');
@@ -139,7 +139,7 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
 
         </div>
 
-        <div ref={closeBtn} />
+        <div ref={closeBtnIntercsectionObserver} />
 
         {photo && (
           <div className="mt-5 w-full flex">

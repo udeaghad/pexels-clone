@@ -76,7 +76,7 @@ const MobileNavBar = ({open, setOpen}) => {
       <div className="z-50">
         <Link href="/" className="z-50 flex justify-center items-center gap-5 cursor-pointer" >
           <Image src="/images/logo.png" alt="hero" width={50} height={50} className="rounded-md"/>
-          <span className="hidden lg:block text-white font-medium text-2xl">Pexels</span>
+          <span className="hidden lg:block text-slate-300 font-medium text-2xl">Pexels</span>
         </Link>
       </div>
 
