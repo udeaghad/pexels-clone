@@ -38,7 +38,7 @@ const Navbar = () => {
     </div>
 
 
-    <div id="slider" className="w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide px-5 flex justify-center items-center gap-5 pl-64 md:p-0">
+    <div id="slider" className="w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide px-5 flex justify-center items-center gap-5 pl-32 md:p-0">
       <div ref={start}/>
       {navItems.map((item, i) => (
           <Link href={item.link} key={i} className={`text-base inline-block rounded-full cursor-pointer font-medium ${ pathName === item.link ? "bg-black text-white hover:text-white hover:bg-gray-800 py-3 px-5 " : "text-gray-500 hover:text-black"}`}>
