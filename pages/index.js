@@ -83,7 +83,8 @@ export default function Home() {
       <main className='font-sans'> 
 
           <HeroSection />
-          <div className='border-b m-5 border-slate-100' />
+
+          <div className='border-b mt-8 border-slate-100 lg:hidden' />
 
           <Trending text="Free Stock Photos"/>    
 

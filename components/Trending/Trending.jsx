@@ -37,9 +37,9 @@ const Trending = ({text}) => {
   }
   
   return (
-    <div className='relative mb-5'>
+    <div className='relative mt-8'>
 
-      <div className="mt-16 mb-5 flex flex-col justify-start items-start px-5 w-full absolute -z-10">
+      <div className="flex flex-col justify-start items-start px-5 w-full absolute -z-10">
         <div className='flex justify-between items-center w-full bg-white'>
           <div className="text-2xl text-gray-800">
             <h4 className='capitalize'>{text}</h4>
@@ -68,9 +68,7 @@ const Trending = ({text}) => {
                 {i !== opt.length - 1 && (
                   <div className="border-b border-gray-200 mb-3"/>    
                 )}
-              </div>
-                
-
+              </div> 
 
             </div>
           ))}

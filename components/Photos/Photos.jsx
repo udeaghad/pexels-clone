@@ -53,7 +53,7 @@ const Photos = ({photos, setInView, handleOpenModal}) => {
   }
 
   return (
-    <div className="px-2 absolute -z-20 w-full mt-32">
+    <div className="px-2 absolute -z-20 w-full mt-16">
 
       <ResponsiveMasonry
         columnsCountBreakPoints={{300: 2, 900: 3}}

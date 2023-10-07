@@ -289,11 +289,11 @@ const HeroSection = () => {
 
       </div>
 
-      {inView && (
-        <div style={{display: open ? "none" : "block"}}>
-          <Navbar />
-        </div>
-      )}
+      
+      <div style={{display: open ? "none" : "block"}}>
+        <Navbar />
+      </div>
+      
 
     </div>
   )
