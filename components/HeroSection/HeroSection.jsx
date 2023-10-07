@@ -145,7 +145,7 @@ const HeroSection = () => {
 
         <div style={{display: inView ? "none" : "block", top:0, position: "fixed"}} className="z-50 w-full border-b">
           
-          <div className="flex justify-between items-center py-4  px-5 gap-2 bg-white sm:pl-8 lg:pl-14 lg:gap-5 ">
+          <div className="flex justify-between items-center py-4  px-5 gap-2 bg-white sm:pl-8 lg:pl-14 lg:gap-5">
             <div className="z-10">
               <Link href="/" className="flex justify-center items-center gap-5 cursor-pointer">
                   <Image src="/images/logo.png" alt="hero" width={70} height={70} className="rounded-md lg:w-12 lg:l-12"/>
@@ -153,7 +153,7 @@ const HeroSection = () => {
               </Link>
             </div>
 
-            <div className="bg-slate-100 flex justify-start items-center w-full rounded-md px-2 py-1 gap-1 sm:mr-10" >
+            <div className="bg-slate-100 flex justify-start items-center w-full rounded-md px-2 py-2 gap-1 sm:mr-10 lg:ml-5" >
               <div className="flex justify-center items-center gap-2 border-r">
                 <BiImageAlt className="text-2xl text-gray-500"/>
                 <span className="hidden sm:block">Photos</span>
