@@ -88,7 +88,7 @@ const VideoHeroSection = () => {
   return (
     <div>
       <div className="relative w-full z-5">
-        <video src="https://static.pexels.com/lib/videos/free-videos.mp4" type="video/mp4" muted autoPlay loop className="absolute w-full h-full top-0 left-0 object-cover" />
+        <video src="https://static.pexels.com/lib/videos/free-videos.mp4" type="video/mp4" muted autoPlay loop className="absolute w-full h-full top-0 left-0 object-cover brightness-50" />
         <div ref={ref} className="w-full h-screen bg-center bg-cover bg-no-repeat top-0 pb-5" style={{ position: open ? "fixed" : "relative" }}>
           <div className="relative">
             <MobileNavBar open={open} setOpen={setOpen} />
@@ -130,7 +130,6 @@ const VideoHeroSection = () => {
                   Trending:
                 </span>
                 <span className="text-white whitespace-nowrap overflow-hidden">gandhi jayanti, october, mahatma gandhi, batik, natural </span>
-                <HiDotsCircleHorizontal className="text-[3rem] text-gray-300 sm:text-2xl" />
               </div>
             </div>
           </div>

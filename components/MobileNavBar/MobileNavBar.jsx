@@ -72,7 +72,7 @@ const MobileNavBar = ({open, setOpen}) => {
   }
 
   return (
-    <div className="flex justify-between items-center gap-3 p-4 w-full">
+    <div className="flex justify-between items-center gap-3 py-4 px-4 w-full md:px-7 lg:px-10">
       <div className="z-50">
         <Link href="/" className="z-50 flex justify-center items-center gap-5 cursor-pointer" >
           <Image src="/images/logo.png" alt="hero" width={50} height={50} className="rounded-md"/>
