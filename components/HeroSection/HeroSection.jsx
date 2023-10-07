@@ -268,6 +268,7 @@ const HeroSection = () => {
               </div>
             </div>
 
+
             <div className="flex justify-end items-center sm:gap-5">
               <div className="text-lg font-sans px-5 py-2 rounded-md bg-white w-fit border border-[#05a081] bg-[#05a081] hidden sm:block cursor-pointer">
                 <span className="text-white">Join</span>
@@ -275,6 +276,7 @@ const HeroSection = () => {
               <div className="p-1 cursor-pointer lg:hidden" onClick={() => setOpen(true)}>
                 <HiOutlineMenu color="black" size={30} enableBackground={"white"}/>
               </div>
+
 
             </div>
 

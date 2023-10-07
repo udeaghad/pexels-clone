@@ -57,7 +57,6 @@ const Photos = ({photos, setInView, handleOpenModal}) => {
 
       <ResponsiveMasonry
         columnsCountBreakPoints={{300: 2, 900: 3}}
-        
       >
         <Masonry >
           
@@ -102,7 +101,7 @@ const Photos = ({photos, setInView, handleOpenModal}) => {
       <div ref={ref} className="h-1 bg-white m-5"/>
 
       <div className="flex justify-center items-center">
-        <ReactLoading type="balls" color="gray" height={50} width={50} />
+        <ReactLoading type="balls" color="gray" height={200} width={200} />
       </div>
     </div>
   )

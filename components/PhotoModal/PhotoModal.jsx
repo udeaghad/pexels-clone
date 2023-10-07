@@ -308,8 +308,10 @@ const PhotoModal = ({open, photo, photos, handleCloseModal}) => {
                 if (photo && photo.id !== item.id) {
 
                   return (
+
                     <div key={i} className="relative z-5 p-2 cursor-pointer" onMouseEnter={() => hanldeShowIcons(i)} onMouseLeave={() => handleDisappearIcon(i)}>
                       <Image src={item.src.original} alt={item.photographer} width={item.width} height={item.height} className="w-full h-full object-cover"/>
+
                       <div className="absolute bottom-5 right-5 cursor-pointer text-white font-medium hover:bg-gray-100 hover:opacity-80 p-2 rounded-lg hover:text-black sm:hidden">
                         <FiDownload size={20} />
                       </div>
