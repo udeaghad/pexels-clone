@@ -1,18 +1,27 @@
+"use client"
+
 import { useInView } from 'react-intersection-observer';
 import Link from "next/link";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { useState } from 'react';
+import { useParams, usePathname } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 
 
-const navigationItems = [
-  {name: "Home", link: "/", start: true, end: false, selected: true},
-  {name: "Videos", link: "/videos", start: false, end: false, selected: false},
-  {name: "Leaderboard", link: "#", start: false, end: false,  selected: false},
-  {name: "Challenges", link: "#", start: false, end: true, selected: false},
-]
 
 
 const Navbar = () => {
+  const navigationItems = [
+    {name: "Home", link: "/", start: true, end: false},
+    {name: "Videos", link: "/videos", start: false, end: false},
+    {name: "Leaderboard", link: "#", start: false, end: false,},
+    {name: "Challenges", link: "#", start: false, end: true},
+  ]
+  
+  const pathName = usePathname()
+
+  console.log(pathName)
+
   const { ref: start, inView: startView} = useInView();
   const { ref: end, inView: endView} = useInView();
 
@@ -31,18 +40,6 @@ const Navbar = () => {
 
   const [navItems, setNavItems] = useState(navigationItems)
 
-  const handleSelected=(item) => {
-    const newNavItems = navItems.map(nav => {
-      if ( nav.name === item.name) {
-        return {...nav, selected: true}
-      } else {
-        return {...nav, selected: false}
-      }
-    })
-
-    setNavItems(newNavItems)
-  }
-
 
   return (
    <nav className="relative flex justify-between items-center w-full mt-5 md:mt-8 ml-0">
@@ -55,11 +52,9 @@ const Navbar = () => {
 
     <div id="slider" className="w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide px-5 flex justify-center items-center gap-5">
       {navItems.map((item, i) => (
-        <div key={i} className={`text-base inline-block rounded-full cursor-pointer font-medium ${ item.selected ? "bg-black text-white hover:text-white hover:bg-gray-800 py-3 px-5 " : "text-gray-500 hover:text-black"}`} onClick={() => handleSelected(item)} >
-          <Link href={item.link} ref={item.start ? start : item.end ? end : null}>
+          <Link href={item.link} ref={item.start ? start : item.end ? end : null} key={i} className={`text-base inline-block rounded-full cursor-pointer font-medium ${ pathName === item.link ? "bg-black text-white hover:text-white hover:bg-gray-800 py-3 px-5 " : "text-gray-500 hover:text-black"}`}>
             {item.name}
           </Link>
-        </div>
       ))}
 
 
