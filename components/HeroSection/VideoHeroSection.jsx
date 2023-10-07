@@ -125,18 +125,18 @@ const VideoHeroSection = () => {
             </div>
 
             <div className="lg:flex justify-start items-center lg:justify-center">
-              <div className="flex justify-start items-center text-base text-white font-bold my-10 gap-1 mx-[8%] lg:w-[70%] xl:w-[50%]">
-                <span className="text-gray-300">
+              <div className="flex justify-start items-center text-base text-white font-bold my-5 gap-1 mx-[8%] lg:w-[70%] xl:w-[50%]">
+                <span className="text-slate-300">
                   Trending:
                 </span>
-                <span className="text-white whitespace-nowrap overflow-hidden">gandhi jayanti, october, mahatma gandhi, batik, natural {' '} </span>
-                <HiDotsCircleHorizontal size={20} className="text-gray-300" />
+                <span className="text-white whitespace-nowrap overflow-hidden">gandhi jayanti, october, mahatma gandhi, batik, natural </span>
+                <HiDotsCircleHorizontal className="text-[3rem] text-gray-300 sm:text-2xl" />
               </div>
             </div>
           </div>
 
 
-          <div className="flex flex-col justify-end items-end gap-3 text-lg text-slate-200 font-medium text-right mx-5 absolute bottom-1 right-1 cursor-pointer">
+          <div className="flex flex-col justify-end items-end gap-1 text-lg text-slate-200 font-medium text-right mx-5 absolute bottom-1 right-1 cursor-pointer">
             <SiCanva size={30} className="inline-block text-slate-200" />
             <span className="text-base">Click here for Canva video</span>
           </div>
