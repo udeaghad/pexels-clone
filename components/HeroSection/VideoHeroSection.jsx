@@ -88,7 +88,7 @@ const VideoHeroSection = () => {
   return (
     <div>
       <div className="relative w-full z-5">
-        <video src="https://static.pexels.com/lib/videos/free-videos.mp4" type="video/mp4" muted autoPlay loop className="absolute w-full h-full top-0 left-0 object-cover brightness-50" />
+        <video src="https://static.pexels.com/lib/videos/free-videos.mp4" type="video/mp4" muted autoPlay loop className="absolute w-full h-full top-0 left-0 object-cover brightness-50 -z-10" />
         <div ref={ref} className="w-full h-screen bg-center bg-cover bg-no-repeat top-0 pb-5" style={{ position: open ? "fixed" : "relative" }}>
           <div className="relative">
             <MobileNavBar open={open} setOpen={setOpen} />
@@ -135,7 +135,7 @@ const VideoHeroSection = () => {
           </div>
 
 
-          <div className="flex flex-col justify-end items-end gap-1 text-lg text-slate-200 font-medium text-right mx-5 absolute bottom-1 right-1 cursor-pointer">
+          <div className="flex flex-col justify-end items-end gap-1 text-lg text-slate-200 font-medium text-right mx-5 absolute bottom-1 right-1 cursor-pointer -z-10">
             <SiCanva size={30} className="inline-block text-slate-200" />
             <span className="text-base">Click here for Canva video</span>
           </div>

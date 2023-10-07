@@ -86,7 +86,7 @@ const HeroSection = () => {
     <div>
 
       <div className="relative w-full z-5">
-        <img src="https://images.pexels.com/photos/17928278/pexels-photo-17928278.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=500&w=1500" alt="background-img" className="absolute w-full h-full top-0 left-0 object-cover brightness-50" />
+        <img src="https://images.pexels.com/photos/17928278/pexels-photo-17928278.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=500&w=1500" alt="background-img" className="absolute w-full h-full top-0 left-0 object-cover brightness-50 -z-10" />
         {/* <div ref={ref} className="bg-[url('https://images.pexels.com/photos/17928278/pexels-photo-17928278.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=500&w=1500')] w-full bg-center bg-cover bg-no-repeat top-0 pb-5 h-screen brightness-50 z-0" style={{position: open ? "fixed" : "relative"}}>  */}
         <div ref={ref} className="w-full h-screen bg-center bg-cover bg-no-repeat top-0 pb-5" style={{ position: open ? "fixed" : "relative" }}>
           <div className="relative">
@@ -135,7 +135,7 @@ const HeroSection = () => {
           </div>
           
 
-          <div className="text-lg text-slate-200 font-medium text-right mx-5 absolute bottom-1 right-1" >
+          <div className="text-lg text-slate-200 font-medium text-right mx-5 absolute bottom-1 right-1 -z-10" >
             <span className="text-gray-400">Photo by </span>
             <span>Dang vu hai</span>
           </div>
