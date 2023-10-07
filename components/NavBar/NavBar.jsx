@@ -30,7 +30,7 @@ const Navbar = () => {
   }
 
   return (
-   <nav className="relative flex justify-between items-center w-full mt-5 md:mt-8 ml-0">
+   <nav className="relative flex justify-between items-center w-full mt-5 md:mt-8">
     <div className='flex justify-start items-center sm:hidden'>
       <div className="absolute bg-gradient-to-r w-12 h-16 from-white justify-start items-center" style={{display: startView && !endView ? "none" : !startView && !endView ? "flex" : "flex"}}>
         <MdKeyboardArrowLeft size={30} className="text-gray-900 opacity-50 bg-[inherit] bg-blend-lighten" onClick={slideLeft}/>
@@ -38,12 +38,15 @@ const Navbar = () => {
     </div>
 
 
-    <div id="slider" className="w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide px-5 flex justify-center items-center gap-5">
+    <div id="slider" className="w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide px-5 flex justify-center items-center gap-5 pl-64 md:p-0">
+      <div ref={start}/>
       {navItems.map((item, i) => (
-          <Link href={item.link} ref={item.start ? start : item.end ? end : null} key={i} className={`text-base inline-block rounded-full cursor-pointer font-medium ${ pathName === item.link ? "bg-black text-white hover:text-white hover:bg-gray-800 py-3 px-5 " : "text-gray-500 hover:text-black"}`}>
+          <Link href={item.link} key={i} className={`text-base inline-block rounded-full cursor-pointer font-medium ${ pathName === item.link ? "bg-black text-white hover:text-white hover:bg-gray-800 py-3 px-5 " : "text-gray-500 hover:text-black"}`}>
             {item.name}
           </Link>
       ))}
+
+      <div ref={end}/>
 
 
     </div>
