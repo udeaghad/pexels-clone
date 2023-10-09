@@ -122,7 +122,7 @@ const IntersectionNavBar = ({setOpen, open}) => {
           >
             <div className="w-0 h-0 border-l-[2rem] border-r-[2rem] border-l-transparent border-r-transparent border-b-[2rem] border-b-gray-500 absolute -top-2 left-10 z-5" />
             <div className="w-0 h-0 border-l-[2rem] border-r-[2rem] border-l-transparent border-r-transparent border-b-[2rem] border-b-white absolute -top-2 left-10 z-10" />
-            <div className="flex flex-col bg-white text-gray-600 font-normal pt-3 pb-3 rounded-xl gap-1 absolute text-sm w-40 -left-14 border">
+            <div className="flex flex-col bg-white text-gray-600 font-medium pt-3 pb-3 rounded-xl gap-1 absolute text-sm w-40 -left-14 border">
               <div className="hover:bg-gray-100 px-3 py-1 relative z-20 cursor-pointer">
                 <span>Discover Photos</span>
               </div>
@@ -171,7 +171,7 @@ const IntersectionNavBar = ({setOpen, open}) => {
             <div className="w-0 h-0 border-l-[2.3rem] border-r-[2.3rem] border-l-transparent border-r-transparent border-b-[2.5rem] border-b-gray absolute -top-2.5 -left-7 z-5" />
             <div className="w-0 h-0 border-l-[2rem] border-r-[2rem] border-l-transparent border-r-transparent border-b-[2rem] border-b-white absolute -top-2 -left-6 z-10" />
 
-            <div className="flex flex-col bg-white text-gray-600 font-normal pt-3 pb-3 rounded-xl gap-1 absolute text-sm -left-44 border">
+            <div className="flex flex-col bg-white text-gray-600 font-medium pt-3 pb-3 rounded-xl gap-1 absolute text-sm -left-44 border">
               <div className="hover:bg-gray-100 px-3 py-1 relative z-20 cursor-pointer">
                 <span>Login</span>
               </div>
