@@ -183,15 +183,18 @@ const MobileNavBar = ({open, setOpen}) => {
             </div>
 
           </div>
+
+          <div className="flex justify-end items-center sm:gap-5">
+            <div className="text-lg font-sans px-5 py-2 rounded-md bg-white w-fit border border-[#dfdfe0] outline-2 cursor-pointer">
+              <span>Join</span>
+            </div>
+
+            <div className="p-1 lg:hidden cursor-pointer" onClick={() => setOpen(true)}>
+              <HiOutlineMenu color="white" size={30}/>
+            </div>
+          </div>
           
 
-          <div className="text-lg font-sans px-5 py-2 rounded-md bg-white w-fit border border-[#dfdfe0] outline-2 cursor-pointer">
-            <span>Join</span>
-          </div>
-
-          <div className="p-1 lg:hidden cursor-pointer" onClick={() => setOpen(true)}>
-            <HiOutlineMenu color="white" size={30}/>
-          </div>
 
         </div>
       )}
@@ -200,7 +203,7 @@ const MobileNavBar = ({open, setOpen}) => {
 
       { open && (
         <div className="flex w-full justify-between items-center z-10 gap-2"> 
-          <div className="bg-slate-100 flex justify-between items-center w-full rounded-md px-2 py-2 gap-1" >
+          <div className="bg-slate-100 flex justify-start items-center w-full rounded-md px-2 py-2 gap-1 sm:mr-10 lg:ml-5" >
             <div className="flex justify-center items-center gap-2">
               <BiImageAlt className="text-2xl text-gray-500"/>
               <span className="hidden sm:block">Photos</span>
@@ -214,14 +217,18 @@ const MobileNavBar = ({open, setOpen}) => {
             </div>
           </div>
 
-          <div className="hidden sm:block text-lg font-sans px-5 py-2 rounded-md border-[#05a081] bg-[#05a081] w-fit border outline-2 cursor-pointer">
-            <span className="text-white">Join</span>
+          <div className="flex justify-end items-center sm:gap-5">
+
+            <div className="hidden sm:block text-lg font-sans px-5 py-2 rounded-md border-[#05a081] bg-[#05a081] w-fit border outline-2 cursor-pointer">
+              <span className="text-white">Join</span>
+            </div>
+
+          
+            <div onClick={() => setOpen(false)}>
+              <IoClose className="text-slate-100 text-3xl font-bold cursor-pointer"/>
+            </div>
           </div>
 
-         
-          <div onClick={() => setOpen(false)}>
-            <IoClose className="text-slate-100 text-3xl font-bold cursor-pointer"/>
-          </div>
 
         </div>
       )}
