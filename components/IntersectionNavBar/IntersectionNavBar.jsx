@@ -43,7 +43,7 @@ const IntersectionNavBar = ({setOpen, open}) => {
       exploreOptions.current.classList.remove('hidden')
       arrowBtn.current.classList.add('rotate-180') 
       exploreBtn.current.classList.add('text-gray-300') 
-      arrowBtn.current.classList.remove('text-white')
+      
     }   
   }
 
@@ -52,8 +52,7 @@ const IntersectionNavBar = ({setOpen, open}) => {
       exploreOptions.current.classList.add('hidden')
       arrowBtn.current.classList.remove('rotate-180') 
       exploreBtn.current.classList.remove('text-gray-300')
-      arrowBtn.current.classList.add('text-white')
-          
+               
     }
   }
   const othersOptions = useRef(null)
