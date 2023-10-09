@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useRef } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { BiImageAlt } from "react-icons/bi";

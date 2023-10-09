@@ -1,10 +1,7 @@
-"use client";
-
 import { useRef, useState } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
-import { BiImageAlt } from "react-icons/bi";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
-import { HiDotsCircleHorizontal, HiOutlineMenu, HiDotsHorizontal } from "react-icons/hi";
+import { HiOutlineMenu, HiDotsHorizontal } from "react-icons/hi";
 import Modal from "../Modal/Modal";
 import MobileNavBar from "../MobileNavBar/MobileNavBar";
 import Navbar from "../NavBar/NavBar";
