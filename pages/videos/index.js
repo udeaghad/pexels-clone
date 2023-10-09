@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Trending from '../../components/Trending/Trending';
 import axios from 'axios';
-import { useQuery } from '@tanstack/react-query';
+import { dehydrate, QueryClient } from '@tanstack/react-query'
 import { useStore } from '../../store';
 import { useEffect, useState } from 'react';
 import Videos from '../../components/Videos/Video';
@@ -9,33 +9,15 @@ import VideoModal from '../../components/VideoModal/VideoModal';
 import VideoHeroSection from '../../components/HeroSection/VideoHeroSection';
 
 
-export default function Home() {
-  const addVideos = useStore(state => state.addVideos)
-
-  const videos = useStore(state => state.videos)
-
-  const [url, setUrl] = useState('')
-
-  const [ inView, setInView ] = useState(true)
-
-  const {data: getVideos} = useQuery({
-    queryKey: ['videos'],
-    queryFn: async () => {
-      const result = await axios.get("https://api.pexels.com/videos/popular?per_page=10", {
-        headers: {
-          Authorization: process.env.NEXT_PUBLIC_PEXELS_API_KEY
-        }
-      })
-
-      return result.data
-    }
-  })
+export default function Home({getVideos}) {
+  const {videos, addVideos, nextVideoPage, setNextVideoPage} = useStore(state => state)
+  const [ inView, setInView ] = useState(false)
 
   useEffect(() => {    
-    if(getVideos) {
-      addVideos(getVideos.videos)
-      setUrl(getVideos.next_page)
-    }
+    if (videos.length === 0) {
+      addVideos(getVideos.queries[0]?.state.data.videos)
+      setNextVideoPage(getVideos.queries[0]?.state.data.next_page) 
+    }   
   }, [getVideos])
 
   const fetchMoreData = async(URL) => {
@@ -47,16 +29,16 @@ export default function Home() {
 
     if(getMoreVideos) {     
       addVideos(getMoreVideos.videos)
-      setUrl(getMoreVideos.next_page)
+      setNextVideoPage(getMoreVideos.next_page)
       setInView(false)
     }
   }
 
   useEffect(() => {
-    if (inView && url) {
-      fetchMoreData(url)
+    if (inView && nextVideoPage) {
+      fetchMoreData(nextVideoPage)
     }
-  }, [inView, url])
+  }, [inView])
 
   const [videoDetails, setVideoDetails ] = useState(null)
 
@@ -97,4 +79,26 @@ export default function Home() {
       
     </div>
   );
+}
+
+export async function getServerSideProps() {
+  const queryClient = new QueryClient()
+
+  await queryClient.prefetchQuery({
+    queryKey: ['videos'],
+    queryFn: async() => {
+      const result = await axios.get("https://api.pexels.com/videos/popular?per_page=10", {
+        headers: {
+          Authorization: process.env.NEXT_PUBLIC_PEXELS_API_KEY
+        }
+      })
+      return result.data
+    }
+  })
+
+  return {
+    props: {
+      getVideos: dehydrate(queryClient),
+    },
+  }
 }

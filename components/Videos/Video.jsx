@@ -123,11 +123,11 @@ const Videos = ({videos, setInView, handleOpenModal}) => {
         </Masonry>
       </ResponsiveMasonry> 
       
-      <div ref={ref} className="h-1 bg-white m-5"/>
-
-      <div className="flex justify-center items-center">
-        <ReactLoading type="balls" color="gray" height={50} width={50} />
-      </div>
+      {videos.length > 0 && (
+        <div className="flex justify-center items-center" ref={ref}>
+          <ReactLoading type="balls" color="gray" height={50} width={50} />
+        </div>
+      )}
     </div>
   );
 }

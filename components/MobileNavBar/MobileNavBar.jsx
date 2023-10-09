@@ -206,7 +206,7 @@ const MobileNavBar = ({open, setOpen}) => {
               <span className="hidden sm:block">Photos</span>
               <MdOutlineKeyboardArrowDown className="text-xl text-gray-500"/>
             </div>
-            <div >
+            <div className="flex w-full">
               <input type="text"  placeholder="Search for free photos" className="p-1 text-base font-medium outline-2 w-full border-l bg-slate-100 sm:w-fit" />
             </div>
             <div>
@@ -220,7 +220,7 @@ const MobileNavBar = ({open, setOpen}) => {
 
          
           <div onClick={() => setOpen(false)}>
-            <IoClose className="text-slate-100 text-3xl font-bold"/>
+            <IoClose className="text-slate-100 text-3xl font-bold cursor-pointer"/>
           </div>
 
         </div>

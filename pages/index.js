@@ -3,40 +3,25 @@
 import Head from 'next/head';
 import Trending from '../components/Trending/Trending';
 import axios from 'axios';
-import { useQuery } from '@tanstack/react-query';
+import { dehydrate, QueryClient } from '@tanstack/react-query'
 import { useStore } from '../store';
 import { useEffect, useState } from 'react';
 import Photos from '../components/Photos/Photos';
 import PhotoModal from '../components/PhotoModal/PhotoModal';
 import HeroSection from '../components/HeroSection/HeroSection';
 
-export default function Home() {
-  const addPhotos = useStore(state => state.addPhotos)
+export default function Home({getPhotos}) {
 
-  const photos = useStore(state => state.photos)
+  const {photos, addPhotos, setNextPhotoPage, nextPhotoPage} = useStore(state => state)
 
-  const [url, setUrl] = useState('')
+  const [ inView, setInView ] = useState(false)
 
-  const [ inView, setInView ] = useState(true)
-
-  const {data: getPhotos} = useQuery({
-    queryKey: ['photos'],
-    queryFn: async () => {
-      const result = await axios.get('https://api.pexels.com/v1/curated?per_page=20&page=1', {
-        headers: {
-          Authorization: process.env.NEXT_PUBLIC_PEXELS_API_KEY
-        }
-      })
-      return result.data
-    }
-  })
-
-  useEffect(() => {
-    if(getPhotos) {
-      addPhotos(getPhotos.photos)
-      setUrl(getPhotos.next_page)
-    }
-  }, [getPhotos])
+  useEffect(() => {       
+    if (photos.length === 0) {
+      addPhotos(getPhotos.queries[0]?.state.data.photos)
+      setNextPhotoPage(getPhotos.queries[0]?.state.data.next_page) 
+    }  
+  },[getPhotos])
 
   const fetchMoreData = async(URL) => {
     const getMorePhotos = await axios.get(URL, {
@@ -47,16 +32,16 @@ export default function Home() {
 
     if(getMorePhotos) {     
       addPhotos(getMorePhotos.photos)
-      setUrl(getMorePhotos.next_page)
+      setNextPhotoPage(getMorePhotos.next_page)
       setInView(false)
     }
   }
 
   useEffect(() => {
-    if (inView && url) {
-      fetchMoreData(url)
+    if (inView && nextPhotoPage) {
+      fetchMoreData(nextPhotoPage)
     }
-  }, [inView, url])
+  }, [inView])
 
   const [photoDetails, setPhotoDetails ] = useState(null)
 
@@ -97,4 +82,26 @@ export default function Home() {
       
     </div>
   );
+}
+
+export async function getServerSideProps() {
+  const queryClient = new QueryClient()
+
+  await queryClient.prefetchQuery({
+    queryKey: ['photos'],
+    queryFn: async() => {
+      const result = await axios.get('https://api.pexels.com/v1/curated?per_page=10&page=1', {
+        headers: {
+          Authorization: process.env.NEXT_PUBLIC_PEXELS_API_KEY
+        }
+      })
+      return result.data
+    }
+  })
+
+  return {
+    props: {
+      getPhotos: dehydrate(queryClient),
+    },
+  }
 }
