@@ -1,3 +1,5 @@
+"use client"
+
 import { useRef, useState } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
