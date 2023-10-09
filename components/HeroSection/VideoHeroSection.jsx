@@ -44,7 +44,9 @@ const VideoHeroSection = () => {
 
   const [open, setOpen] = useState(false);
 
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView({
+    initialInView: true,
+  });
 
   const exploreOptions = useRef(null)
   const arrowBtn = useRef(null)
