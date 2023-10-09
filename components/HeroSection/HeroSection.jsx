@@ -88,7 +88,7 @@ const HeroSection = () => {
         </div>
 
 
-        <div style={{display: inView ? "none" : "block", top:0, position: "fixed"}} className="z-50 w-full border-b">
+        <div style={{display: inView ? "none" : "block", top:0, position: "fixed"}} className="z-50 w-full">
           <IntersectionNavBar setOpen={setOpen} open={open}/>
         </div>
 

@@ -71,7 +71,7 @@ const IntersectionNavBar = ({setOpen, open}) => {
 
 
   return (
-    <div className="flex justify-between items-center py-4  px-5 gap-2 bg-white sm:pl-8 lg:pl-14 lg:gap-5">
+    <div className="flex justify-between items-center py-4  px-5 gap-2 bg-white sm:pl-8 lg:pl-14 lg:gap-5 border-b">
       <div className="z-10">
         <Link href="/" className="flex justify-center items-center gap-5 cursor-pointer">
           <Image 
