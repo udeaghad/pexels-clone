@@ -71,7 +71,7 @@ const IntersectionNavBar = ({setOpen, open}) => {
 
 
   return (
-    <div className="flex justify-between items-center py-4  px-5 gap-2 bg-white sm:pl-8 lg:pl-14 lg:gap-5 border-b">
+    <div className="flex justify-between items-center py-2  px-5 gap-2 bg-white sm:pl-8 lg:pl-14 lg:gap-5 border-b">
       <div className="z-10">
         <Link href="/" className="flex justify-center items-center gap-5 cursor-pointer">
           <Image 
@@ -91,7 +91,7 @@ const IntersectionNavBar = ({setOpen, open}) => {
           <MdOutlineKeyboardArrowDown className="text-xl text-gray-500" />
         </div>
         <div className="flex w-full">
-          <input type="text" placeholder="Search for free photos" className="p-2 text-base font-medium outline-none w-full bg-slate-100 lg:text-lg" />
+          <input type="text" placeholder="Search for free photos" className="p-1 text-base font-medium outline-none w-full bg-slate-100 lg:text-lg" />
         </div>
         <div>
           <HiOutlineSearch className="text-xl text-gray-400" />
