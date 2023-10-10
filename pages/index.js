@@ -16,7 +16,7 @@ export default function Home({getPhotos}) {
 
   const [ inView, setInView ] = useState(false)
 
-  useEffect(() => {       
+  useEffect(() => {    
     if (photos.length === 0) {
       addPhotos(getPhotos.queries[0]?.state.data.photos)
       setNextPhotoPage(getPhotos.queries[0]?.state.data.next_page) 
@@ -90,7 +90,7 @@ export async function getServerSideProps() {
   await queryClient.prefetchQuery({
     queryKey: ['photos'],
     queryFn: async() => {
-      const result = await axios.get('https://api.pexels.com/v1/curated?per_page=10&page=1', {
+      const result = await axios.get('https://api.pexels.com/v1/curated?per_page=20&page=1', {
         headers: {
           Authorization: process.env.NEXT_PUBLIC_PEXELS_API_KEY
         }
