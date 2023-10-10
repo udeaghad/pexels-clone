@@ -21,7 +21,7 @@ export default function Home() {
         <MobileNavBar open={open} setOpen={setOpen} />
       </div>
 
-      <div className='relative z-5'>
+      <div className={`relative ${open ? "z-5" : "z-10"}`}>
         <IntersectionNavBar setOpen={setOpen} open={open}/>
 
       </div>
@@ -31,7 +31,7 @@ export default function Home() {
         <Modal open={open} />
       </div>
 
-      <div className={`${open ? "hidden" : "block"} relative -z-10`}>
+      <div className={`${open ? "hidden" : "block"} relative -z-5`}>
         <Navbar />
       </div>
 
