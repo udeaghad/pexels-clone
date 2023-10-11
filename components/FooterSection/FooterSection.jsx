@@ -102,7 +102,7 @@ const FooterSection = () => {
             <h3 className="text-2xl font-medium">Pexels</h3>
             <div className="mt-5 text-xl font-medium flex flex-col gap-1">
               {pexelsItems.map((item) => (
-                <span className="hover:text-gray-400 cursor-pointer ">{item}</span>
+                <span key={item} className="hover:text-gray-400 cursor-pointer ">{item}</span>
               ))}
             </div>
           </div>
@@ -111,7 +111,7 @@ const FooterSection = () => {
             <h3 className="text-2xl font-medium">Company</h3>
             <div className="mt-5 text-xl font-medium flex flex-col gap-1">
               {companyItems.map((item) => (
-                <span className="hover:text-gray-400 cursor-pointer">{item}</span>
+                <span key={item} className="hover:text-gray-400 cursor-pointer">{item}</span>
               ))}
             </div>
           </div>
@@ -124,7 +124,7 @@ const FooterSection = () => {
 
           <div className="flex gap-2 justify-start items-end flex-wrap lg:flex-nowrap lg:flex-col lg:items-start">
             {stockPhotosItems.map((item) => (
-              <span className="border border-gray-300 px-3 py-2 rounded-md text-gray-300 font-medium cursor-pointer hover:bg-gray-300 hover:text-black">
+              <span key={item} className="border border-gray-300 px-3 py-2 rounded-md text-gray-300 font-medium cursor-pointer hover:bg-gray-300 hover:text-black">
                 {item}
               </span>
             ))}
@@ -136,17 +136,17 @@ const FooterSection = () => {
         <div className="flex justify-center items-center mt-20 mb-10 lg:mt-0">
           <p className="text-gray-300 font-medium text-lg">© 2023 Pexels</p>
         </div>
-
+ 
         <div className="mb-8">
           <div className="flex flex-col justify-center items-center gap-1 lg:flex-row lg:gap-5">
             {footerLinks.slice(0,3).map((link) => (
-              <span className="text-lg text-gray-300 font-medium hover:text-gray-500 cursor-pointer">{link}</span>
+              <span key={link} className="text-lg text-gray-300 font-medium hover:text-gray-500 cursor-pointer">{link}</span>
             ))}
           </div>
 
           <div className="flex flex-col justify-center items-center gap-1 lg:justify-start lg:items-start">
             {footerLinks.slice(3).map((link) => (
-              <span className="text-lg text-gray-300 font-medium hover:text-gray-500 cursor-pointer">{link}</span>
+              <span key={link} className="text-lg text-gray-300 font-medium hover:text-gray-500 cursor-pointer">{link}</span>
             ))}
           </div>
         </div>
