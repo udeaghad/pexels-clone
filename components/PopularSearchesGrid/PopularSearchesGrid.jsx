@@ -38,7 +38,7 @@ const PopularSearchesGrid = ({collections}) => {
             />
 
             <div className="absolute inset-0 flex justify-center items-center flex-col px-5">
-              <span className="text-[33px] font-semibold text-white">{collection.title}</span>               
+              <span className="text-[33px] font-semibold text-white text-center">{collection.title}</span>               
             </div>
 
             <div className="absolute bottom-0 top-[30%] right-0 left-0 flex justify-center items-center flex-col sm:top-[45%] lg:top-[30%]">
