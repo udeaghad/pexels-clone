@@ -47,9 +47,6 @@ export default function Home({collections}) {
     }
   })
 
-  useEffect(() => {
-    console.log(newCollections)
-  }, [newCollections])
   
   return (
     <div>

@@ -2,6 +2,7 @@ import { BsApple, BsInstagram } from "react-icons/bs";
 import { DiAndroid } from "react-icons/di";
 import { FaTwitter, FaPinterestP } from "react-icons/fa";
 import { ImFacebook2 } from "react-icons/im";
+import { TbWorld } from "react-icons/tb";
 
 const FooterSection = () => {
 
@@ -58,9 +59,9 @@ const FooterSection = () => {
 
   const RenderSocialMedia = () => {
     return (
-      <div className="flex justify-start items-center gap-10 border-gray-800">
+      <div className="flex justify-start items-center gap-10 border-gray-800 mt-5">
         {socialMediaItems.map((item, i) => (
-          <div key={i} className="text-white font-medium cursor-pointer hover:text-gray-500">
+          <div key={i} className="text-white font-medium cursor-pointer hover:text-gray-300">
             <item.icon size={24}/>
           </div>
         ))}
@@ -69,7 +70,7 @@ const FooterSection = () => {
   }
 
   return (
-    <footer className="bg-black text-white px-5">
+    <footer className="bg-black text-white p-5">
       <div className="text-xl py-4 font-medium">
         <span>Free photos and videos shared by talented creators.</span>
       </div>
@@ -77,12 +78,12 @@ const FooterSection = () => {
       <div className=" flex flex-col gap-2 pb-5">
         <span className="text-slate-300">Download one of our apps.</span>
         <div className="flex justify-start items-center gap-2">
-          <div className="bg-white py-2 px-6 w-fit text-black font-bold rounded-md">
+          <div className="bg-white py-2 px-5 w-fit text-black font-bold rounded-md cursor-pointer">
             <BsApple className="inline-block mr-2 text-xl" />
             iOS
           </div>
 
-          <div className="bg-white py-2 px-6 w-fit text-black font-bold rounded-md"> 
+          <div className="bg-white py-2 px-5 w-fit text-black font-bold rounded-md cursor-pointer"> 
             <DiAndroid className="inline-block mr-2 text-xl"/>          
             Android
           </div>
@@ -90,6 +91,56 @@ const FooterSection = () => {
       </div>
 
       <RenderSocialMedia />
+
+      <div className="mt-10">
+        <h3 className="text-2xl font-medium">Pexels</h3>
+        <div className="mt-5 text-xl font-medium flex flex-col gap-1">
+          {pexelsItems.map((item) => (
+            <span className="hover:text-gray-400 cursor-pointer">{item}</span>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-10">
+        <h3 className="text-2xl font-medium">Company</h3>
+        <div className="mt-5 text-xl font-medium flex flex-col gap-1">
+          {companyItems.map((item) => (
+            <span className="hover:text-gray-400 cursor-pointer">{item}</span>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-10">
+        <h3 className="text-2xl font-medium mb-5">Free Stock Photos</h3>
+
+        <div className="flex gap-2 justify-start items-end flex-wrap">
+          {stockPhotosItems.map((item) => (
+            <span className="border border-gray-300 px-3 py-2 rounded-md text-gray-300 font-medium cursor-pointer hover:bg-gray-300 hover:text-black">
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div className="flex justify-center items-center mt-20 mb-10">
+        <p className="text-gray-300 font-medium text-lg">© 2023 Pexels</p>
+      </div>
+
+      <div className="flex flex-col justify-center items-center gap-1 mb-8">
+        {footerLinks.map((link) => (
+          <span className="text-lg text-gray-300 font-medium hover:text-gray-500 cursor-pointer">{link}</span>
+        ))}
+      </div>
+
+        <div className="flex justify-center items-center pb-5">
+          <div className="px-4 pb-1 pt-2 bg-[#7f7f7f] w-fit rounded-md flex justify-center items-center cursor-pointer">
+              <TbWorld className="text-2xl mr-2 text-[#bfbfbf]"/>
+              <span className="text-lg font-semibold">
+                English
+              </span>
+          </div>
+        </div>
+
     </footer>
   )
 }
