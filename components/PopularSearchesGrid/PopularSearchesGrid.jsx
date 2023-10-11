@@ -16,7 +16,7 @@ const PopularSearchesGrid = ({collections}) => {
 
   return (
     <div>
-      <div className="flex flex-col justify-center items-center mt-10 px-3">
+      <div className="flex flex-col justify-center items-center mt-10 px-3 mb-5">
         <h1 className="text-[33px] font-semibold text-gray-700">Popular Searches</h1>
         <p className="text-[18px] text-center font-medium text-gray-600">The most popular search terms on Pexels</p>
       </div>

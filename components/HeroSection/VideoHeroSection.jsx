@@ -72,7 +72,7 @@ const VideoHeroSection = () => {
                 <span className="text-white whitespace-nowrap overflow-hidden">gandhi jayanti, october, mahatma gandhi, batik, natural </span>
                 <HiDotsCircleHorizontal 
                   size={30} 
-                  className="text-gray-300 cursor-pointer" 
+                  className="text-gray-300 cursor-pointer hover:text-gray-500" 
                   onClick={() => router.push('/popular-searches', undefined, {shallow: true})}
                 />
               </div>

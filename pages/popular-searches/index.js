@@ -68,7 +68,7 @@ export default function Home({collections}) {
         <Modal open={open} />
       </div>
 
-      <div className={`${open ? "hidden" : "block"} relative -z-5`}>
+      <div className={`${open ? "hidden" : "block"} relative -z-5 mt-32 mb-16`}>
         <Navbar />
       </div>
 
