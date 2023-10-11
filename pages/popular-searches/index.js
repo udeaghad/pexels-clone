@@ -60,7 +60,7 @@ export default function Home({collections}) {
         <MobileNavBar open={open} setOpen={setOpen} />
       </div>
 
-      <div className={`relative ${open ? "z-5" : "z-10"}`}>
+      <div className={`fixed top-0 left-0 right-0 ${open ? "z-5" : "z-10"}`}>
         <IntersectionNavBar setOpen={setOpen} open={open}/>
       </div>
 
@@ -72,12 +72,13 @@ export default function Home({collections}) {
         <Navbar />
       </div>
 
-      <div>
+      <div className={`${open ? "hidden": "block"}`}>
         <PopularSearchesGrid collections={newCollections}/>
       </div>
 
-      {/* <FooterSection /> */}
-      <FooterSection />
+      <div className={`${open ? "hidden" : "block"}`}>
+        <FooterSection />
+      </div>
     </div>
   )
 }
