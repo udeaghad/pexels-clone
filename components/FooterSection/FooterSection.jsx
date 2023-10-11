@@ -96,7 +96,7 @@ const FooterSection = () => {
           <RenderSocialMedia />
         </div>
 
-        <div className="md:flex flex-col justify-start items-start w-full lg:flex-row lg:gap-10">
+        <div className="md:flex flex-col justify-start items-start w-full lg:flex-row lg:gap-20 lg:justify-evenly">
 
           <div className="mt-10 md:mt-10">
             <h3 className="text-2xl font-medium">Pexels</h3>
