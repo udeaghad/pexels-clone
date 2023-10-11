@@ -43,7 +43,7 @@ const Navbar = () => {
       <div ref={start}/>
       {navItems.map((item, i) => (
           <div key={i} 
-            className={`text-base inline-block rounded-full cursor-pointer font-medium ${ pathName === item.link ? "bg-black text-white hover:text-white hover:bg-gray-800 py-3 px-5 " : "text-gray-500 hover:text-black"}`}
+            className={`text-base inline-block rounded-full cursor-pointer font-medium ${ pathName === item.link ? "bg-black text-white hover:text-white hover:bg-gray-800 py-3 px-5 " : "text-gray-600 hover:text-black"}`}
             onClick={() => router.push(item.link, undefined, {shallow: true}, {scroll: false})}
           >
             {item.name}
