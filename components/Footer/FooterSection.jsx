@@ -1,4 +1,6 @@
-const Footer = () => {
+import { BsApple, BsAndroid2 } from "react-icons/bs";
+
+const FooterSection = () => {
   const pexelsItems = [
     "Free Stock Photos",
     "Free Videos",
@@ -44,20 +46,28 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="bg-black text-white px-3">
-      <span>Free photos and videos shared by talented creators.</span>
+    <footer className="bg-black text-white px-5">
+      <div className="text-xl py-4 font-medium">
+        <span>Free photos and videos shared by talented creators.</span>
+      </div>
 
       <div>
-        <span>Download one of our apps.</span>
-        <div>
-          <div>
-            ios
+        <span className="text-slate-300">Download one of our apps.</span>
+        <div className="inline-block">
+          <div className="bg-white py-3 px-6 w-fit text-black font-bold rounded-md">
+            <BsApple className="inline-block mr-2 text-2xl" />
+            iOS
           </div>
 
-          <div>
+          <div className="bg-white py-3 px-6 w-fit text-black font-bold rounded-md">
+            <BsAndroid2 className="inline-block mr-2 text-2xl" />
             Android
           </div>
         </div>
+      </div>
+
+      <div>
+        social media icons
       </div>
 
       <div>
@@ -100,4 +110,4 @@ const Footer = () => {
   );
 }
 
-export default Footer;
+export default FooterSection;

@@ -22,7 +22,7 @@ const PopularSearchesGrid = ({collections}) => {
       </div>
 
       <div className="px-5 py-5 sm:grid sm:grid-cols-3 gap-7 lg:grid-cols-4">
-        {collections.map((collection) => (
+        {collections && collections.map((collection) => (
           <div 
             key={collection.id} 
             className="relative pb-5 hover:brightness-75 sm:pb-0 cursor-pointer" 

@@ -7,7 +7,9 @@ import MobileNavBar from '../../components/MobileNavBar/MobileNavBar';
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import axios from 'axios';
 import PopularSearchesGrid from '../../components/PopularSearchesGrid/PopularSearchesGrid';
-import Footer from '../../components/Footer/Footer';
+import FooterSection from '../../components/FooterSection/FooterSection';
+// import FooterSection  from '../../components/Footer/FooterSection';
+
 
 const popularSearches = [
   {id: 1, wallPaper: "https://images.pexels.com/photos/6590699/pexels-photo-6590699.jpeg?w=230&h=230&fit=crop&crop=focalpoint&dpr=1"},
@@ -44,10 +46,11 @@ export default function Home({collections}) {
       image: popularSearches[index].wallPaper
     }
   })
-  
+
   useEffect(() => {
     console.log(newCollections)
-  }, [])
+  }, [newCollections])
+  
   return (
     <div>
       <Head>
@@ -76,10 +79,8 @@ export default function Home({collections}) {
         <PopularSearchesGrid collections={newCollections}/>
       </div>
 
-      <div>
-        <Footer />
-      </div>
-
+      {/* <FooterSection /> */}
+      <FooterSection />
     </div>
   )
 }
