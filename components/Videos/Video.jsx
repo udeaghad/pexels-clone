@@ -1,92 +1,95 @@
-import Masonry, {ResponsiveMasonry} from "react-responsive-masonry";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { FiDownload } from "react-icons/fi";
-import { useInView } from 'react-intersection-observer';
-import { useEffect, useState  } from "react";
-import ReactLoading from 'react-loading';
+import { useInView } from "react-intersection-observer";
+import { useEffect, useState } from "react";
+import ReactLoading from "react-loading";
 import { FaYoutube } from "react-icons/fa";
 import Image from "next/image";
 import { BiHeart } from "react-icons/bi";
 import { BsBookmarks } from "react-icons/bs";
 
-const Videos = ({videos, setInView, handleOpenModal}) => {
-
-  const { ref, inView} = useInView();
-
-  useEffect(() => {    
-      setInView(inView)    
-  }, [inView])
-
-  const [videoToRender, setVideoToRender] = useState([])
+const Videos = ({ videos, setInView, handleOpenModal }) => {
+  const { ref, inView } = useInView();
 
   useEffect(() => {
-    
-    const newVideoToRender = videos.map(video => {
+    setInView(inView);
+  }, [inView]);
+
+  const [videoToRender, setVideoToRender] = useState([]);
+
+  useEffect(() => {
+    const newVideoToRender = videos.map((video) => {
       return {
         ...video,
-        showIcons: false
-      }
-    })
+        showIcons: false,
+      };
+    });
 
-    setVideoToRender(newVideoToRender)
-  }, [videos])
+    setVideoToRender(newVideoToRender);
+  }, [videos]);
 
   const handlePlayVideo = (i) => {
     const newVideoToRender = videoToRender.map((video, index) => {
       if (index === i) {
-        return {...video, showIcons: true}
+        return { ...video, showIcons: true };
       } else {
-        return {...video, showIcons: false}
+        return { ...video, showIcons: false };
       }
-    })
+    });
 
-    setVideoToRender(newVideoToRender)
+    setVideoToRender(newVideoToRender);
 
     const video = document.getElementById(`video-${i}`);
     const videoIcon = document.getElementById(`videoIcon-${i}`);
     videoIcon.classList.add("hidden");
-    video.play(); 
-
-  }
+    video.play();
+  };
 
   const HandleStopVideo = (i) => {
     const newVideoToRender = videoToRender.map((video, index) => {
       if (index === i) {
-        return {...video, showIcons: false}
+        return { ...video, showIcons: false };
       } else {
-        return {...video, showIcons: false}
+        return { ...video, showIcons: false };
       }
-    })
+    });
 
-    setVideoToRender(newVideoToRender)
+    setVideoToRender(newVideoToRender);
 
     const video = document.getElementById(`video-${i}`);
-    const videoIcon = document.getElementById(`videoIcon-${i}`);    
+    const videoIcon = document.getElementById(`videoIcon-${i}`);
     video.pause();
     videoIcon.classList.remove("hidden");
-  }
+  };
 
-   return (
+  return (
     <div className="px-5 absolute -z-20 w-full mt-16">
-
-      <ResponsiveMasonry
-        columnsCountBreakPoints={{300: 2, 900: 3}}
-      >
-        <Masonry >
+      <ResponsiveMasonry columnsCountBreakPoints={{ 300: 2, 900: 3 }}>
+        <Masonry>
           {videoToRender.map((video, i) => (
-            <div key={i} className="relative p-2 cursor-pointer" onClick={() => handleOpenModal(video)} onMouseEnter={() => handlePlayVideo(i)}
-            onMouseLeave={() => HandleStopVideo(i)}>
+            <div
+              key={i}
+              className="relative p-2 cursor-pointer"
+              onClick={() => handleOpenModal(video)}
+              onMouseEnter={() => handlePlayVideo(i)}
+              onMouseLeave={() => HandleStopVideo(i)}
+            >
               <div className="mt-5 w-full flex">
-                <video 
-                  src={video.video_files[0].link} loop type={video.video_files[0].file_type} 
-                  className="w-full h-full object-cover" 
-                  id={`video-${i}`}                  
-                  />
-                
+                <video
+                  src={video.video_files[0].link}
+                  loop
+                  type={video.video_files[0].file_type}
+                  className="w-full h-full object-cover"
+                  id={`video-${i}`}
+                />
               </div>
-              <div className="absolute bottom-5 right-5 cursor-pointer text-white font-medium hover:bg-gray-100 hover:opacity-80 p-2 rounded-lg hover:text-black sm:hidden" >
+              <div className="absolute bottom-5 right-5 cursor-pointer text-white font-medium hover:bg-gray-100 hover:opacity-80 p-2 rounded-lg hover:text-black sm:hidden">
                 <FiDownload size={30} />
               </div>
-              <div className="absolute top-10 left-5 cursor-pointer text-white font-medium" id={`videoIcon-${i}`}>
+              <div
+                className="absolute top-10 left-5 cursor-pointer text-white font-medium"
+                id={`videoIcon-${i}`}
+              >
                 <FaYoutube size={30} />
               </div>
 
@@ -106,23 +109,32 @@ const Videos = ({videos, setInView, handleOpenModal}) => {
                   </div>
 
                   <div className="absolute bottom-5 left-5 flex justify-center items-center gap-1 cursor-pointer">
-                    <div className={`w-14 h-14 rounded-full border`} style={{backgroundColor: video ? video.avg_color : "gray"}}>
-                      <Image src={video.image} alt={video.user.name} width={100} height={100} className="w-full h-full object-cover rounded-full"/>
+                    <div
+                      className={`w-14 h-14 rounded-full border`}
+                      style={{
+                        backgroundColor: video ? video.avg_color : "gray",
+                      }}
+                    >
+                      <Image
+                        src={video.image}
+                        alt={video.user.name}
+                        width={100}
+                        height={100}
+                        className="w-full h-full object-cover rounded-full"
+                      />
                     </div>
 
-                    <h5 className="text-lg text-slate-100 font-medium whitespace-nowrap">{video.user.name}</h5>
-
+                    <h5 className="text-lg text-slate-100 font-medium whitespace-nowrap">
+                      {video.user.name}
+                    </h5>
                   </div>
                 </div>
               )}
-
-              
-
             </div>
           ))}
         </Masonry>
-      </ResponsiveMasonry> 
-      
+      </ResponsiveMasonry>
+
       {videos.length > 0 && (
         <div className="flex justify-center items-center" ref={ref}>
           <ReactLoading type="balls" color="gray" height={50} width={50} />
@@ -130,6 +142,6 @@ const Videos = ({videos, setInView, handleOpenModal}) => {
       )}
     </div>
   );
-}
+};
 
 export default Videos;
