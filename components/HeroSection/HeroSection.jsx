@@ -64,7 +64,7 @@ const HeroSection = ({ open, setOpen }) => {
               </div>
             </div>
 
-            <div className="lg:flex justify-start items-center lg:justify-center">
+            <div className="lg:flex items-center justify-center">
               <div className="flex justify-start items-center text-base text-white font-bold my-5 gap-1 mx-[8%] lg:w-[70%] xl:w-[50%]">
                 <span className="text-slate-300">Trending:</span>
                 <span className="text-white whitespace-nowrap overflow-hidden">

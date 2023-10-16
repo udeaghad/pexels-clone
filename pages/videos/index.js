@@ -87,7 +87,7 @@ export default function Home({ getVideos }) {
 
         <Trending text="Trending free stock videos" />
 
-        <div className={`${openHamburger ? "hidden" : "block"}`}>
+        <div className="relative">
           <Videos
             videos={videos}
             setInView={setInView}

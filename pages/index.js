@@ -90,7 +90,7 @@ export default function Home({ getPhotos }) {
 
         <Trending text="Free Stock Photos" />
 
-        <div className={`${openHamburger ? "hidden" : "block"}`}>
+        <div className="relative">
           <Photos
             photos={photos}
             setInView={setInView}
