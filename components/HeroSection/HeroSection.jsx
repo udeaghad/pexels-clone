@@ -9,7 +9,7 @@ import { useInView } from "react-intersection-observer";
 import { useRouter } from "next/router";
 import IntersectionNavBar from "../IntersectionNavBar/IntersectionNavBar";
 
-const HeroSection = ({open, setOpen}) => {
+const HeroSection = ({ open, setOpen }) => {
   const router = useRouter();
 
   const { ref, inView } = useInView({
@@ -30,7 +30,6 @@ const HeroSection = ({open, setOpen}) => {
           className="w-full top-0 flex justify-center flex-col h-screen"
           style={{ position: open ? "fixed" : "relative" }}
         >
-
           <div className="md:flex flex-col justify-center">
             <div className="p-5 md:flex justify-center items-center w-full sm:px-0">
               <p className="text-white text-4xl font-medium sm:w-[85%] lg:w-[70%] xl:w-[50%]">

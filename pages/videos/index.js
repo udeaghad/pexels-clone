@@ -69,8 +69,12 @@ export default function Home({ getVideos }) {
       </Head>
 
       <main className="font-sans relative">
-        <div className={`left-0 right-0 top-0 z-10 ${openHamburger ? "fixed" : "absolute"}`}>
-          <MobileNavBar open={openHamburger} setOpen={setOpenHamburger}/>
+        <div
+          className={`left-0 right-0 top-0 z-10 ${
+            openHamburger ? "fixed" : "absolute"
+          }`}
+        >
+          <MobileNavBar open={openHamburger} setOpen={setOpenHamburger} />
         </div>
 
         <VideoHeroSection open={openHamburger} setOpen={setOpenHamburger} />
@@ -90,7 +94,6 @@ export default function Home({ getVideos }) {
             handleOpenModal={handleOpenModal}
           />
         </div>
-
 
         <VideoModal
           open={openModal}

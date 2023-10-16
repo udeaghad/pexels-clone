@@ -13,7 +13,7 @@ import MobileNavBar from "../components/MobileNavBar/MobileNavBar";
 import Modal from "../components/Modal/Modal";
 
 export default function Home({ getPhotos }) {
-  const { photos, addPhotos, setNextPhotoPage, nextPhotoPage} = useStore(
+  const { photos, addPhotos, setNextPhotoPage, nextPhotoPage } = useStore(
     (state) => state
   );
 
@@ -72,12 +72,16 @@ export default function Home({ getPhotos }) {
       </Head>
 
       <main className="font-sans relative">
-        <div className={`left-0 right-0 top-0 z-10 ${openHamburger ? "fixed" : "absolute"}`}>
-          <MobileNavBar open={openHamburger} setOpen={setOpenHamburger}/>
+        <div
+          className={`left-0 right-0 top-0 z-10 ${
+            openHamburger ? "fixed" : "absolute"
+          }`}
+        >
+          <MobileNavBar open={openHamburger} setOpen={setOpenHamburger} />
         </div>
-        
-        <HeroSection open={openHamburger} setOpen={setOpenHamburger}/>
-        
+
+        <HeroSection open={openHamburger} setOpen={setOpenHamburger} />
+
         <div className="relative">
           <Modal open={openHamburger} />
         </div>
@@ -93,7 +97,6 @@ export default function Home({ getPhotos }) {
             handleOpenModal={handleOpenModal}
           />
         </div>
-
 
         <div className="relative">
           <PhotoModal

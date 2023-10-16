@@ -34,14 +34,7 @@ const RenderSocialMedia = () => {
   );
 };
 
-const MobileNavBar = ({open, setOpen}) => {
-  // const { openHamburger: open, setOpenHamburger: setOpen } = useStore(state => state);
-
-  // const handleOpenHamburgerBtn = () => {
-  //   console.log("open hambuger");
-  //   setOpen(!open);
-  // };
-  
+const MobileNavBar = ({ open, setOpen }) => {
   const exploreOptions = useRef(null);
   const arrowBtn = useRef(null);
   const exploreBtn = useRef(null);
