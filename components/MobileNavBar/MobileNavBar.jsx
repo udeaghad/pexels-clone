@@ -4,7 +4,7 @@ import { HiOutlineSearch, HiDotsHorizontal } from "react-icons/hi";
 import { BiImageAlt } from "react-icons/bi";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { IoClose } from "react-icons/io5";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 import { RiFacebookFill } from "react-icons/ri";
 import { FaTwitter } from "react-icons/fa";
@@ -12,6 +12,7 @@ import { BsInstagram } from "react-icons/bs";
 import { FaPinterestP } from "react-icons/fa";
 import { AiOutlineYoutube } from "react-icons/ai";
 import Link from "next/link";
+import { useStore } from "../../store";
 
 const socialMediaItems = [
   { name: "Facebook", link: "#", icon: RiFacebookFill },
@@ -33,7 +34,14 @@ const RenderSocialMedia = () => {
   );
 };
 
-const MobileNavBar = ({ open, setOpen }) => {
+const MobileNavBar = ({open, setOpen}) => {
+  // const { openHamburger: open, setOpenHamburger: setOpen } = useStore(state => state);
+
+  // const handleOpenHamburgerBtn = () => {
+  //   console.log("open hambuger");
+  //   setOpen(!open);
+  // };
+  
   const exploreOptions = useRef(null);
   const arrowBtn = useRef(null);
   const exploreBtn = useRef(null);

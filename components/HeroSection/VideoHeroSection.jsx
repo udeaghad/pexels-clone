@@ -13,10 +13,8 @@ import { SiCanva } from "react-icons/si";
 import IntersectionNavBar from "../IntersectionNavBar/IntersectionNavBar";
 import { useRouter } from "next/router";
 
-const VideoHeroSection = () => {
+const VideoHeroSection = ({open, setOpen}) => {
   const router = useRouter();
-
-  const [open, setOpen] = useState(false);
 
   const { ref, inView } = useInView({
     initialInView: true,
@@ -35,19 +33,12 @@ const VideoHeroSection = () => {
         />
         <div
           ref={ref}
-          className="w-full h-screen bg-center bg-cover bg-no-repeat top-0 pb-5"
+          className="w-full top-0 flex justify-center flex-col h-screen"
           style={{ position: open ? "fixed" : "relative" }}
         >
-          <div className="relative">
-            <MobileNavBar open={open} setOpen={setOpen} />
-          </div>
-
-          <div className="relative">
-            <Modal open={open} />
-          </div>
-
-          <div className="md:flex flex-col justify-center md:mt-10">
-            <div className="p-5 mt-10 md:flex justify-center items-center w-full sm:px-0">
+          
+          <div className="md:flex flex-col justify-center">
+            <div className="p-5 md:flex justify-center items-center w-full sm:px-0">
               <p className="text-white text-4xl font-medium sm:w-[85%] lg:w-[70%] xl:w-[50%]">
                 The best free stock videos shared by the Pexels community.
               </p>

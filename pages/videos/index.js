@@ -7,12 +7,16 @@ import { useEffect, useState } from "react";
 import Videos from "../../components/Videos/Video";
 import VideoModal from "../../components/VideoModal/VideoModal";
 import VideoHeroSection from "../../components/HeroSection/VideoHeroSection";
+import MobileNavBar from "../../components/MobileNavBar/MobileNavBar";
+import Modal from "../../components/Modal/Modal";
 
 export default function Home({ getVideos }) {
   const { videos, addVideos, nextVideoPage, setNextVideoPage } = useStore(
     (state) => state
   );
   const [inView, setInView] = useState(false);
+
+  const [openHamburger, setOpenHamburger] = useState(false);
 
   useEffect(() => {
     if (videos.length === 0) {
@@ -64,18 +68,29 @@ export default function Home({ getVideos }) {
         <link rel="icon" href="/images/logo.png" />
       </Head>
 
-      <main>
-        <VideoHeroSection />
+      <main className="font-sans relative">
+        <div className={`left-0 right-0 top-0 z-10 ${openHamburger ? "fixed" : "absolute"}`}>
+          <MobileNavBar open={openHamburger} setOpen={setOpenHamburger}/>
+        </div>
+
+        <VideoHeroSection open={openHamburger} setOpen={setOpenHamburger} />
+
+        <div className="relative">
+          <Modal open={openHamburger} />
+        </div>
 
         <div className="border-b m-5 border-slate-100" />
 
         <Trending text="Trending free stock videos" />
 
-        <Videos
-          videos={videos}
-          setInView={setInView}
-          handleOpenModal={handleOpenModal}
-        />
+        <div className={`${openHamburger ? "hidden" : "block"}`}>
+          <Videos
+            videos={videos}
+            setInView={setInView}
+            handleOpenModal={handleOpenModal}
+          />
+        </div>
+
 
         <VideoModal
           open={openModal}

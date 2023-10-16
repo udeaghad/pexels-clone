@@ -1,22 +1,16 @@
 "use client";
 
-import { useState } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { BiImageAlt } from "react-icons/bi";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { HiDotsCircleHorizontal } from "react-icons/hi";
-import Modal from "../Modal/Modal";
-import MobileNavBar from "../MobileNavBar/MobileNavBar";
 import Navbar from "../NavBar/NavBar";
 import { useInView } from "react-intersection-observer";
-
 import { useRouter } from "next/router";
 import IntersectionNavBar from "../IntersectionNavBar/IntersectionNavBar";
 
-const HeroSection = () => {
+const HeroSection = ({open, setOpen}) => {
   const router = useRouter();
-
-  const [open, setOpen] = useState(false);
 
   const { ref, inView } = useInView({
     initialInView: true,
@@ -30,22 +24,15 @@ const HeroSection = () => {
           alt="background-img"
           className="absolute w-full h-full top-0 left-0 object-cover brightness-50 -z-10"
         />
-        {/* <div ref={ref} className="bg-[url('https://images.pexels.com/photos/17928278/pexels-photo-17928278.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=500&w=1500')] w-full bg-center bg-cover bg-no-repeat top-0 pb-5 h-screen brightness-50 z-0" style={{position: open ? "fixed" : "relative"}}>  */}
+
         <div
           ref={ref}
-          className="w-full h-screen bg-center bg-cover bg-no-repeat top-0 pb-5"
+          className="w-full top-0 flex justify-center flex-col h-screen"
           style={{ position: open ? "fixed" : "relative" }}
         >
-          <div className="relative">
-            <MobileNavBar open={open} setOpen={setOpen} />
-          </div>
 
-          <div className="relative">
-            <Modal open={open} />
-          </div>
-
-          <div className="md:flex flex-col justify-center md:mt-10">
-            <div className="p-5 mt-10 md:flex justify-center items-center w-full sm:px-0">
+          <div className="md:flex flex-col justify-center">
+            <div className="p-5 md:flex justify-center items-center w-full sm:px-0">
               <p className="text-white text-4xl font-medium sm:w-[85%] lg:w-[70%] xl:w-[50%]">
                 The best free stock photos, royal free images & videos shared by
                 creators.

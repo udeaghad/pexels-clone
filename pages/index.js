@@ -9,13 +9,17 @@ import { useEffect, useState } from "react";
 import Photos from "../components/Photos/Photos";
 import PhotoModal from "../components/PhotoModal/PhotoModal";
 import HeroSection from "../components/HeroSection/HeroSection";
+import MobileNavBar from "../components/MobileNavBar/MobileNavBar";
+import Modal from "../components/Modal/Modal";
 
 export default function Home({ getPhotos }) {
-  const { photos, addPhotos, setNextPhotoPage, nextPhotoPage } = useStore(
+  const { photos, addPhotos, setNextPhotoPage, nextPhotoPage} = useStore(
     (state) => state
   );
 
   const [inView, setInView] = useState(false);
+
+  const [openHamburger, setOpenHamburger] = useState(false);
 
   useEffect(() => {
     if (photos.length === 0) {
@@ -67,18 +71,29 @@ export default function Home({ getPhotos }) {
         <link rel="icon" href="/images/logo.png" />
       </Head>
 
-      <main className="font-sans">
-        <HeroSection />
+      <main className="font-sans relative">
+        <div className={`left-0 right-0 top-0 z-10 ${openHamburger ? "fixed" : "absolute"}`}>
+          <MobileNavBar open={openHamburger} setOpen={setOpenHamburger}/>
+        </div>
+        
+        <HeroSection open={openHamburger} setOpen={setOpenHamburger}/>
+        
+        <div className="relative">
+          <Modal open={openHamburger} />
+        </div>
 
         <div className="border-b mt-8 border-slate-100 lg:hidden" />
 
         <Trending text="Free Stock Photos" />
 
-        <Photos
-          photos={photos}
-          setInView={setInView}
-          handleOpenModal={handleOpenModal}
-        />
+        <div className={`${openHamburger ? "hidden" : "block"}`}>
+          <Photos
+            photos={photos}
+            setInView={setInView}
+            handleOpenModal={handleOpenModal}
+          />
+        </div>
+
 
         <div className="relative">
           <PhotoModal
