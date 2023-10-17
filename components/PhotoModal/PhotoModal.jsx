@@ -76,10 +76,10 @@ const PhotoModal = ({ open, photo, photos, handleCloseModal }) => {
 
   return (
     <div
-      className=" h-[100vh] fixed top-0 bottom-0 left-0 right-0 overflow-y-scroll z-50 w-full bg-[#000000de] flex-col sm:flex-row"
+      className=" h-[100vh] fixed top-0 bottom-0 left-0 right-0 overflow-y-scroll z-50 w-full bg-[#000000de] flex-col md:justify-center sm:flex-row"
       style={{ display: open ? "flex" : "none" }}
     >
-      <div className="sm:mt-10 lg:ml-10">
+      <div className="sm:mt-10 md:absolute top-5 left-2 lg:top-10 md:left-10">
         <div
           className="flex justify-start items-center"
           onClick={() => handleCloseModal()}
@@ -88,7 +88,7 @@ const PhotoModal = ({ open, photo, photos, handleCloseModal }) => {
         </div>
       </div>
 
-      <div className="bg-white p-3 relative w-full sm:mt-8 sm:rounded-xl sm:h-[100vh] sm:w-[85%] sm:overflow-auto sm:p-5 lg:overflow-visible lg:h-fit lg:w-[70%] lg:ml-[5%] lg:p-10">
+      <div className="bg-white p-3 relative w-full sm:mt-8 sm:rounded-xl sm:h-[100vh] sm:w-[85%] sm:overflow-auto sm:p-5 md:overflow-visible md:h-fit md:w-[75%] md:p-10">
         <div className="hidden justify-between items-center w-full lg:flex mb-5">
           <div className="flex justify-start items-center gap-5">
             {photo && (
@@ -122,9 +122,9 @@ const PhotoModal = ({ open, photo, photos, handleCloseModal }) => {
         </div>
 
         <div
-          className={`flex justify-between items-center bg-white lg:justify-start lg:gap-3 ${
+          className={`flex justify-between items-center bg-white md:justify-start md:gap-3 ${
             !closeBtnView
-              ? "fixed top-0 left-0 right-0 z-20 p-5 sm:left-[3.4rem] sm:w-[85%] lg:relative"
+              ? "fixed top-0 left-0 right-0 z-20 p-5 sm:left-[3.6rem] sm:w-[85%] md:relative"
               : "relative"
           }`}
         >
@@ -362,7 +362,7 @@ const PhotoModal = ({ open, photo, photos, handleCloseModal }) => {
           <ResponsiveMasonry columnsCountBreakPoints={{ 300: 1, 750: 2 }}>
             <Masonry>
               {photoToRender.length > 0 &&
-                photoToRender.map((item, i) => {
+                photoToRender.slice(0,10).map((item, i) => {
                   if (photo && photo.id !== item.id) {
                     return (
                       <div
