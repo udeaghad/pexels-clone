@@ -3,12 +3,47 @@ import { FiDownload } from "react-icons/fi";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
 import ReactLoading from "react-loading";
-import Image from "next/image";
 import { BiHeart } from "react-icons/bi";
 import { BsBookmarks } from "react-icons/bs";
 
+const config = {
+  rootMargin: "100px",
+  threshold: 0,
+};
+
 const Photos = ({ photos, setInView, handleOpenModal }) => {
-  const { ref, inView } = useInView();
+  const { ref, inView} = useInView();  
+
+
+  useEffect(() => {
+    let observer = new window.IntersectionObserver( function(entries, self) {
+      
+      entries.forEach((entry) => {
+        
+        if (entry.isIntersecting){
+          loadImages(entry.target);
+          self.unobserve(entry.target);
+        }
+
+      });
+    }, config );
+
+    const imgs = document.querySelectorAll("[data-src]");
+    imgs.forEach((img) => {
+      observer.observe(img);
+    });
+
+    return () => {
+      imgs.forEach((img) => {
+        observer.unobserve(img);
+      });
+    }
+  });
+
+  const loadImages = (image) => {
+    image.src = image.dataset.src;
+  };
+
 
   useEffect(() => {
     setInView(inView);
@@ -64,12 +99,14 @@ const Photos = ({ photos, setInView, handleOpenModal }) => {
                 onMouseEnter={() => hanldeShowIcons(i)}
                 onMouseLeave={() => handleDisappearIcon(i)}
               >
-                <Image
-                  src={photo.src.original}
+                <img
+                  src={""}
                   alt={photo.photographer}
                   width={photo.width}
                   height={photo.height}
                   className="w-full h-full object-cover"
+                  data-src={photo.src.original}
+                  loading="eager"
                 />
                 <div className="absolute bottom-5 right-5 cursor-pointer text-white font-medium hover:bg-gray-100 hover:opacity-80 p-2 rounded-lg hover:text-black sm:hidden">
                   <FiDownload size={20} />
@@ -97,12 +134,14 @@ const Photos = ({ photos, setInView, handleOpenModal }) => {
                           backgroundColor: photo ? photo.avg_color : "gray",
                         }}
                       >
-                        <Image
-                          src={photo.src.small}
+                        <img
+                          src={""}
                           alt={photo.photographer}
                           width={100}
                           height={100}
                           className="w-full h-full object-cover rounded-full"
+                          data-src={photo.src.small}
+                          loading="eager"
                         />
                       </div>
 
