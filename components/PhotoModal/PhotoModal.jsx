@@ -368,7 +368,7 @@ const PhotoModal = ({ open, photo, photos, handleCloseModal }) => {
           <ResponsiveMasonry columnsCountBreakPoints={{ 300: 1, 750: 2 }}>
             <Masonry>
               {photoToRender.length > 0 &&
-                photoToRender.slice(0,10).map((item, i) => {
+                photoToRender.slice(0, 10).map((item, i) => {
                   if (photo && photo.id !== item.id) {
                     return (
                       <div

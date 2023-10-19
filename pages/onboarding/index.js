@@ -1,8 +1,11 @@
 import React from 'react'
+import OnBoardingNavBar from '../../components/OnBoardingNavBar/OnBoardingNavBar'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div>
+      <OnBoardingNavBar />
+    </div>
   )
 }
 

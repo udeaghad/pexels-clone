@@ -17,7 +17,7 @@ const Videos = ({ videos, setInView, handleOpenModal }) => {
   useEffect(() => {
     loadVideos();
   });
-  
+
   useEffect(() => {
     setInView(inView);
   }, [inView]);
@@ -49,11 +49,10 @@ const Videos = ({ videos, setInView, handleOpenModal }) => {
     const video = document.getElementById(`video-${i}`);
     const videoIcon = document.getElementById(`videoIcon-${i}`);
     videoIcon.classList.add("hidden");
-    
+
     video.addEventListener("loadeddata", () => {
       video.play();
-    } );
-   
+    });
   };
 
   const HandleStopVideo = (i) => {
@@ -73,7 +72,7 @@ const Videos = ({ videos, setInView, handleOpenModal }) => {
 
     video.addEventListener("loadeddata", () => {
       video.pause();
-    } );
+    });
   };
 
   return (
@@ -98,7 +97,7 @@ const Videos = ({ videos, setInView, handleOpenModal }) => {
                   data-src={video.video_files[0].link}
                   playsInline
                   poster={video.image}
-                  />               
+                />
               </div>
               <div className="absolute bottom-5 right-5 cursor-pointer text-white font-medium hover:bg-gray-100 hover:opacity-80 p-2 rounded-lg hover:text-black sm:hidden">
                 <FiDownload size={30} />

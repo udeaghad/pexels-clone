@@ -8,7 +8,7 @@ import { BsBookmarks } from "react-icons/bs";
 import useLazyLoadImages from "../../hooks/lazyloadImages";
 
 const Photos = ({ photos, setInView, handleOpenModal }) => {
-  const { ref, inView} = useInView();  
+  const { ref, inView } = useInView();
 
   const loadImages = useLazyLoadImages();
 
@@ -78,7 +78,6 @@ const Photos = ({ photos, setInView, handleOpenModal }) => {
                   className="w-full h-full object-cover lazyload"
                   data-src={photo.src.original}
                   loading="eager"
-                  
                 />
                 <div className="absolute bottom-5 right-5 cursor-pointer text-white font-medium hover:bg-gray-100 hover:opacity-80 p-2 rounded-lg hover:text-black sm:hidden">
                   <FiDownload size={20} />

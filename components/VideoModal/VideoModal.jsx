@@ -16,7 +16,7 @@ import Link from "next/link";
 import { FiDownload } from "react-icons/fi";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { FaYoutube } from "react-icons/fa";
-import { useState, useEffect  } from "react";
+import { useState, useEffect } from "react";
 import useLazyLoadVideos from "../../hooks/lazyloadVideos";
 
 const VideoModal = ({ open, video, videos, handleCloseModal }) => {
@@ -89,7 +89,7 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
 
   return (
     <div
-    className=" h-[100vh] fixed top-0 bottom-0 left-0 right-0 overflow-y-scroll z-50 w-full bg-[#000000de] flex-col md:justify-center sm:flex-row"
+      className=" h-[100vh] fixed top-0 bottom-0 left-0 right-0 overflow-y-scroll z-50 w-full bg-[#000000de] flex-col md:justify-center sm:flex-row"
       style={{ display: open ? "flex" : "none" }}
     >
       <div className="sm:mt-10 md:absolute top-5 left-2 lg:top-10 md:left-10">
@@ -333,7 +333,7 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
         <div>
           <ResponsiveMasonry columnsCountBreakPoints={{ 300: 1, 900: 2 }}>
             <Masonry>
-              {videoToRender.slice(0,10).map((item, i) => {
+              {videoToRender.slice(0, 10).map((item, i) => {
                 if (video && video.id !== item.id) {
                   return (
                     <div
