@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-const OnBoardingOptionsDesktop = ({ options, handleSelectOption }) => {
+const OnBoardingOptionsDesktop = ({ options }) => {
   const router = useRouter();
   return (
     <div className="flex justify-center items-center mt-5">
       <div className="w-[85%] grid grid-cols-2">
-        {options.map((option, index) => (
+        {options.map((option) => (
           <div
             key={option.id}
             className=" border-2 border-dotted rounded-xl p-2 inline-block m-3 flex flex-col justify-between"

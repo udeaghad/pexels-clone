@@ -7,7 +7,7 @@ const OnBoardingOptions = ({ options, handleSelectOption }) => {
   return (
     <div className="mx-8">
       <div className="flex flex-col justify-center gap-2">
-        {options.map((option, index) => (
+        {options.map((option) => (
           <div
             key={option.id}
             className="bg-[#f7f7f7;] rounded-xl p-4 flex justify-start items-center gap-4 cursor-pointer"
