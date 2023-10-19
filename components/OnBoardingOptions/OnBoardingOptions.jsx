@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
-import { FaRegDotCircle } from 'react-icons/fa'
+import { FaRegDotCircle } from 'react-icons/fa';
+import { useRouter } from 'next/router'
 
 const OnBoardingOptions = () => {
+  const router = useRouter()
+
   const [options, setOptions] = useState([
     {
       title: 'Download',
       description: 'I\'m here to download free photos and videos.',
       selected: true,
       id: 1,
+      link: '#'
     },
     {
       title: 'Contribute',
       description: 'I\'m here to share my photos and videos with the world.',
       selected: false,
       id: 2,
+      link: '/join-contributor'
     },
   ])
 
@@ -69,7 +74,10 @@ const OnBoardingOptions = () => {
         ) )}
       </div>
 
-      <div className='bg-[#05a081] hover:bg-[#059377] flex justify-center items-center py-2 rounded-md mt-7 text-white cursor-pointer font-semibold'>
+      <div 
+        className='bg-[#05a081] hover:bg-[#059377] flex justify-center items-center py-2 rounded-md mt-7 text-white cursor-pointer font-semibold'
+        onClick={() => router.push(options.find(option => option.selected).link, undefined, { shallow: true }, { scroll: false })}
+      >
         <span>Choose</span>
       </div>
     </div>
