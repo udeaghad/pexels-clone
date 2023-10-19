@@ -54,6 +54,7 @@ const Home = () => {
         <link rel="icon" href="/images/logo.png" />
       </Head>
       <main className="pb-10 relative">
+
         <OnBoardingNavBar />
 
         <div className="md:flex md:flex justify-center items-center flex-col">
@@ -82,7 +83,7 @@ const Home = () => {
 
         <div className="m-8 lg:flex justify-center items-center">
           <p className="font-medium text-gray-500 text-center lg:w-[70%] xl:w-[50%]">
-            We 'll use this info to personalize your experience. You'll always
+            We'll use this info to personalize your experience. You'll always
             be able to both download and upload photos and videos, no matter
             which option you choose.
           </p>
