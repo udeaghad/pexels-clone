@@ -16,9 +16,9 @@ import Image from "next/image";
 import Link from "next/link";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { FiDownload } from "react-icons/fi";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { FaClosedCaptioning } from "react-icons/fa";
-import { useState } from "react";
+import useLazyLoadImages from "../../hooks/lazyloadImages";
 
 const PhotoModal = ({ open, photo, photos, handleCloseModal }) => {
   const { ref: start, inView: startView } = useInView();
@@ -26,6 +26,12 @@ const PhotoModal = ({ open, photo, photos, handleCloseModal }) => {
 
   const { ref: closeBtnIntercsectionObserver, inView: closeBtnView } =
     useInView();
+
+  const loadImages = useLazyLoadImages();
+
+  useEffect(() => {
+    loadImages();
+  });
 
   const slideLeft = () => {
     const slider = document.getElementById("sliderBar");
@@ -371,12 +377,14 @@ const PhotoModal = ({ open, photo, photos, handleCloseModal }) => {
                         onMouseEnter={() => hanldeShowIcons(i)}
                         onMouseLeave={() => handleDisappearIcon(i)}
                       >
-                        <Image
-                          src={item.src.original}
+                        <img
+                          src={""}
                           alt={item.photographer}
                           width={item.width}
                           height={item.height}
                           className="w-full h-full object-cover"
+                          data-src={item.src.original}
+                          loading="eager"
                         />
 
                         <div className="absolute bottom-5 right-5 cursor-pointer text-white font-medium hover:bg-gray-100 hover:opacity-80 p-2 rounded-lg hover:text-black sm:hidden">
@@ -407,12 +415,14 @@ const PhotoModal = ({ open, photo, photos, handleCloseModal }) => {
                                     : "gray",
                                 }}
                               >
-                                <Image
-                                  src={item.src.small}
+                                <img
+                                  src={""}
                                   alt={item.photographer}
                                   width={100}
                                   height={100}
                                   className="w-full h-full object-cover rounded-full"
+                                  data-src={item.src.small}
+                                  loading="eager"
                                 />
                               </div>
 

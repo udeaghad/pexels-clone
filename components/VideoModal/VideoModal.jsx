@@ -5,7 +5,6 @@ import { BsBookmarks, BsDot, BsInfoCircleFill } from "react-icons/bs";
 import { BiHeart } from "react-icons/bi";
 import { IoIosArrowDown, IoIosCheckmarkCircle } from "react-icons/io";
 import {
-  MdLocationOn,
   MdLaunch,
   MdKeyboardArrowRight,
   MdKeyboardArrowLeft,
@@ -17,13 +16,19 @@ import Link from "next/link";
 import { FiDownload } from "react-icons/fi";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { FaYoutube } from "react-icons/fa";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect  } from "react";
+import useLazyLoadVideos from "../../hooks/lazyloadVideos";
 
 const VideoModal = ({ open, video, videos, handleCloseModal }) => {
   const { ref: start, inView: startView } = useInView();
   const { ref: end, inView: endView } = useInView();
   const { ref: closeBtn, inView: closeBtnView } = useInView();
+
+  const loadVideos = useLazyLoadVideos();
+
+  useEffect(() => {
+    loadVideos();
+  });
 
   const slideLeft = () => {
     const slider = document.getElementById("sliderBar");
@@ -339,11 +344,14 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
                     >
                       <div className="mt-5 w-full flex">
                         <video
-                          src={item.video_files[0].link}
+                          src={""}
                           loop
                           type={item.video_files[0].file_type}
                           className="w-full h-full object-cover"
                           id={`video-${i}-${item.id}`}
+                          data-src={item.video_files[0].link}
+                          playsInline
+                          poster={item.image}
                         />
                       </div>
                       <div className="absolute bottom-5 right-5 cursor-pointer text-white font-medium hover:bg-gray-100 hover:opacity-80 p-2 rounded-lg hover:text-black sm:hidden">
@@ -378,12 +386,13 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
                                 backgroundColor: item ? item.avg_color : "gray",
                               }}
                             >
-                              <Image
-                                src={item.image}
+                              <img
+                                src={""}
                                 alt={item.user.name}
                                 width={100}
                                 height={100}
                                 className="w-full h-full object-cover rounded-full"
+                                data-src={item.image}
                               />
                             </div>
 
