@@ -12,7 +12,8 @@ import { BsInstagram } from "react-icons/bs";
 import { FaPinterestP } from "react-icons/fa";
 import { AiOutlineYoutube } from "react-icons/ai";
 import Link from "next/link";
-import { useStore } from "../../store";
+import { usePathname } from "next/navigation";
+import { useRouter } from "next/router";
 
 const socialMediaItems = [
   { name: "Facebook", link: "#", icon: RiFacebookFill },
@@ -35,6 +36,8 @@ const RenderSocialMedia = () => {
 };
 
 const MobileNavBar = ({ open, setOpen }) => {
+  const router = useRouter();
+
   const exploreOptions = useRef(null);
   const arrowBtn = useRef(null);
   const exploreBtn = useRef(null);
@@ -73,9 +76,16 @@ const MobileNavBar = ({ open, setOpen }) => {
   return (
     <div className="flex justify-between items-center gap-3 py-4 px-4 w-full md:px-7 lg:px-10">
       <div className="z-50">
-        <Link
-          href="/"
+        <div
           className="z-50 flex justify-center items-center gap-5 cursor-pointer"
+          onClick={() =>
+            router.push(
+              "/",
+              undefined,
+              { shallow: true },
+              { scroll: false }
+            )
+          }
         >
           <Image
             src="/images/logo.png"
@@ -87,7 +97,7 @@ const MobileNavBar = ({ open, setOpen }) => {
           <span className="hidden lg:block text-slate-300 font-medium text-2xl">
             Pexels
           </span>
-        </Link>
+        </div>
       </div>
 
       {!open && (
@@ -204,7 +214,17 @@ const MobileNavBar = ({ open, setOpen }) => {
           </div>
 
           <div className="flex justify-end items-center sm:gap-5">
-            <div className="text-lg font-sans px-5 py-2 rounded-md bg-white w-fit border border-[#dfdfe0] outline-2 cursor-pointer">
+            <div 
+              className="text-lg font-sans px-5 py-2 rounded-md bg-white w-fit border border-[#dfdfe0] outline-2 cursor-pointer"
+              onClick={() =>
+                router.push(
+                  "/onboarding",
+                  undefined,
+                  { shallow: true },
+                  { scroll: false }
+                )
+              }
+            >
               <span>Join</span>
             </div>
 
@@ -239,7 +259,17 @@ const MobileNavBar = ({ open, setOpen }) => {
           </div>
 
           <div className="flex justify-end items-center sm:gap-5">
-            <div className="hidden sm:block text-lg font-sans px-5 py-2 rounded-md border-[#05a081] bg-[#05a081] w-fit border outline-2 cursor-pointer">
+            <div 
+              className="hidden sm:block text-lg font-sans px-5 py-2 rounded-md border-[#05a081] bg-[#05a081] w-fit border outline-2 cursor-pointer"
+              onClick={() =>
+                router.push(
+                  "/onboarding",
+                  undefined,
+                  { shallow: true },
+                  { scroll: false }
+                )
+              }
+            >
               <span className="text-white">Join</span>
             </div>
 

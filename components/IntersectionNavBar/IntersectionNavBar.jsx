@@ -11,6 +11,7 @@ import { FaTwitter } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
 import { FaPinterestP } from "react-icons/fa";
 import { AiOutlineYoutube } from "react-icons/ai";
+import { useRouter } from "next/router";
 
 const socialMediaItems = [
   { name: "Facebook", link: "#", icon: RiFacebookFill },
@@ -33,6 +34,8 @@ const RenderSocialMedia = () => {
 };
 
 const IntersectionNavBar = ({ setOpen, open }) => {
+  const router = useRouter();
+
   const exploreOptions = useRef(null);
   const arrowBtn = useRef(null);
   const exploreBtn = useRef(null);
@@ -69,9 +72,16 @@ const IntersectionNavBar = ({ setOpen, open }) => {
   return (
     <div className="flex justify-between items-center py-2  px-5 gap-2 bg-white sm:pl-8 lg:pl-14 lg:gap-5 border-b">
       <div className="z-10">
-        <Link
-          href="/"
+        <div
           className="flex justify-center items-center gap-5 cursor-pointer"
+          onClick={() =>
+            router.push(
+              "/onboarding",
+              undefined,
+              { shallow: true },
+              { scroll: false }
+            )
+          }
         >
           <Image
             src="/images/logo.png"
@@ -83,7 +93,7 @@ const IntersectionNavBar = ({ setOpen, open }) => {
             }`}
           />
           <span className="hidden lg:block font-medium text-2xl">Pexels</span>
-        </Link>
+        </div>
       </div>
 
       <div className="bg-slate-100 flex justify-start items-center w-full rounded-md px-2 py-2 gap-1 sm:mr-10 lg:ml-5">
@@ -215,7 +225,17 @@ const IntersectionNavBar = ({ setOpen, open }) => {
       </div>
 
       <div className="flex justify-end items-center sm:gap-5">
-        <div className="text-lg font-sans px-5 py-2 rounded-md bg-white w-fit border border-[#05a081] bg-[#05a081] hidden sm:block cursor-pointer">
+        <div 
+          className="text-lg font-sans px-5 py-2 rounded-md bg-white w-fit border border-[#05a081] bg-[#05a081] hidden sm:block cursor-pointer"
+          onClick={() =>
+            router.push(
+              "/onboarding",
+              undefined,
+              { shallow: true },
+              { scroll: false }
+            )
+          }
+        >
           <span className="text-white">Join</span>
         </div>
         <div
