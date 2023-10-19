@@ -7,10 +7,17 @@ import { FaYoutube } from "react-icons/fa";
 import Image from "next/image";
 import { BiHeart } from "react-icons/bi";
 import { BsBookmarks } from "react-icons/bs";
+import useLazyLoadVideos from "../../hooks/lazyloadVideos";
 
 const Videos = ({ videos, setInView, handleOpenModal }) => {
   const { ref, inView } = useInView();
 
+  const loadVideos = useLazyLoadVideos();
+
+  useEffect(() => {
+    loadVideos();
+  });
+  
   useEffect(() => {
     setInView(inView);
   }, [inView]);
@@ -42,7 +49,11 @@ const Videos = ({ videos, setInView, handleOpenModal }) => {
     const video = document.getElementById(`video-${i}`);
     const videoIcon = document.getElementById(`videoIcon-${i}`);
     videoIcon.classList.add("hidden");
-    video.play();
+    
+    video.addEventListener("loadeddata", () => {
+      video.play();
+    } );
+   
   };
 
   const HandleStopVideo = (i) => {
@@ -58,8 +69,11 @@ const Videos = ({ videos, setInView, handleOpenModal }) => {
 
     const video = document.getElementById(`video-${i}`);
     const videoIcon = document.getElementById(`videoIcon-${i}`);
-    video.pause();
     videoIcon.classList.remove("hidden");
+
+    video.addEventListener("loadeddata", () => {
+      video.pause();
+    } );
   };
 
   return (
@@ -76,12 +90,15 @@ const Videos = ({ videos, setInView, handleOpenModal }) => {
             >
               <div className="mt-5 w-full flex">
                 <video
-                  src={video.video_files[0].link}
+                  src={""}
                   loop
                   type={video.video_files[0].file_type}
                   className="w-full h-full object-cover"
                   id={`video-${i}`}
-                />
+                  data-src={video.video_files[0].link}
+                  playsInline
+                  poster={video.image}
+                  />               
               </div>
               <div className="absolute bottom-5 right-5 cursor-pointer text-white font-medium hover:bg-gray-100 hover:opacity-80 p-2 rounded-lg hover:text-black sm:hidden">
                 <FiDownload size={30} />
@@ -115,12 +132,13 @@ const Videos = ({ videos, setInView, handleOpenModal }) => {
                         backgroundColor: video ? video.avg_color : "gray",
                       }}
                     >
-                      <Image
-                        src={video.image}
+                      <img
+                        src={""}
                         alt={video.user.name}
                         width={100}
                         height={100}
                         className="w-full h-full object-cover rounded-full"
+                        data-src={video.image}
                       />
                     </div>
 

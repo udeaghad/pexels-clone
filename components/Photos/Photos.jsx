@@ -1,49 +1,20 @@
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { FiDownload } from "react-icons/fi";
 import { useInView } from "react-intersection-observer";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import ReactLoading from "react-loading";
 import { BiHeart } from "react-icons/bi";
 import { BsBookmarks } from "react-icons/bs";
-
-const config = {
-  rootMargin: "100px",
-  threshold: 0,
-};
+import useLazyLoadImages from "../../hooks/lazyloadImages";
 
 const Photos = ({ photos, setInView, handleOpenModal }) => {
   const { ref, inView} = useInView();  
 
+  const loadImages = useLazyLoadImages();
 
   useEffect(() => {
-    let observer = new window.IntersectionObserver( function(entries, self) {
-      
-      entries.forEach((entry) => {
-        
-        if (entry.isIntersecting){
-          loadImages(entry.target);
-          self.unobserve(entry.target);
-        }
-
-      });
-    }, config );
-
-    const imgs = document.querySelectorAll("[data-src]");
-    imgs.forEach((img) => {
-      observer.observe(img);
-    });
-
-    return () => {
-      imgs.forEach((img) => {
-        observer.unobserve(img);
-      });
-    }
+    loadImages();
   });
-
-  const loadImages = (image) => {
-    image.src = image.dataset.src;
-  };
-
 
   useEffect(() => {
     setInView(inView);
@@ -104,9 +75,10 @@ const Photos = ({ photos, setInView, handleOpenModal }) => {
                   alt={photo.photographer}
                   width={photo.width}
                   height={photo.height}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover lazyload"
                   data-src={photo.src.original}
                   loading="eager"
+                  
                 />
                 <div className="absolute bottom-5 right-5 cursor-pointer text-white font-medium hover:bg-gray-100 hover:opacity-80 p-2 rounded-lg hover:text-black sm:hidden">
                   <FiDownload size={20} />
@@ -139,7 +111,7 @@ const Photos = ({ photos, setInView, handleOpenModal }) => {
                           alt={photo.photographer}
                           width={100}
                           height={100}
-                          className="w-full h-full object-cover rounded-full"
+                          className="w-full h-full object-cover rounded-full lazyload"
                           data-src={photo.src.small}
                           loading="eager"
                         />
