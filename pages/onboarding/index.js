@@ -8,7 +8,7 @@ const Home = () => {
   const [options, setOptions] = useState([
     {
       title: "Download",
-      description: "I'm here to download free photos and videos.",
+      description: "I\'m here to download free photos and videos.",
       selected: true,
       id: 1,
       link: "#",
@@ -17,7 +17,7 @@ const Home = () => {
     },
     {
       title: "Contribute",
-      description: "I'm here to share my photos and videos with the world.",
+      description: "I\'m here to share my photos and videos with the world.",
       selected: false,
       id: 2,
       link: "/join-contributor",
@@ -82,7 +82,7 @@ const Home = () => {
 
         <div className="m-8 lg:flex justify-center items-center">
           <p className="font-medium text-gray-500 text-center lg:w-[70%] xl:w-[50%]">
-            We 'll use this info to personalize your experience. You’ll always
+            We 'll use this info to personalize your experience. You'll always
             be able to both download and upload photos and videos, no matter
             which option you choose.
           </p>
