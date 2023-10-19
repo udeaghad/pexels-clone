@@ -4,7 +4,7 @@ import OnBoardingOptions from "../../components/OnBoardingOptions/OnBoardingOpti
 import Head from "next/head";
 import OnBoardingOptionsDesktop from "../../components/OnBoardingOptions/OnBoardingOptionsDesktop";
 
-const Home = () => {
+export default function Home () {
   const [options, setOptions] = useState([
     {
       title: "Download",
@@ -93,4 +93,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+// export default Home;
