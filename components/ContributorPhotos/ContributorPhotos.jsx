@@ -42,7 +42,7 @@ const ContributorPhotos = () => {
     },
   ];
   return (
-    <div className="mt-28 relative">
+    <div className="relative">
       <div className="px-4">
         <Carousel
           autoPlay
@@ -59,7 +59,7 @@ const ContributorPhotos = () => {
                 alt="hero"
                 width={785}
                 height={1050}
-                className="w-full h-72 rounded-2xl object-cover"
+                className="w-full h-72 rounded-2xl object-cover lg:h-[600px]"
               />
               <p className="absolute bottom-3 font-medium text-white right-7">
                 {image.name}

@@ -5,7 +5,7 @@ const ContributorHeading = () => {
   return (
     <div className="px-4">
       <div>
-        <h1 className="text-3xl font-semibold text-gray-800 relative z-0">
+        <h1 className="text-3xl font-semibold text-gray-800 relative z-0 lg:text-[27px]">
           <span className="whitespace-nowrap">Where your</span>{" "}
           <span className="whitespace-nowrap">photography</span>{" "}
           <span className="whitespace-nowrap">is seen,</span>{" "}
@@ -22,7 +22,7 @@ const ContributorHeading = () => {
           </span>
         </h1>
 
-        <p className="mt-5 text-2xl font-semibold text-gray-800">
+        <p className="mt-5 text-2xl font-semibold text-gray-800 lg:text-[19px] lg:mt-3">
           Share your photos and videos in one of the largest free libraries of
           visual content on the Internet.
         </p>

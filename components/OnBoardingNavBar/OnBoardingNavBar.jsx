@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 const OnBoardingNavBar = () => {
   const router = useRouter();
   return (
-    <div className="fixed flex justify-between items-center py-4 px-5 border-b top-0 left-0 right-0 bg-white sm:px-8 lg:px-24 z-50">
+    <div className="fixed flex justify-between items-center py-4 px-5 border-b top-0 left-0 right-0 bg-white sm:px-8 lg:px-24 xl:px-8 z-50">
       <div className="z-50">
         <div
           className="z-50 flex justify-center items-center gap-3 cursor-pointer"

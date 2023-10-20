@@ -19,21 +19,32 @@ const Home = () => {
         <link rel="icon" href="/images/logo.png" />
       </Head>
 
-      <main className="relative">
+      <main className="relative lg:mx-2">
 
         <OnBoardingNavBar />
 
-        <ContributorPhotos />
+        <div className='flex flex-col justify-start lg:flex-row lg:flex-row-reverse w-full mt-28 lg:items-start lg:gap-5 lg:px-20 xl:p-0'>
+          <div className='lg:w-[50%]'>
+            <ContributorPhotos />
 
-        <ContributorHeading />
+          </div>
 
-        <ContributorList />
+          <div className='lg:w-[50%]'>
+            <ContributorHeading />
 
-        <SocialMediaLogin />
+            <ContributorList />
 
-        <ContributorSigninDivider />
+            <SocialMediaLogin />
 
-        <SignInForm />
+            <ContributorSigninDivider />
+
+            <SignInForm />
+
+
+          </div>
+
+        </div>
+
 
       </main>
     </div>
