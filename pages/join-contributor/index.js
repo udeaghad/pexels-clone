@@ -3,6 +3,7 @@ import OnBoardingNavBar from '../../components/OnBoardingNavBar/OnBoardingNavBar
 import ContributorPhotos from '../../components/ContributorPhotos/ContributorPhotos'
 import ContributorHeading from '../../components/ContributorHeading/ContributorHeading'
 import ContributorList from '../../components/ContributoList/ContributorList'
+import SocialMediaLogin from '../../components/SocialMediaLogin/SocialMediaLogin'
 
 const Home = () => {
   return (
@@ -25,6 +26,8 @@ const Home = () => {
         <ContributorHeading />
 
         <ContributorList />
+
+        <SocialMediaLogin />
 
       </main>
     </div>

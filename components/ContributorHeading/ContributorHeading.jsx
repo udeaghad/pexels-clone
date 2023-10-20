@@ -22,7 +22,7 @@ const ContributorHeading = () => {
           </span>
         </h1>
 
-        <p className="mt-5 text-2xl font-bold text-gray-800">
+        <p className="mt-5 text-2xl font-semibold text-gray-800">
           Share your photos and videos in one of the largest free libraries of
           visual content on the Internet.
         </p>
