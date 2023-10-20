@@ -14,8 +14,8 @@ const ContributorPhotos = () => {
     {photo: "https://images.pexels.com/photos/18651379/pexels-photo-18651379/free-photo-of-the-pyramids.jpeg?auto=compress&cs=tinysrgb&w=785&dpr=1&h=1050&fit=fill", name: "Photographed by Justin Wolfert"},
   ]
   return (
-    <div className='mt-24'>
-      <div className='p-4'>
+    <div className='mt-28 relative -z-5'>
+      <div className='px-4'>
         <Carousel
           autoPlay
           infiniteLoop
