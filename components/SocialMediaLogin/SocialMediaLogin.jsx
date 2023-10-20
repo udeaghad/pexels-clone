@@ -4,7 +4,7 @@ import { FaApple, FaFacebook } from 'react-icons/fa';
 
 const SocialMediaLogin = () => {
   return (
-    <div className='flex justify-center items-center mx-5 mt-10'>
+    <div className='flex justify-center items-center mx-3 mt-10'>
       <div className='flex justify-center items-center w-full gap-4'>
         <div className='flex justify-center items-center gap-3 border rounded-md py-1 w-full px-1'>
           <FcGoogle size={25}/>
