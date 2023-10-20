@@ -5,6 +5,7 @@ import ContributorHeading from '../../components/ContributorHeading/ContributorH
 import ContributorList from '../../components/ContributoList/ContributorList'
 import SocialMediaLogin from '../../components/SocialMediaLogin/SocialMediaLogin'
 import ContributorSigninDivider from '../../components/ContributorSigninDivider/ContributorSigninDivider'
+import SignInForm from '../../components/SignInForm/SignInForm'
 
 const Home = () => {
   return (
@@ -31,6 +32,8 @@ const Home = () => {
         <SocialMediaLogin />
 
         <ContributorSigninDivider />
+
+        <SignInForm />
 
       </main>
     </div>

@@ -3,7 +3,7 @@ import { IoMdCheckmark } from "react-icons/io";
 
 const ContributorList = () => {
   return (
-    <ul className="mt-10 px-5">
+    <ul className="mt-10 mx-3">
       <li className="flex justify-start items-start gap-2 font-bold text-[18px] text-gray-500 mb-3">
         <IoMdCheckmark className="text-2xl mt-1 text-[#05a081]" />
         <span>
