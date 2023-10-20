@@ -5,7 +5,8 @@ import ContributorHeading from '../../components/ContributorHeading/ContributorH
 import ContributorList from '../../components/ContributoList/ContributorList'
 import SocialMediaLogin from '../../components/SocialMediaLogin/SocialMediaLogin'
 import ContributorSigninDivider from '../../components/ContributorSigninDivider/ContributorSigninDivider'
-import SignInForm from '../../components/SignInForm/SignInForm'
+import SignInForm from '../../components/SignInForm/SignInForm';
+import FooterSection from '../../components/FooterSection/FooterSection'
 
 const Home = () => {
   return (
@@ -23,7 +24,7 @@ const Home = () => {
 
         <OnBoardingNavBar />
 
-        <div className='flex flex-col justify-start lg:flex-row lg:flex-row-reverse w-full mt-28 lg:items-start lg:gap-5 lg:px-20 xl:p-0'>
+        <div className='flex flex-col justify-start lg:flex-row lg:flex-row-reverse w-full mt-28 lg:items-start lg:gap-5'>
           <div className='lg:w-[50%]'>
             <ContributorPhotos />
 
@@ -44,6 +45,8 @@ const Home = () => {
           </div>
 
         </div>
+
+        <FooterSection />
 
 
       </main>
