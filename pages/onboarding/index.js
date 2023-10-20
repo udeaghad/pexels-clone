@@ -4,11 +4,11 @@ import OnBoardingOptions from "../../components/OnBoardingOptions/OnBoardingOpti
 import Head from "next/head";
 import OnBoardingOptionsDesktop from "../../components/OnBoardingOptions/OnBoardingOptionsDesktop";
 
-export default function Home() {
+export default function Home () {
   const [options, setOptions] = useState([
     {
       title: "Download",
-      description: "I'm here to download free photos and videos.",
+      description: "I\'m here to download free photos and videos.",
       selected: true,
       id: 1,
       link: "#",
@@ -17,10 +17,10 @@ export default function Home() {
     },
     {
       title: "Contribute",
-      description: "I'm here to share my photos and videos with the world.",
+      description: "I\'m here to share my photos and videos with the world.",
       selected: false,
       id: 2,
-      link: "#",
+      link: "/join-contributor",
       image:
         "https://images.pexels.com/photos/3584930/pexels-photo-3584930.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=360&w=712",
     },
@@ -53,8 +53,9 @@ export default function Home() {
         />
         <link rel="icon" href="/images/logo.png" />
       </Head>
-
+      
       <main className="pb-10 relative">
+
         <OnBoardingNavBar />
 
         <div className="md:flex md:flex justify-center items-center flex-col">
@@ -74,20 +75,22 @@ export default function Home() {
           </div>
 
           <div className="hidden lg:block">
-            <OnBoardingOptionsDesktop options={options} />
+            <OnBoardingOptionsDesktop
+              options={options}
+            />
           </div>
         </div>
 
         <div className="m-8 lg:flex justify-center items-center">
           <p className="font-medium text-gray-500 text-center lg:w-[70%] xl:w-[50%]">
-            We'll use this info to personalize your experience. You'll always be
-            able to both download and upload photos and videos, no matter which
-            option you choose.
+            We'll use this info to personalize your experience. You'll always
+            be able to both download and upload photos and videos, no matter
+            which option you choose.
           </p>
         </div>
       </main>
     </div>
   );
-}
+};
 
 // export default Home;

@@ -29,6 +29,7 @@
     "react-icons": "^4.7.1",
     "react-intersection-observer": "^9.5.2",
     "react-loading": "^2.0.3",
+    "react-responsive-carousel": "^3.2.23",
     "react-responsive-masonry": "^2.1.7",
     "rsuite": "^5.26.0",
     "tailwind-scrollbar-hide": "^1.1.7",
