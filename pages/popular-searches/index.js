@@ -133,29 +133,33 @@ export default function Home({ collections }) {
         <link rel="icon" href="/images/logo.png" />
       </Head>
 
-      <div className={`relative ${open ? "block" : "hidden"}`}>
-        <MobileNavBar open={open} setOpen={setOpen} />
-      </div>
+      <main className="relative">
 
-      <div className={`fixed top-0 left-0 right-0 ${open ? "z-5" : "z-10"}`}>
-        <IntersectionNavBar setOpen={setOpen} open={open} />
-      </div>
+        <div className={`relative ${open ? "block" : "hidden"}`}>
+          <MobileNavBar open={open} setOpen={setOpen} />
+        </div>
 
-      <div className="relative">
-        <Modal open={open} />
-      </div>
+        <div className={`fixed top-0 left-0 right-0 ${open ? "z-5" : "z-10"}`}>
+          <IntersectionNavBar setOpen={setOpen} open={open} />
+        </div>
 
-      <div className={`${open ? "hidden" : "block"} relative -z-5 mt-32 mb-16`}>
-        <Navbar />
-      </div>
+        <div className="relative">
+          <Modal open={open} />
+        </div>
 
-      <div className={`${open ? "hidden" : "block"}`}>
-        <PopularSearchesGrid collections={newCollections} />
-      </div>
+        <div className={`${open ? "hidden" : "block"} relative -z-5 mt-32 mb-16`}>
+          <Navbar />
+        </div>
 
-      <div className={`${open ? "hidden" : "block"}`}>
-        <FooterSection />
-      </div>
+        <div className={`${open ? "hidden" : "block"}`}>
+          <PopularSearchesGrid collections={newCollections} />
+        </div>
+
+        <div className={`${open ? "hidden" : "block"}`}>
+          <FooterSection />
+        </div>
+      </main>
+
     </div>
   );
 }

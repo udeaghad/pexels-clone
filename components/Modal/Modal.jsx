@@ -6,9 +6,9 @@ import { AiOutlineYoutube } from "react-icons/ai";
 import { useRouter } from "next/router";
 
 const navItems1 = [
-  { name: "Home", link: "#" },
+  { name: "Home", link: "/" },
   { name: "Discover Photos", link: "#" },
-  { name: "Popular Searches", link: "#" },
+  { name: "Popular Searches", link: "/popular-searches" },
   { name: "Free Videos", link: "#" },
   { name: "Challenges", link: "#" },
   { name: "Leaderboard", link: "#" },
@@ -68,7 +68,14 @@ const Modal = ({ open }) => {
           <div
             key={i}
             className="text-white text-xl font-medium cursor-pointer hover:text-gray-500"
-            
+            onClick={() =>
+              router.push(
+                item.link,
+                undefined,
+                { shallow: true },
+                { scroll: false }
+              )
+            }
           >
             <span>{item.name}</span>
           </div>
