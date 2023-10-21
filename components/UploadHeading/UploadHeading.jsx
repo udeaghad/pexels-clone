@@ -2,7 +2,7 @@ import React from 'react'
 
 const UploadHeading = () => {
   return (
-    <div className='mt-28'>
+    <div className='mt-28 sm:mx-2'>
       <div className='flex justify-content flex-col gap-5'>
         <h3 className='text-[33px] text-center font-semibold text-gray-800'>
           Share your photos and videos, and let the world love them.
