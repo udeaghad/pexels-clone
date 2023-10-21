@@ -3,6 +3,7 @@ import { FaTwitter } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
 import { FaPinterestP } from "react-icons/fa";
 import { AiOutlineYoutube } from "react-icons/ai";
+import { useRouter } from "next/router";
 
 const navItems1 = [
   { name: "Home", link: "#" },
@@ -16,7 +17,8 @@ const navItems1 = [
 
 const navItems2 = [
   { name: "Login", link: "#" },
-  { name: "Join", link: "#" },
+  { name: "Join", link: "/onboarding" },
+  { name: "Upload", link: "/upload" },
   { name: "Change Languge", link: "#" },
   { name: "Licence", link: "#" },
 ];
@@ -37,6 +39,7 @@ const socialMediaItems = [
 ];
 
 const RenderSocialMedia = () => {
+  
   return (
     <div className="flex justify-between items-center mt-7 mx-5 border-b pb-7 border-gray-800">
       {socialMediaItems.map((item, i) => (
@@ -52,6 +55,7 @@ const RenderSocialMedia = () => {
 };
 
 const Modal = ({ open }) => {
+  const router = useRouter();
   return (
     <div
       className="bg-black w-full h-[100vh] fixed top-0 bottom-0 left-0 right-0 overflow-auto"
@@ -64,6 +68,7 @@ const Modal = ({ open }) => {
           <div
             key={i}
             className="text-white text-xl font-medium cursor-pointer hover:text-gray-500"
+            
           >
             <span>{item.name}</span>
           </div>
@@ -75,6 +80,14 @@ const Modal = ({ open }) => {
           <div
             key={i}
             className="text-white text-xl font-medium cursor-pointer hover:text-gray-500"
+            onClick={() =>
+              router.push(
+                item.link,
+                undefined,
+                { shallow: true },
+                { scroll: false }
+              )
+            }
           >
             <span>{item.name}</span>
           </div>

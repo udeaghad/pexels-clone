@@ -151,7 +151,17 @@ const MobileNavBar = ({ open, setOpen }) => {
               <span>Licence</span>
             </div>
 
-            <div className="flex justify-center items-center gap-1 hover:text-gray-300 cursor-pointer">
+            <div 
+              className="flex justify-center items-center gap-1 hover:text-gray-300 cursor-pointer"
+              onClick={() =>
+                router.push(
+                  "/upload",
+                  undefined,
+                  { shallow: true },
+                  { scroll: false }
+                )
+              }
+            >
               <span>Upload</span>
             </div>
 

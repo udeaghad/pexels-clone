@@ -4,7 +4,6 @@ import { BiImageAlt } from "react-icons/bi";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { HiOutlineMenu, HiDotsHorizontal } from "react-icons/hi";
 import Image from "next/image";
-import Link from "next/link";
 
 import { RiFacebookFill } from "react-icons/ri";
 import { FaTwitter } from "react-icons/fa";
@@ -164,7 +163,17 @@ const IntersectionNavBar = ({ setOpen, open }) => {
           <span>Licence</span>
         </div>
 
-        <div className="flex justify-center items-center gap-1 hover:text-gray-300 cursor-pointer">
+        <div 
+          className="flex justify-center items-center gap-1 hover:text-gray-300 cursor-pointer"
+          onClick={() =>
+            router.push(
+              "/upload",
+              undefined,
+              { shallow: true },
+              { scroll: false }
+            )
+          }
+        >
           <span>Upload</span>
         </div>
 
