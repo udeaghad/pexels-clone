@@ -4,6 +4,7 @@ import UploadHeading from "../../components/UploadHeading/UploadHeading"
 import IntersectionNavBar from "../../components/IntersectionNavBar/IntersectionNavBar"
 import Modal from "../../components/Modal/Modal";
 import MobileNavBar from "../../components/MobileNavBar/MobileNavBar";
+import ShareContent from "../../components/ShareContent/ShareContent";
 
 const Home = () => {
   const [open, setOpen] = useState(false);
@@ -30,7 +31,14 @@ const Home = () => {
           <Modal open={open} />
         </div>
 
-        <UploadHeading />
+        <div>
+          <UploadHeading />
+        </div>
+
+        <div>
+          <ShareContent />
+        </div>
+
       </main>
 
     </div>
