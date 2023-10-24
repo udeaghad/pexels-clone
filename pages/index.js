@@ -5,7 +5,7 @@ import Trending from "../components/Trending/Trending";
 import axios from "axios";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import { useStore } from "../store";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Photos from "../components/Photos/Photos";
 import PhotoModal from "../components/PhotoModal/PhotoModal";
 import HeroSection from "../components/HeroSection/HeroSection";
@@ -26,29 +26,50 @@ export default function Home({ getPhotos }) {
       addPhotos(getPhotos.queries[0]?.state.data.photos);
       setNextPhotoPage(getPhotos.queries[0]?.state.data.next_page);
     }
-  }, [getPhotos]);
+  }, [getPhotos, photos.length, addPhotos, setNextPhotoPage]);
 
-  const fetchMoreData = async (URL) => {
-    const getMorePhotos = await axios
-      .get(URL, {
-        headers: {
-          Authorization: process.env.NEXT_PUBLIC_PEXELS_API_KEY,
-        },
-      })
-      .then((res) => res.data);
+  // const fetchMoreData = async (URL) => {
+  //   const getMorePhotos = await axios
+  //     .get(URL, {
+  //       headers: {
+  //         Authorization: process.env.NEXT_PUBLIC_PEXELS_API_KEY,
+  //       },
+  //     })
+  //     .then((res) => res.data);
 
-    if (getMorePhotos) {
-      addPhotos(getMorePhotos.photos);
-      setNextPhotoPage(getMorePhotos.next_page);
-      setInView(false);
-    }
-  };
+  //   if (getMorePhotos) {
+  //     addPhotos(getMorePhotos.photos);
+  //     setNextPhotoPage(getMorePhotos.next_page);
+  //     setInView(false);
+  //   }
+  // };
+
+  //using callback
+
+  const fetchMoreData = useCallback(
+    async (URL) => {
+      const getMorePhotos = await axios
+        .get(URL, {
+          headers: {
+            Authorization: process.env.NEXT_PUBLIC_PEXELS_API_KEY,
+          },
+        })
+        .then((res) => res.data);
+
+      if (getMorePhotos) {
+        addPhotos(getMorePhotos.photos);
+        setNextPhotoPage(getMorePhotos.next_page);
+        setInView(false);
+      }
+    },
+    [addPhotos, setNextPhotoPage]
+  );
 
   useEffect(() => {
     if (inView && nextPhotoPage) {
       fetchMoreData(nextPhotoPage);
     }
-  }, [inView]);
+  }, [inView, nextPhotoPage, fetchMoreData]);
 
   const [photoDetails, setPhotoDetails] = useState(null);
 

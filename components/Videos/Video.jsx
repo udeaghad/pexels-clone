@@ -20,7 +20,7 @@ const Videos = ({ videos, setInView, handleOpenModal }) => {
 
   useEffect(() => {
     setInView(inView);
-  }, [inView]);
+  }, [inView, setInView]);
 
   const [videoToRender, setVideoToRender] = useState([]);
 
@@ -131,7 +131,7 @@ const Videos = ({ videos, setInView, handleOpenModal }) => {
                         backgroundColor: video ? video.avg_color : "gray",
                       }}
                     >
-                      <img
+                      <Image
                         src={""}
                         alt={video.user.name}
                         width={100}
