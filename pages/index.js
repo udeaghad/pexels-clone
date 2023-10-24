@@ -28,24 +28,6 @@ export default function Home({ getPhotos }) {
     }
   }, [getPhotos, photos.length, addPhotos, setNextPhotoPage]);
 
-  // const fetchMoreData = async (URL) => {
-  //   const getMorePhotos = await axios
-  //     .get(URL, {
-  //       headers: {
-  //         Authorization: process.env.NEXT_PUBLIC_PEXELS_API_KEY,
-  //       },
-  //     })
-  //     .then((res) => res.data);
-
-  //   if (getMorePhotos) {
-  //     addPhotos(getMorePhotos.photos);
-  //     setNextPhotoPage(getMorePhotos.next_page);
-  //     setInView(false);
-  //   }
-  // };
-
-  //using callback
-
   const fetchMoreData = useCallback(
     async (URL) => {
       const getMorePhotos = await axios
