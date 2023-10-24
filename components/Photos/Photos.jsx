@@ -71,15 +71,18 @@ const Photos = ({ photos, setInView, handleOpenModal }) => {
                 onMouseEnter={() => hanldeShowIcons(i)}
                 onMouseLeave={() => handleDisappearIcon(i)}
               >
-                <Image
-                  src={""}
-                  alt={photo.photographer}
-                  width={photo.width}
-                  height={photo.height}
-                  className="w-full h-full object-cover lazyload"
-                  data-src={photo.src.original}
-                  loading="eager"
-                />
+                {
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={""}
+                    alt={photo.photographer}
+                    width={photo.width}
+                    height={photo.height}
+                    className="w-full h-full object-cover lazyload"
+                    data-src={photo.src.original}
+                    loading="eager"
+                  />
+                }
                 <div className="absolute bottom-5 right-5 cursor-pointer text-white font-medium hover:bg-gray-100 hover:opacity-80 p-2 rounded-lg hover:text-black sm:hidden">
                   <FiDownload size={20} />
                 </div>
@@ -106,15 +109,18 @@ const Photos = ({ photos, setInView, handleOpenModal }) => {
                           backgroundColor: photo ? photo.avg_color : "gray",
                         }}
                       >
-                        <Image
-                          src={""}
-                          alt={photo.photographer}
-                          width={100}
-                          height={100}
-                          className="w-full h-full object-cover rounded-full lazyload"
-                          data-src={photo.src.small}
-                          loading="eager"
-                        />
+                        {
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img
+                            src={""}
+                            alt={photo.photographer}
+                            width={100}
+                            height={100}
+                            className="w-full h-full object-cover rounded-full lazyload"
+                            data-src={photo.src.small}
+                            loading="eager"
+                          />
+                        }
                       </div>
 
                       <h5 className="text-lg text-slate-100 font-medium whitespace-nowrap">

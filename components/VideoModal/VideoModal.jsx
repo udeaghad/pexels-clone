@@ -386,14 +386,17 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
                                 backgroundColor: item ? item.avg_color : "gray",
                               }}
                             >
-                              <Image
-                                src={""}
-                                alt={item.user.name}
-                                width={100}
-                                height={100}
-                                className="w-full h-full object-cover rounded-full"
-                                data-src={item.image}
-                              />
+                              {
+                                // eslint-disable-next-line @next/next/no-img-element
+                                <img
+                                  src={""}
+                                  alt={item.user.name}
+                                  width={100}
+                                  height={100}
+                                  className="w-full h-full object-cover rounded-full"
+                                  data-src={item.image}
+                                />
+                              }
                             </div>
 
                             <h5 className="text-lg text-slate-100 font-medium whitespace-nowrap">

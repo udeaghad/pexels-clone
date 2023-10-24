@@ -25,24 +25,6 @@ export default function Home({ getVideos }) {
     }
   }, [getVideos, videos.length, addVideos, setNextVideoPage]);
 
-  // const fetchMoreData = async (URL) => {
-  //   const getMoreVideos = await axios
-  //     .get(URL, {
-  //       headers: {
-  //         Authorization: process.env.NEXT_PUBLIC_PEXELS_API_KEY,
-  //       },
-  //     })
-  //     .then((res) => res.data);
-
-  //   if (getMoreVideos) {
-  //     addVideos(getMoreVideos.videos);
-  //     setNextVideoPage(getMoreVideos.next_page);
-  //     setInView(false);
-  //   }
-  // };
-
-  //using callback
-
   const fetchMoreData = useCallback(
     async (URL) => {
       const getMoreVideos = await axios
