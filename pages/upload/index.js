@@ -31,11 +31,11 @@ const Home = () => {
           <Modal open={open} />
         </div>
 
-        <div>
+        <div className={`relative ${open ? "hidden" : "block"}`}>
           <UploadHeading />
         </div>
 
-        <div>
+        <div className={`relative ${open ? "hidden" : "block"}`}>
           <ShareContent />
         </div>
 
