@@ -8,6 +8,7 @@ import Navbar from "../NavBar/NavBar";
 import { useInView } from "react-intersection-observer";
 import { useRouter } from "next/router";
 import IntersectionNavBar from "../IntersectionNavBar/IntersectionNavBar";
+import Image from "next/image";
 
 const HeroSection = ({ open, setOpen }) => {
   const router = useRouter();
@@ -19,8 +20,8 @@ const HeroSection = ({ open, setOpen }) => {
   return (
     <div>
       <div className="relative w-full z-5">
-        <img
-          src="https://images.pexels.com/photos/17928278/pexels-photo-17928278.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=500&w=1500"
+        <Image
+          src="https://images.pexels.com/photos/17928278/pexels-photo-17928278.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=500&w=1500" width={500} height={500}
           alt="background-img"
           className="absolute w-full h-full top-0 left-0 object-cover brightness-50 -z-10"
         />

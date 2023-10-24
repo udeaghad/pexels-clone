@@ -386,7 +386,7 @@ const VideoModal = ({ open, video, videos, handleCloseModal }) => {
                                 backgroundColor: item ? item.avg_color : "gray",
                               }}
                             >
-                              <img
+                              <Image
                                 src={""}
                                 alt={item.user.name}
                                 width={100}

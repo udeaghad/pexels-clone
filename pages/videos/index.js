@@ -3,7 +3,7 @@ import Trending from "../../components/Trending/Trending";
 import axios from "axios";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import { useStore } from "../../store";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Videos from "../../components/Videos/Video";
 import VideoModal from "../../components/VideoModal/VideoModal";
 import VideoHeroSection from "../../components/HeroSection/VideoHeroSection";
@@ -23,29 +23,50 @@ export default function Home({ getVideos }) {
       addVideos(getVideos.queries[0]?.state.data.videos);
       setNextVideoPage(getVideos.queries[0]?.state.data.next_page);
     }
-  }, [getVideos]);
+  }, [getVideos, videos.length, addVideos, setNextVideoPage]);
 
-  const fetchMoreData = async (URL) => {
-    const getMoreVideos = await axios
-      .get(URL, {
-        headers: {
-          Authorization: process.env.NEXT_PUBLIC_PEXELS_API_KEY,
-        },
-      })
-      .then((res) => res.data);
+  // const fetchMoreData = async (URL) => {
+  //   const getMoreVideos = await axios
+  //     .get(URL, {
+  //       headers: {
+  //         Authorization: process.env.NEXT_PUBLIC_PEXELS_API_KEY,
+  //       },
+  //     })
+  //     .then((res) => res.data);
 
-    if (getMoreVideos) {
-      addVideos(getMoreVideos.videos);
-      setNextVideoPage(getMoreVideos.next_page);
-      setInView(false);
-    }
-  };
+  //   if (getMoreVideos) {
+  //     addVideos(getMoreVideos.videos);
+  //     setNextVideoPage(getMoreVideos.next_page);
+  //     setInView(false);
+  //   }
+  // };
+
+  //using callback
+
+  const fetchMoreData = useCallback(
+    async (URL) => {
+      const getMoreVideos = await axios
+        .get(URL, {
+          headers: {
+            Authorization: process.env.NEXT_PUBLIC_PEXELS_API_KEY,
+          },
+        })
+        .then((res) => res.data);
+
+      if (getMoreVideos) {
+        addVideos(getMoreVideos.videos);
+        setNextVideoPage(getMoreVideos.next_page);
+        setInView(false);
+      }
+    },
+    [addVideos, setNextVideoPage]
+  );
 
   useEffect(() => {
     if (inView && nextVideoPage) {
       fetchMoreData(nextVideoPage);
     }
-  }, [inView]);
+  }, [inView, nextVideoPage, fetchMoreData]);
 
   const [videoDetails, setVideoDetails] = useState(null);
 

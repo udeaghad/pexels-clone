@@ -14,7 +14,7 @@ const ShareContent = () => {
           <span>(0/10)</span>
         </div>
         <div>
-          <Image src="/images/image-icon.png" width={250} height={150} />
+          <Image src="/images/image-icon.png" width={250} height={150} alt="icons" />
         </div>
 
         <h3 className="text-[33px] font-bold text-gray-800 text-center leading-tight lg:hidden">Share your<br/>content</h3>

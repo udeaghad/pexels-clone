@@ -377,7 +377,7 @@ const PhotoModal = ({ open, photo, photos, handleCloseModal }) => {
                         onMouseEnter={() => hanldeShowIcons(i)}
                         onMouseLeave={() => handleDisappearIcon(i)}
                       >
-                        <img
+                        <Image
                           src={""}
                           alt={item.photographer}
                           width={item.width}
@@ -415,7 +415,7 @@ const PhotoModal = ({ open, photo, photos, handleCloseModal }) => {
                                     : "gray",
                                 }}
                               >
-                                <img
+                                <Image
                                   src={""}
                                   alt={item.photographer}
                                   width={100}

@@ -1,11 +1,12 @@
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { FiDownload } from "react-icons/fi";
 import { useInView } from "react-intersection-observer";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ReactLoading from "react-loading";
 import { BiHeart } from "react-icons/bi";
 import { BsBookmarks } from "react-icons/bs";
 import useLazyLoadImages from "../../hooks/lazyloadImages";
+import Image from "next/image";
 
 const Photos = ({ photos, setInView, handleOpenModal }) => {
   const { ref, inView } = useInView();
@@ -18,7 +19,7 @@ const Photos = ({ photos, setInView, handleOpenModal }) => {
 
   useEffect(() => {
     setInView(inView);
-  }, [inView]);
+  }, [inView, setInView]);
 
   const [photoToRender, setPhotoToRender] = useState([]);
 
@@ -70,7 +71,7 @@ const Photos = ({ photos, setInView, handleOpenModal }) => {
                 onMouseEnter={() => hanldeShowIcons(i)}
                 onMouseLeave={() => handleDisappearIcon(i)}
               >
-                <img
+                <Image
                   src={""}
                   alt={photo.photographer}
                   width={photo.width}
@@ -105,7 +106,7 @@ const Photos = ({ photos, setInView, handleOpenModal }) => {
                           backgroundColor: photo ? photo.avg_color : "gray",
                         }}
                       >
-                        <img
+                        <Image
                           src={""}
                           alt={photo.photographer}
                           width={100}
